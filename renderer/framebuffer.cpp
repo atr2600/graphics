@@ -4,7 +4,7 @@
 
 #include "framebuffer.h"
 #include <vector>
-
+#include "../src/Vector3D.h"
 
 /** This is our helper function that sets the pixel color. Pixel by Pixel.
  *
@@ -33,11 +33,10 @@ void framebuffer::setPixelColor(Vector3D rgb, int i, int j, int width) {
 framebuffer::framebuffer(int height, int width) : height(height), width(width) {
     this->height=height;
     this->width=width;
-    Vector3D color = {
-            color.color.b=0.0f,
-            color.color.g=0.0f,
-            color.color.r=0.0f
-    };
+    sivelab::Vector3D color;
+    color
+
+
     for(int i = 0; i< height;i++){
         for (int j=0;j<width;j++){
             setPixelColor(color, i, j, width);

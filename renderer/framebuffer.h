@@ -22,14 +22,14 @@
 /**
  * This creates a Vector3D Structure.
  */
-struct Vector3D {
-    struct rgb {
-        float r,g,b;
-    };
-
-    rgb color;
-
-};
+//struct Vector3D {
+//    struct rgb {
+//        float r,g,b;
+//    };
+//
+//    rgb color;
+//
+//};
 
 
 //void setPixelColor(Vector3D rgb, int i, int j);
