@@ -8,8 +8,11 @@
 #include <cassert>
 
 #include "Vector3D.h"
-#include "framebuffer.h
+#include "framebuffer.h"
+#include "XMLSceneParser.h"
+#include "handleGraphicsArgs.h"
 
+#include "SceneDataTypes.h"
 
 using namespace sivelab;
 
@@ -17,8 +20,8 @@ int main(int argc, char *argv[])
 {
 
     framebuffer test;
-    framebuffer test1 = new framebuffer(200,200);
+    framebuffer test1(200,200);
 
 
-    return 0;
+    exit(EXIT_SUCCESS);
 }

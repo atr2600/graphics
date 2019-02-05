@@ -20,9 +20,14 @@ add_executable(sphereTest
 )
 target_link_libraries(sphereTest sive-util)
 
+add_executable(framebufferTest
+        testFrameBuffer.cpp
+        )
+target_link_libraries(framebufferTest sive-util)
+
 
 add_executable(test_pngWrite
-  test_pngWrite.cpp testFrameBuffer.cpp
+  test_pngWrite.cpp
 )
 target_link_libraries(test_pngWrite sive-util)
 target_link_libraries(test_pngWrite ${Boost_PROGRAM_OPTIONS_LIBRARIES})
