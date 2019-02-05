@@ -32,7 +32,8 @@ void framebuffer::export_png(std::vector<sivelab::Vector3D> data, int w, int h) 
  */
 void framebuffer::setPixelColor(sivelab::Vector3D rgb, int i, int j, int width) {
     i = i + width*j;
-    this.data[i]=rgb;
+
+    this->data.at(i)=rgb;
 }
 
 /**
