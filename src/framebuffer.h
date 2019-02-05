@@ -18,6 +18,7 @@
  */
 
 #include <vector>
+#include "Vector3D.h"
 
 /**
  * This creates a Vector3D Structure.
@@ -30,6 +31,7 @@
 //    rgb color;
 //
 //};
+
 
 
 //void setPixelColor(Vector3D rgb, int i, int j);
@@ -52,8 +54,7 @@ private:
     /**
      * Creating the raster
      */
-    std::vector<Vector3D> raster;
-
+    std::vector<sivelab::Vector3D> data;
 
 public:
     /**

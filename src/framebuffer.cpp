@@ -4,7 +4,7 @@
 
 #include "framebuffer.h"
 #include <vector>
-#include "../src/Vector3D.h"
+#include "Vector3D.h"
 
 /** This is our helper function that sets the pixel color. Pixel by Pixel.
  *
