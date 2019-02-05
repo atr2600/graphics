@@ -5,6 +5,23 @@
 #include "framebuffer.h"
 #include <vector>
 #include "Vector3D.h"
+#include "png++/png.hpp"
+
+void framebuffer::export_png(std::vector<sivelab::Vector3D> data, int w, int h) {
+    png::image<png::rgb_pixel > imData(w,h);
+
+    for (size_t y = 0; y < imData.get_height(); ++y)
+    {
+        for (size_t x = 0; x < imData.get_width(); ++x)
+        {
+            int i = x + w*y;
+            sivelab::Vector3D temp =  data.at(i);
+            imData[y][x] = png::rgb_pixel(temp[0], temp[1], temp[3]);
+        }
+    }
+
+    imData.write("output.png");
+}
 
 /** This is our helper function that sets the pixel color. Pixel by Pixel.
  *
@@ -13,13 +30,9 @@
  * @param j
  * @param width
  */
-void framebuffer::setPixelColor(Vector3D rgb, int i, int j, int width) {
+void framebuffer::setPixelColor(sivelab::Vector3D rgb, int i, int j, int width) {
     i = i + width*j;
-
-
-    this->raster[i].color.b=rgb.color.b;
-    this->raster[i].color.g=rgb.color.g;
-    this->raster[i].color.r=rgb.color.r;
+    this.data[i]=rgb;
 }
 
 /**
@@ -33,13 +46,13 @@ void framebuffer::setPixelColor(Vector3D rgb, int i, int j, int width) {
 framebuffer::framebuffer(int height, int width) : height(height), width(width) {
     this->height=height;
     this->width=width;
-    sivelab::Vector3D color;
-    color
-
+    int size = height*width;
+    std::vector<sivelab::Vector3D> data(size);
 
     for(int i = 0; i< height;i++){
         for (int j=0;j<width;j++){
-            setPixelColor(color, i, j, width);
+            sivelab::Vector3D c( 0.0f, 0.0f, 0.0f );
+            setPixelColor(c, i, j, width);
         }
     }
 }
@@ -51,14 +64,13 @@ framebuffer::framebuffer(int height, int width) : height(height), width(width) {
 framebuffer::framebuffer() {
     this->height=100;
     this->width=100;
-    Vector3D color = {
-            color.color.b=0.0f,
-            color.color.g=0.0f,
-            color.color.r=0.0f
-    };
+    std::vector<sivelab::Vector3D> data(1000);
+
+
     for(int i = 0; i< this->height;i++){
         for (int j=0;j<this->width;j++){
-            setPixelColor(color, i, j, width);
+            sivelab::Vector3D c( 0.0f, 0.0f, 0.0f );
+            setPixelColor(c, i, j, width);
         }
     }
 }

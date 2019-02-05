@@ -50,7 +50,6 @@ int main(int argc, char *argv[])
 	}
     }
   imData.write( "red_DualLoop.png" );
-
   //
   // Alternatively, you can do the same using a single loop:
   //

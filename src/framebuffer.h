@@ -20,21 +20,11 @@
 #include <vector>
 #include "Vector3D.h"
 
-/**
- * This creates a Vector3D Structure.
- */
-//struct Vector3D {
-//    struct rgb {
-//        float r,g,b;
-//    };
-//
-//    rgb color;
-//
-//};
 
 
 
-//void setPixelColor(Vector3D rgb, int i, int j);
+
+
 
 
 /**
@@ -64,7 +54,6 @@ public:
 
     framebuffer(int height, int width);
 
-
     /**
      * Helper Function setPixelColor. This will take in a rgb object along with the location and the width of the screen.
      * @param rgb
@@ -72,7 +61,9 @@ public:
      * @param j
      * @param width
      */
-    void setPixelColor(Vector3D rgb, int i, int j, int width);
+    void setPixelColor(sivelab::Vector3D rgb, int i, int j, int width);
+
+    void export_png(std::vector<sivelab::Vector3D> data, int w, int h);
 
 };
 
