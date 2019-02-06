@@ -5,20 +5,28 @@
 #include <cstdlib>
 #include <cstring>
 #include "framebuffer.h"
-#include <vector>
-#include "Vector3D.h"
-#include "png++/png.hpp"
+#include "handleGraphicsArgs.h"
 
-void framebuffer::export_png(std::vector<sivelab::Vector3D> data, int w, int h) {
-    png::image<png::rgb_pixel > imData(w,h);
+
+void framebuffer::export_png() {
+    sivelab::Random prng;
+    png::image<png::rgb_pixel > imData(width,height);
 
     for (size_t y = 0; y < imData.get_height(); ++y)
     {
         for (size_t x = 0; x < imData.get_width(); ++x)
         {
-            int i = x + w*y;
-            sivelab::Vector3D temp =  data.at(i);
-            imData[y][x] = png::rgb_pixel(temp[0], temp[1], temp[3]);
+            int i = x + width*y;
+//            sivelab::Vector3D temp =  data[i];
+
+            sivelab::Vector3D c(static_cast<int>(floor(prng.uniform() * 255)),
+                       static_cast<int>(floor(prng.uniform() * 255)),
+                       static_cast<int>(floor(prng.uniform() * 255)));
+
+ //           imData[y][x] = png::rgb_pixel(temp[0], temp[1], temp[3]);
+            imData[y][x] = png::rgb_pixel( c[0],
+                                           c[1],
+                                           c[2] );
         }
     }
 
@@ -35,10 +43,7 @@ void framebuffer::export_png(std::vector<sivelab::Vector3D> data, int w, int h) 
 void framebuffer::setPixelColor(sivelab::Vector3D rgb, int i, int j, int width) {
     int loc;
     loc = i + width * j;
-
-    this->data[loc] = rgb;
-
-
+    data[loc]=rgb;
 }
 
 /**
@@ -52,8 +57,25 @@ void framebuffer::setPixelColor(sivelab::Vector3D rgb, int i, int j, int width) 
 framebuffer::framebuffer(int height, int width) : height(height), width(width) {
     this->height=height;
     this->width=width;
-    int size = height*width;
-    std::vector<sivelab::Vector3D> data(size);
+    data.resize(width * height);
+
+    for(int i = 0; i< height;i++){
+        for (int j=0;j<width;j++){
+            sivelab::Vector3D c( 0.0f, 0.0f, 0.0f );
+            setPixelColor(c, i, j, width);
+        }
+    }
+}
+
+
+//This is a test method. Might not work out so well.
+framebuffer::framebuffer(int argc, char **argv) {
+    sivelab::GraphicsArgs args;
+    args.process(argc,argv);
+
+    height = args.height;
+    width = args.width;
+    data.resize(width * height);
 
     for(int i = 0; i< height;i++){
         for (int j=0;j<width;j++){
@@ -70,7 +92,7 @@ framebuffer::framebuffer(int height, int width) : height(height), width(width) {
 framebuffer::framebuffer() {
     this->height=100;
     this->width=100;
-    std::vector<sivelab::Vector3D> data(1000);
+    data.resize(width * height);
 
 
     for(int i = 0; i< this->height;i++){

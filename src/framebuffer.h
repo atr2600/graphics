@@ -19,12 +19,10 @@
 
 #include <vector>
 #include "Vector3D.h"
-
-
-
-
-
-
+#include <vector>
+#include "Vector3D.h"
+#include "png++/png.hpp"
+#include "Random.h"
 
 
 /**
@@ -54,6 +52,8 @@ public:
 
     framebuffer(int height, int width);
 
+    framebuffer(int argc, char *argv[]);
+
 
     /**
      * Helper Function setPixelColor. This will take in a rgb object along with the location and the width of the screen.
@@ -64,7 +64,7 @@ public:
      */
     void setPixelColor(sivelab::Vector3D rgb, int i, int j, int width);
 
-    void export_png(std::vector<sivelab::Vector3D> data, int w, int h);
+    void export_png();
 
 };
 

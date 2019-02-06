@@ -19,9 +19,9 @@ using namespace sivelab;
 int main(int argc, char *argv[])
 {
 
-    framebuffer test;
-    framebuffer test1(200,200);
-
+//    framebuffer test;
+    framebuffer test1(4000,4000);
+    test1.export_png();
 
     exit(EXIT_SUCCESS);
 }
