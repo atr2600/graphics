@@ -18,11 +18,9 @@
  */
 
 #include <vector>
-#include "Vector3D.h"
-#include <vector>
-#include "Vector3D.h"
-#include "png++/png.hpp"
-#include "Random.h"
+#include"../src/Vector3D.h"
+#include "../src/png++/png.hpp"
+#include "../src/Random.h"
 
 
 /**

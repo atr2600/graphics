@@ -25,6 +25,7 @@ set(UTESTS
 foreach(uexec ${UTESTS})
   add_executable(${uexec} ${BUNDLEOPTS} ${uexec}.cpp)
   target_link_libraries(${uexec} sive-util)
+    target_link_libraries(${uexec} renderer-util)
   target_link_libraries(${uexec} ${Boost_PROGRAM_OPTIONS_LIBRARIES})
   target_link_libraries(${uexec} ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
 endforeach(uexec)
