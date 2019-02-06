@@ -8,7 +8,7 @@
 #include <cassert>
 
 #include "Vector3D.h"
-#include "framebuffer.h"
+#include "../renderer/framebuffer.h"
 #include "XMLSceneParser.h"
 #include "handleGraphicsArgs.h"
 

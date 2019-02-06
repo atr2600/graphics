@@ -6,6 +6,7 @@
 #
 include_directories(${CMAKE_SOURCE_DIR}/src)
 include_directories(${CMAKE_SOURCE_DIR}/raytrace)
+include_directories(${CMAKE_SOURCE_DIR}/renderer)
 
 add_executable(test_Timer
   test_Timer.cpp

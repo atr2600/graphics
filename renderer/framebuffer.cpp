@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <cstring>
 #include "framebuffer.h"
-#include "handleGraphicsArgs.h"
+#include "../src/handleGraphicsArgs.h"
 
 
 void framebuffer::export_png() {
