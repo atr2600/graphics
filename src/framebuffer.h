@@ -54,6 +54,7 @@ public:
 
     framebuffer(int height, int width);
 
+
     /**
      * Helper Function setPixelColor. This will take in a rgb object along with the location and the width of the screen.
      * @param rgb

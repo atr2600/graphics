@@ -24,6 +24,9 @@ add_executable(framebufferTest
         testFrameBuffer.cpp
         )
 target_link_libraries(framebufferTest sive-util)
+target_link_libraries(framebufferTest ${Boost_PROGRAM_OPTIONS_LIBRARIES})
+target_link_libraries(framebufferTest ${PNG_LIBRARY})
+target_link_libraries(framebufferTest ${ZLIB_LIBRARY})
 
 
 add_executable(test_pngWrite

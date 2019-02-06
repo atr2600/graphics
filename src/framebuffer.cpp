@@ -1,7 +1,9 @@
 //
 // Created by Brandon Geraci on 2/3/19.
 //
-
+#include <iostream>
+#include <cstdlib>
+#include <cstring>
 #include "framebuffer.h"
 #include <vector>
 #include "Vector3D.h"
@@ -20,7 +22,7 @@ void framebuffer::export_png(std::vector<sivelab::Vector3D> data, int w, int h) 
         }
     }
 
-    imData.write("output.png");
+    imData.write("blah.png");
 }
 
 /** This is our helper function that sets the pixel color. Pixel by Pixel.
@@ -31,9 +33,12 @@ void framebuffer::export_png(std::vector<sivelab::Vector3D> data, int w, int h) 
  * @param width
  */
 void framebuffer::setPixelColor(sivelab::Vector3D rgb, int i, int j, int width) {
-    i = i + width*j;
+    int loc;
+    loc = i + width * j;
 
-    this->data.at(i)=rgb;
+    this->data[loc] = rgb;
+
+
 }
 
 /**
@@ -75,4 +80,6 @@ framebuffer::framebuffer() {
         }
     }
 }
+
+
 
