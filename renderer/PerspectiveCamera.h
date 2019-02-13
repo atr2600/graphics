@@ -24,8 +24,10 @@
 #ifndef OPENGL_FCG_PERSPECTIVECAMERA_H
 #define OPENGL_FCG_PERSPECTIVECAMERA_H
 
+#include"./Camera.h"
 
-class PerspectiveCamera {
+
+class PerspectiveCamera:Camera {
 
 };
 

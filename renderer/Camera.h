@@ -24,13 +24,21 @@
 #define OPENGL_FCG_CAMERA_H
 
 #include <string>
+#include <vector>
+#include"../src/Vector3D.h"
+#include"./CoordinateSystem.h"
 
 class Camera {
 private:
-    std::string name;
+    sivelab::Vector3D position;
+    CoordinateSystem csys;
+    float focalLength, width, height;
+    int imageLength, imageWidth;
+
 public:
     /// Create a CameraClass
     Camera();
+    Ray generateRay(const int i, const int j) const = 0;
 
 };
 
