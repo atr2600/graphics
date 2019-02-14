@@ -38,7 +38,7 @@ private:
 public:
     /// Create a CameraClass
     Camera();
-    Ray generateRay(const int i, const int j) const = 0;
+    friend void generateRay(const int i, const int j, Ray &r) const = 0;
 
 };
 

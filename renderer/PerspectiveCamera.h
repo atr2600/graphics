@@ -25,10 +25,12 @@
 #define OPENGL_FCG_PERSPECTIVECAMERA_H
 
 #include"./Camera.h"
+#include"./Ray.h"
 
 
 class PerspectiveCamera:Camera {
-
+public:
+    void generateRay(int i, int j, Ray &r);
 };
 
 

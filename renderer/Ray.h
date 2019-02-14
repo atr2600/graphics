@@ -9,7 +9,14 @@
 class Ray {
 private:
     sivelab::Vector3D direction;
+public:
+    void setDirection(const sivelab::Vector3D &direction);
+
+    void setOrigin(const sivelab::Vector3D &origin);
+
+private:
     sivelab::Vector3D origin;
+public:
 
 
 };
