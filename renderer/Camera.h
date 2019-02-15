@@ -27,9 +27,10 @@
 #include <vector>
 #include"../src/Vector3D.h"
 #include"./CoordinateSystem.h"
+#include"../renderer/Ray.h"
 
 class Camera {
-private:
+protected:
     sivelab::Vector3D position;
     CoordinateSystem csys;
     float focalLength, width, height;
@@ -38,7 +39,7 @@ private:
 public:
     /// Create a CameraClass
     Camera();
-    friend void generateRay(const int i, const int j, Ray &r) const = 0;
+    virtual void generateRay(const int i, const int j, Ray &r) const = 0;
 
 };
 

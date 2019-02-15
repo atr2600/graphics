@@ -29,6 +29,14 @@ target_link_libraries(framebufferTest ${Boost_PROGRAM_OPTIONS_LIBRARIES})
 target_link_libraries(framebufferTest ${PNG_LIBRARY})
 target_link_libraries(framebufferTest ${ZLIB_LIBRARY})
 
+add_executable(cameraTester
+        cameraTester.cpp
+        )
+target_link_libraries(framebufferTest sive-util)
+target_link_libraries(framebufferTest ${Boost_PROGRAM_OPTIONS_LIBRARIES})
+target_link_libraries(framebufferTest ${PNG_LIBRARY})
+target_link_libraries(framebufferTest ${ZLIB_LIBRARY})
+
 
 add_executable(test_pngWrite
   test_pngWrite.cpp
@@ -49,7 +57,7 @@ target_link_libraries(test_readPNGFile ${ZLIB_LIBRARY})
 add_executable(test_XMLSceneParse
   SceneFile_Instancer.h SceneFile_Instancer.cpp
   test_XMLSceneParse.cpp
-)
+        cameraTester.cpp)
 target_link_libraries(test_XMLSceneParse sive-util)
 target_link_libraries(test_XMLSceneParse ${Boost_PROGRAM_OPTIONS_LIBRARIES})
 target_link_libraries(test_XMLSceneParse ${PNG_LIBRARY})
