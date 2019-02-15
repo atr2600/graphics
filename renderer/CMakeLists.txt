@@ -1,4 +1,15 @@
 
 add_library (renderer-util
+        Camera.cpp Camera.h
+        CoordinateSystem.cpp CoordinateSystem.h
         framebuffer.h framebuffer.cpp
-        Light.cpp Light.h Camera.cpp Camera.h Shape.cpp Shape.h Shader.cpp Shader.h Sphere.cpp Sphere.h PerspectiveCamera.cpp PerspectiveCamera.h PointLight.cpp PointLight.h NormalShader.cpp NormalShader.h SceneContainer.cpp SceneContainer.h)
+        Light.cpp Light.h
+        NormalShader.cpp NormalShader.h
+        PerspectiveCamera.cpp PerspectiveCamera.h
+        PointLight.cpp PointLight.h
+        Ray.cpp Ray.h
+        SceneContainer.cpp SceneContainer.h
+        Shape.cpp Shape.h
+        Shader.cpp Shader.h
+        Sphere.cpp Sphere.h
+)

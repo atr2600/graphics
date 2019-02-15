@@ -4,6 +4,13 @@
 
 #include "CoordinateSystem.h"
 
+CoordinateSystem::CoordinateSystem(){
+
+}
+CoordinateSystem::CoordinateSystem(sivelab::Vector3D direction, sivelab::Vector3D temp){
+
+}
+
 const sivelab::Vector3D &CoordinateSystem::getU() const {
     return U;
 }

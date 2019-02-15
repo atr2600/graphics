@@ -32,10 +32,11 @@ target_link_libraries(framebufferTest ${ZLIB_LIBRARY})
 add_executable(cameraTester
         cameraTester.cpp
         )
-target_link_libraries(framebufferTest sive-util)
-target_link_libraries(framebufferTest ${Boost_PROGRAM_OPTIONS_LIBRARIES})
-target_link_libraries(framebufferTest ${PNG_LIBRARY})
-target_link_libraries(framebufferTest ${ZLIB_LIBRARY})
+target_link_libraries(cameraTester sive-util)
+target_link_libraries(cameraTester renderer-util)
+target_link_libraries(cameraTester ${Boost_PROGRAM_OPTIONS_LIBRARIES})
+target_link_libraries(cameraTester ${PNG_LIBRARY})
+target_link_libraries(cameraTester ${ZLIB_LIBRARY})
 
 
 add_executable(test_pngWrite

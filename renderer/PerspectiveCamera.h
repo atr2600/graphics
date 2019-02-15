@@ -21,17 +21,20 @@
  *
  */
 
-#ifndef OPENGL_FCG_PERSPECTIVECAMERA_H
-#define OPENGL_FCG_PERSPECTIVECAMERA_H
+#pragma once
 
 #include"./Camera.h"
 #include"./Ray.h"
 
 
-class PerspectiveCamera:Camera {
+class PerspectiveCamera: public Camera {
+
 public:
-    void generateRay(int i, int j, Ray &r);
+    PerspectiveCamera();
+    PerspectiveCamera(float focalLength, float imageWidth, sivelab::Vector3D position, sivelab::Vector3D direction);
+    Ray generateRay(int i, int j);
+
+
 };
 
 
-#endif //OPENGL_FCG_PERSPECTIVECAMERA_H

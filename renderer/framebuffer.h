@@ -54,6 +54,12 @@ private:
      * Support for any dimension in X and Y (within reason -- obviously instancing a Framebuffer that requires more memory than is on your machine is a different requirement).
      */
     int height;
+public:
+    int getHeight() const;
+
+    int getWidth() const;
+
+private:
     int width;
 
     /**

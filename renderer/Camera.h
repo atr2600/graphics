@@ -20,8 +20,7 @@
  * Created on: Wed Feb 6 18:39:37 2019
  *
  */
-#ifndef OPENGL_FCG_CAMERA_H
-#define OPENGL_FCG_CAMERA_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -31,17 +30,28 @@
 
 class Camera {
 protected:
-    sivelab::Vector3D position;
+    sivelab::Vector3D position, direction;
     CoordinateSystem csys;
-    float focalLength, width, height;
-    int imageLength, imageWidth;
+
+    float width, height, focalLength,imageLength, imageWidth, ratio;
+public:
+    void setRatio(float ratio);
 
 public:
     /// Create a CameraClass
-    Camera();
-    virtual void generateRay(const int i, const int j, Ray &r) const = 0;
+    virtual Ray generateRay(const int i, const int j) = 0;
+
+    void setPosition(const sivelab::Vector3D &position);
+
+    void setDirection(const sivelab::Vector3D &direction);
+
+    void setFocalLength(float focalLength);
+
+    void setImageWidth(float imageWidth);
+
+
 
 };
 
 
-#endif //OPENGL_FCG_CAMERA_H
+

@@ -5,19 +5,21 @@
 #ifndef OPENGL_FCG_RAY_H
 #define OPENGL_FCG_RAY_H
 
+#include"../src/Vector3D.h"
 
 class Ray {
 private:
     sivelab::Vector3D direction;
+    sivelab::Vector3D origin;
+
+
+
 public:
     void setDirection(const sivelab::Vector3D &direction);
-
     void setOrigin(const sivelab::Vector3D &origin);
 
-private:
-    sivelab::Vector3D origin;
-public:
-
+    Ray();
+    Ray(const sivelab::Vector3D &dir, const sivelab::Vector3D &orig);
 
 };
 

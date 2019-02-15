@@ -3,6 +3,7 @@
 //
 
 #include "Ray.h"
+#include"../src/Vector3D.h"
 
 void Ray::setDirection(const sivelab::Vector3D &direction) {
     Ray::direction = direction;
@@ -11,3 +12,10 @@ void Ray::setDirection(const sivelab::Vector3D &direction) {
 void Ray::setOrigin(const sivelab::Vector3D &origin) {
     Ray::origin = origin;
 }
+
+
+
+Ray::Ray(){}
+
+Ray::Ray(const sivelab::Vector3D &direction, const sivelab::Vector3D &origin) : direction(direction), origin(origin) {}
+

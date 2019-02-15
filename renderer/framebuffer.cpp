@@ -103,5 +103,13 @@ framebuffer::framebuffer() {
     }
 }
 
+int framebuffer::getHeight() const {
+    return height;
+}
+
+int framebuffer::getWidth() const {
+    return width;
+}
+
 
 
