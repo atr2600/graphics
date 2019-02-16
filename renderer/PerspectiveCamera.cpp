@@ -61,7 +61,7 @@ PerspectiveCamera::PerspectiveCamera() {
     setRatio(1);
 }
 
-PerspectiveCamera::PerspectiveCamera(float focalLength, float imageWidth, sivelab::Vector3D position, sivelab::Vector3D direction){
+PerspectiveCamera::PerspectiveCamera(double focalLength, double imageWidth, sivelab::Vector3D position, sivelab::Vector3D direction){
     width = 350;
     height = 250;
     setCsys(CoordinateSystem(direction,sivelab::Vector3D(0,1,0)));

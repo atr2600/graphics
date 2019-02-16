@@ -11,9 +11,9 @@ CoordinateSystem::CoordinateSystem(sivelab::Vector3D direction, sivelab::Vector3
     direction = direction;
     W = direction;
     W *= (-1);
-    W /= direction.length();
+    W /= (float)direction.length();
     U = temp.cross(W);
-    U /=(temp.cross(W).length());
+    U /=(float)(temp.cross(W).length());
     V = W.cross(U);
 
 }

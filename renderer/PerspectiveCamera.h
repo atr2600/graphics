@@ -32,7 +32,7 @@ private:
     double aspectRatio = 1;
 public:
     PerspectiveCamera();
-    PerspectiveCamera(float focalLength, float imageWidth, sivelab::Vector3D position, sivelab::Vector3D direction);
+    PerspectiveCamera(double focalLength, double imageWidth, sivelab::Vector3D position, sivelab::Vector3D direction);
     Ray generateRay(int i, int j);
 
 
