@@ -16,12 +16,13 @@ Ray PerspectiveCamera::generateRay(int i, int j) {
      * origin + (-distance(W vector)+uU + vV)
      */
 
+
     Vector3D uU, vV, dW, newDirection; //Vectors
     double t, b, r, l; //TOP BOTTOM RIGHT LEFT
-    t = imageWidth/2;
-    b = imageWidth/2;
+    t = (imageWidth*height)/width*(-1);
+    b = (imageWidth*height)/width;
     r = imageWidth/2;
-    l = imageWidth/2;
+    l = imageWidth/2*(-1);
     double u, v, d; //Scalers... d is the distance.(FocalLength)
     d = focalLength;
     u = l + (r-l)*(i+0.5)/(double)width;
