@@ -17,16 +17,14 @@ void framebuffer::export_png() {
         for (size_t x = 0; x < imData.get_width(); ++x)
         {
             int i = x + width*y;
-//            sivelab::Vector3D temp =  data[i];
+            sivelab::Vector3D color =  data[i];
 
-            sivelab::Vector3D c(static_cast<int>(floor(prng.uniform() * 255)),
-                       static_cast<int>(floor(prng.uniform() * 255)),
-                       static_cast<int>(floor(prng.uniform() * 255)));
 
- //           imData[y][x] = png::rgb_pixel(temp[0], temp[1], temp[3]);
-            imData[y][x] = png::rgb_pixel( c[0],
-                                           c[1],
-                                           c[2] );
+            imData[imData.get_height() - 1 - y][x] = png::rgb_pixel(fmin(color[0], 1) * 255,
+                                                  fmin(color[1], 1) * 255,
+                                                  fmin(color[2], 1) * 255);
+
+
         }
     }
 
@@ -42,7 +40,9 @@ void framebuffer::export_png() {
  */
 void framebuffer::setPixelColor(sivelab::Vector3D rgb, int i, int j, int width) {
     int loc;
+
     loc = i + width * j;
+
     data[loc]=rgb;
 }
 
@@ -62,7 +62,7 @@ framebuffer::framebuffer(int height, int width) : height(height), width(width) {
     for(int i = 0; i< height;i++){
         for (int j=0;j<width;j++){
             sivelab::Vector3D c( 0.0f, 0.0f, 0.0f );
-            setPixelColor(c, i, j, width);
+            setPixelColor(c, j, i, width);
         }
     }
 }
@@ -81,6 +81,8 @@ framebuffer::framebuffer(int argc, char **argv) {
         for (int j=0;j<width;j++){
             sivelab::Vector3D c( 0.0f, 0.0f, 0.0f );
             setPixelColor(c, i, j, width);
+
+
         }
     }
 }

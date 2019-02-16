@@ -19,3 +19,11 @@ Ray::Ray(){}
 
 Ray::Ray(const sivelab::Vector3D &direction, const sivelab::Vector3D &origin) : direction(direction), origin(origin) {}
 
+const sivelab::Vector3D &Ray::getDirection() const {
+    return direction;
+}
+
+const sivelab::Vector3D &Ray::getOrigin() const {
+    return origin;
+}
+

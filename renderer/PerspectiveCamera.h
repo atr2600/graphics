@@ -28,7 +28,8 @@
 
 
 class PerspectiveCamera: public Camera {
-
+private:
+    double aspectRatio = 1;
 public:
     PerspectiveCamera();
     PerspectiveCamera(float focalLength, float imageWidth, sivelab::Vector3D position, sivelab::Vector3D direction);

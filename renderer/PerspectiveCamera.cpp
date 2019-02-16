@@ -9,40 +9,55 @@
 
 
 Ray PerspectiveCamera::generateRay(int i, int j) {
-    Ray r;
-//    r.setOrigin(position);
-//    r.setDirection((focalLength * csys.getW() + csys.getU() * csys.getV()));
-//    r.origin = position;
-//    r.direction = focalLength * csys.getW() + csys.getU() * csys.getV();
+    Ray ray;
+    using namespace sivelab;
+    Vector3D center = position;
+    /**
+     * origin + (-distance(W vector)+uU + vV)
+     */
 
-    float imageHeight = imageWidth*(1/ratio);
+    Vector3D uU, vV, dW, newDirection; //Vectors
+    double t, b, r, l; //TOP BOTTOM RIGHT LEFT
+    t = imageWidth/2;
+    b = imageWidth/2;
+    r = imageWidth/2;
+    l = imageWidth/2;
+    double u, v, d; //Scalers... d is the distance.(FocalLength)
+    d = focalLength;
+    u = l + (r-l)*(i+0.5)/(double)width;
+    v = b + (t - b)*(j+0.5)/(double)height;
 
-    double left = (-imageWidth/2);
-    double right = (imageWidth/2);
-    double bottom = (-imageWidth/2);
-    double top = imageHeight/2;
+    //origin = e
+    //e + -dW + uU + vV is equal to ray direction.
 
-    double u = left+(right -left)*(j+0.5)/width;
-    double v = bottom + ( top - bottom) * (i+0.5) / height;
+    ray.setOrigin(position);
+    dW = csys.getW();
+    vV = csys.getV();
+    uU = csys.getU();
 
-    sivelab::Vector3D uU = u * csys.getU();
-    sivelab::Vector3D vV = v * csys.getV();
+    uU *= u;
+    vV *= v;
 
+    newDirection = Vector3D(0,0,0);
+    newDirection += dW;
+    newDirection *= (-1*focalLength); //try that?
+    newDirection += uU; //this looks fine
+    newDirection += vV; //this looks fine
+    ray.setDirection(newDirection);
 
-
-    r.setOrigin(csys.getW()*(-1)*focalLength+uU+vV);
-    r.setDirection(position);
-
-
-    return r;
+    return ray;
 
 }
 
 PerspectiveCamera::PerspectiveCamera() {
+    width = 350;
+    height = 250;
     setRatio(1);
 }
 
 PerspectiveCamera::PerspectiveCamera(float focalLength, float imageWidth, sivelab::Vector3D position, sivelab::Vector3D direction){
+    width = 350;
+    height = 250;
     setRatio(1);
     setDirection(direction);
     setFocalLength(focalLength);

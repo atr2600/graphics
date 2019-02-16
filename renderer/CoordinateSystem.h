@@ -11,7 +11,12 @@
 
 class CoordinateSystem {
 private:
-    sivelab::Vector3D U,V,W;
+
+    sivelab::Vector3D U = sivelab::Vector3D(1,0,0);
+    sivelab::Vector3D V = sivelab::Vector3D(0,1,0);
+    sivelab::Vector3D W = sivelab::Vector3D(0,0,1);
+
+
 public:
     const sivelab::Vector3D &getU() const;
 
