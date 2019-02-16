@@ -11,7 +11,6 @@
 Ray PerspectiveCamera::generateRay(int i, int j) {
     Ray ray;
     using namespace sivelab;
-    Vector3D center = position;
     /**
      * origin + (-distance(W vector)+uU + vV)
      */
@@ -19,10 +18,16 @@ Ray PerspectiveCamera::generateRay(int i, int j) {
 
     Vector3D uU, vV, dW, newDirection; //Vectors
     double t, b, r, l; //TOP BOTTOM RIGHT LEFT
-    t = (imageWidth*height)/width*(-1);
-    b = (imageWidth*height)/width;
-    r = imageWidth/2;
-    l = imageWidth/2*(-1);
+//    t = (imageWidth*height)/width*(-1);
+//    b = (imageWidth*height)/width;
+//    r = imageWidth/2;
+//    l = imageWidth/2*(-1);
+    l = -imageWidth / 2.0 ;
+    r = imageWidth / 2.0;
+    t = imageLength/ 2.0;
+    b = -imageLength / 2.0;
+
+
     double u, v, d; //Scalers... d is the distance.(FocalLength)
     d = focalLength;
     u = l + (r-l)*(i+0.5)/(double)width;
@@ -59,6 +64,7 @@ PerspectiveCamera::PerspectiveCamera() {
 PerspectiveCamera::PerspectiveCamera(float focalLength, float imageWidth, sivelab::Vector3D position, sivelab::Vector3D direction){
     width = 350;
     height = 250;
+    setCsys(CoordinateSystem(direction,sivelab::Vector3D(0,1,0)));
     setRatio(1);
     setDirection(direction);
     setFocalLength(focalLength);

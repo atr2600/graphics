@@ -2,8 +2,7 @@
 // Created by brand on 2/12/2019.
 //
 
-#ifndef OPENGL_FCG_COORDINATESYSTEM_H
-#define OPENGL_FCG_COORDINATESYSTEM_H
+#pragma once
 
 #include <vector>
 #include"../src/Vector3D.h"
@@ -27,12 +26,5 @@ public:
 public:
     CoordinateSystem();
     CoordinateSystem(sivelab::Vector3D direction, sivelab::Vector3D temp);
-
-
-
-
-
 };
 
-
-#endif //OPENGL_FCG_COORDINATESYSTEM_H

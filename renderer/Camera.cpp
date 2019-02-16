@@ -23,3 +23,7 @@ void Camera::setImageWidth(float imageWidth) {
 void Camera::setRatio(float ratio) {
     Camera::ratio = ratio;
 }
+
+void Camera::setCsys(const CoordinateSystem &csys) {
+    Camera::csys = csys;
+}

@@ -31,7 +31,12 @@
 class Camera {
 protected:
     sivelab::Vector3D position, direction;
+    sivelab::Vector3D up = sivelab::Vector3D(0,1,0);
     CoordinateSystem csys;
+public:
+    void setCsys(const CoordinateSystem &csys);
+
+protected:
 
     float width, height, focalLength,imageLength, imageWidth, ratio;
 public:
