@@ -80,6 +80,7 @@ using namespace sivelab;
 
 double Vector3D::normalize(void)
 {
+
   const double vector_length = sqrt( data[0]*data[0] + 
 				     data[1]*data[1] +
 				     data[2]*data[2] );

@@ -33,6 +33,7 @@ Ray PerspectiveCamera::generateRay(int i, int j) {
     u = l + (r-l)*(i+0.5)/(double)width;
     v = b + (t - b)*(j+0.5)/(double)height;
 
+
     //origin = e
     //e + -dW + uU + vV is equal to ray direction.
 
@@ -44,12 +45,17 @@ Ray PerspectiveCamera::generateRay(int i, int j) {
     uU *= u;
     vV *= v;
 
+//    Vector3D *testPTR = new Vector3D(0,0,0);
+//    double value = testPTR->normalize();
+
     newDirection = Vector3D(0,0,0);
     newDirection += dW;
     newDirection *= (-1*focalLength); //try that?
     newDirection += uU; //this looks fine
     newDirection += vV; //this looks fine
+    newDirection.normalize();
     ray.setDirection(newDirection);
+
 
     return ray;
 

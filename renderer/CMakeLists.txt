@@ -1,4 +1,4 @@
-
+INCLUDE_DIRECTORIES( ${CMAKE_SRC_DIR}/src)
 add_library (renderer-util
         Camera.cpp Camera.h
         CoordinateSystem.cpp CoordinateSystem.h
@@ -13,3 +13,5 @@ add_library (renderer-util
         Shader.cpp Shader.h
         Sphere.cpp Sphere.h
 )
+
+target_link_libraries(renderer-util sive-util)

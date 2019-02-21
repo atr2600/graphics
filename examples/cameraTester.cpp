@@ -25,7 +25,7 @@ int temp = fb.getHeight();
 
 // Create your Perspective Camera using
 // focal length  = 1, image plane width = 0.5, position = (0, 0, 0), view direction = (0, 0, -1)
-    PerspectiveCamera *pCam= new PerspectiveCamera(0.55, 0.55, sivelab::Vector3D(-19, 12, 3), sivelab::Vector3D(0, -1, 1));
+    PerspectiveCamera *pCam= new PerspectiveCamera(0.05, 0.55, sivelab::Vector3D(0, 0, 0), sivelab::Vector3D(0, 0, -1));
     for (int j=0; j<fb.getHeight(); ++j) {
         for (int i=0; i<fb.getWidth(); ++i) {
             Ray r;
