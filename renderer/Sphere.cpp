@@ -7,6 +7,11 @@
 
 Sphere::Sphere() {}
 
+Sphere::Sphere(double c1, double c2, double c3, float newRadius){
+    setCenter(sivelab::Vector3D(c1,c2,c3));
+    setRadius(newRadius);
+}
+
 bool Sphere::intersect(double tmin, double tmax, HitStruct hit, const Ray r) {
     using namespace sivelab;
     float t0,t1;
@@ -50,4 +55,12 @@ bool Sphere::solveQuadratic(const float &a, const float &b, const float &c, floa
     if (x0 > x1) std::swap(x0, x1);
 
     return true;
+}
+
+void Sphere::setCenter(const sivelab::Vector3D &center) {
+    Sphere::center = center;
+}
+
+void Sphere::setRadius(float radius) {
+    Sphere::radius = radius;
 }

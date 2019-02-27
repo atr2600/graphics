@@ -38,7 +38,10 @@ public:
 
 protected:
 
-    float width, height, focalLength,imageLength, imageWidth, ratio;
+    float width, height, focalLength,imageHeight, imageWidth, ratio;
+public:
+    void setImageHeight(float imageHeight);
+
 public:
     void setRatio(float ratio);
 

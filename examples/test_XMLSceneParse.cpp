@@ -50,8 +50,10 @@ int main(int argc, char *argv[])
 
   std::cout << "Width = " << args.width << std::endl;
 
+
+
   if (args.inputFileName != "")
-    xmlScene.parseFile( args.inputFileName );
+    xmlScene.parseFile( "oneSphere.xml" );
   else
     {
       std::cerr << "Need input file!" << std::endl;

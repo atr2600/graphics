@@ -1,4 +1,5 @@
 INCLUDE_DIRECTORIES( ${CMAKE_SRC_DIR}/src)
+INCLUDE_DIRECTORIES( $(CMAKE_SRC_DIR)/json-develop)
 add_library (renderer-util
         Camera.cpp Camera.h
         CoordinateSystem.cpp CoordinateSystem.h

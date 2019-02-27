@@ -44,6 +44,17 @@ private:
     std::vector<Light*> lights;
     std::vector<Shape*> shapes;
     std::map<std::string, Shader*> shaders;
+public:
+    const std::vector<Camera *> &getCameras() const;
+
+    const std::vector<Light *> &getLights() const;
+
+    const std::vector<Shape *> &getShapes() const;
+
+    const std::map<std::string, Shader *> &getShaders() const;
+
+private:
+    double m_aspectRatio = 1;
     /**
      *
      */

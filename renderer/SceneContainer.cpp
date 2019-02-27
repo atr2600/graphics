@@ -21,11 +21,13 @@ void SceneContainer::addLights() {
 void SceneContainer::addShapes() {
 
 }
+//
 
-#include <../src/nlohmann/json.hpp>
+#include <nlohmann/json.hpp>
 #include <fstream>
+#include "../src/Vector3D.h"
 
-// using this for convenience in specifying the namespace
+//// using this for convenience in specifying the namespace
 using json = nlohmann::json;
 
 void SceneContainer::parseJSONData(const std::string &filename)
@@ -207,4 +209,20 @@ void SceneContainer::parseJSONData(const std::string &filename)
 //        lights.push_back( new Light(position, radiantEnergy) );
 //
 //    }
+}
+
+const std::vector<Camera *> &SceneContainer::getCameras() const {
+    return cameras;
+}
+
+const std::vector<Light *> &SceneContainer::getLights() const {
+    return lights;
+}
+
+const std::vector<Shape *> &SceneContainer::getShapes() const {
+    return shapes;
+}
+
+const std::map<std::string, Shader *> &SceneContainer::getShaders() const {
+    return shaders;
 }

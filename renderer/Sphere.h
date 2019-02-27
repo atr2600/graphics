@@ -27,10 +27,17 @@
 class Sphere: public Shape {
 private:
     sivelab::Vector3D center = sivelab::Vector3D(0,0.0,-5);
-    double radius = 1.0;
+public:
+    void setCenter(const sivelab::Vector3D &center);
+
+    void setRadius(float radius);
+
+private:
+    float radius = 1.0;
 
 public:
     Sphere();
+    Sphere(double c1, double c2, double c3, float newRadius);
     bool intersect(double tmin, double tmax, HitStruct hit, const Ray r);
     bool solveQuadratic(const float &a, const float &b, const float &c, float &x0, float &x1);
 

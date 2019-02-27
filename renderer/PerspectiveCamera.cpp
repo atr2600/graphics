@@ -57,18 +57,20 @@ Ray PerspectiveCamera::generateRay(int i, int j) {
 }
 
 PerspectiveCamera::PerspectiveCamera() {
-    width = 350;
+    width = 250;
     height = 250;
     setRatio(1);
 }
 
-PerspectiveCamera::PerspectiveCamera(double focalLength, double imageWidth, sivelab::Vector3D position, sivelab::Vector3D direction){
-    width = 350;
+PerspectiveCamera::PerspectiveCamera(sivelab::Vector3D position, sivelab::Vector3D direction, double focalLength, double m_aspectRation, double imageWidth){
+    width = 250;
     height = 250;
+
     setCsys(CoordinateSystem(direction,sivelab::Vector3D(0,1,0)));
-    setRatio(1);
+    setRatio(m_aspectRation);
     setDirection(direction);
     setFocalLength(focalLength);
     setImageWidth(imageWidth);
+    setImageHeight(imageWidth*m_aspectRation);
     setPosition(position);
 }

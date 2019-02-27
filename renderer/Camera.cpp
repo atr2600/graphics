@@ -27,3 +27,7 @@ void Camera::setRatio(float ratio) {
 void Camera::setCsys(const CoordinateSystem &csys) {
     Camera::csys = csys;
 }
+
+void Camera::setImageHeight(float imageHeight) {
+    Camera::imageHeight = imageHeight;
+}

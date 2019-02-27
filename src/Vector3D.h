@@ -26,6 +26,8 @@
 #include <cassert>
 #include <iostream>
 #include <cmath>
+#include <sstream>
+
 
 class Vec2D
 {
@@ -156,6 +158,14 @@ namespace sivelab
       data[2] = rhs.data[2];
       return *this;
     }
+
+      Vector3D &operator=(const std::string &rhs)
+      {
+        std::stringstream ss;
+        ss.str ( rhs );
+        ss >> data[0] >> data[1] >> data[2];
+        return *this;
+      }
 
     //! 
     Vector3D &operator+=(const Vector3D &rhs)
