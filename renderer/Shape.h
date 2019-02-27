@@ -25,11 +25,17 @@
 
 #include "../renderer/HitStruct.h"
 #include "../renderer/Ray.h"
+#include <string>
 
 class Shape {
+std::string name;
+public:
+    void setName(const std::string &name);
+
 public:
     Shape();
     virtual bool intersect(double tmin, double tmax, HitStruct hit, Ray r) = 0;
+
 
 };
 

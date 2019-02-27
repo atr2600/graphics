@@ -40,10 +40,10 @@ class SceneContainer {
      *
      */
 private:
-    std::vector<Camera*> allCameras;
-    std::vector<Light*> allLights;
-    std::vector<Shape*> allShapes;
-    std::map<std::string, Shader*> allShaders;
+    std::vector<Camera*> cameras;
+    std::vector<Light*> lights;
+    std::vector<Shape*> shapes;
+    std::map<std::string, Shader*> shaders;
     /**
      *
      */
@@ -64,6 +64,9 @@ public:
      * Add a Camera to the class.
      */
     void addCameras();
+
+    void parseJSONData(const std::string &filename);
+
 
 };
 

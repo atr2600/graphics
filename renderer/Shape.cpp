@@ -6,4 +6,8 @@
 
 Shape::Shape() {}
 
+void Shape::setName(const std::string &name) {
+    Shape::name = name;
+}
+
 
