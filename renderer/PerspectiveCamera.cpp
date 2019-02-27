@@ -18,8 +18,8 @@ Ray PerspectiveCamera::generateRay(int i, int j) {
 
     Vector3D uU, vV, dW, newDirection; //Vectors
     double t, b, r, l; //TOP BOTTOM RIGHT LEFT
-    t = (imageWidth*height)/width*(-1);
-    b = (imageWidth*height)/width;
+    t = (imageWidth*(height*.5))/width*(-1);
+    b = (imageWidth*height*.5)/width;
     r = imageWidth/2;
     l = imageWidth/2*(-1);
 //    l = -imageWidth / 2.0 ;
