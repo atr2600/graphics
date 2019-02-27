@@ -21,15 +21,19 @@
  *
  */
 
-#ifndef OPENGL_FCG_SPHERE_H
-#define OPENGL_FCG_SPHERE_H
+#pragma once
+#include "../renderer/Shape.h"
 
+class Sphere: public Shape {
+private:
+    sivelab::Vector3D center = sivelab::Vector3D(0,0.0,-5);
+    double radius = 1.0;
 
-class Sphere {
 public:
     Sphere();
+    bool intersect(double tmin, double tmax, HitStruct hit, const Ray r);
+    bool solveQuadratic(const float &a, const float &b, const float &c, float &x0, float &x1);
 
 };
 
 
-#endif //OPENGL_FCG_SPHERE_H

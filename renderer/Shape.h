@@ -21,15 +21,17 @@
  *
  */
 
-#ifndef OPENGL_FCG_SHAPE_H
-#define OPENGL_FCG_SHAPE_H
+#pragma once
 
+#include "../renderer/HitStruct.h"
+#include "../renderer/Ray.h"
 
 class Shape {
 public:
     Shape();
+    virtual bool intersect(double tmin, double tmax, HitStruct hit, Ray r) = 0;
 
 };
 
 
-#endif //OPENGL_FCG_SHAPE_H
+

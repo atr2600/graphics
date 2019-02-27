@@ -12,6 +12,6 @@ add_library (renderer-util
         Shape.cpp Shape.h
         Shader.cpp Shader.h
         Sphere.cpp Sphere.h
-)
+        HitStruct.cpp HitStruct.h)
 
 target_link_libraries(renderer-util sive-util)
