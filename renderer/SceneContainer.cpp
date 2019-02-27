@@ -26,6 +26,7 @@ void SceneContainer::addShapes() {
 #include <nlohmann/json.hpp>
 #include <fstream>
 #include "../src/Vector3D.h"
+#include "Lambertian.h"
 
 //// using this for convenience in specifying the namespace
 using json = nlohmann::json;
@@ -86,23 +87,24 @@ void SceneContainer::parseJSONData(const std::string &filename)
     // Loop over shaders and place them in a std::map
     //
     // //////////////////////////////
-//    std::cout << "Number of shaders: " << j["scene"]["shader"].size() << std::endl;
-//    for (auto i=0; i<j["scene"]["shader"].size(); i++) {
-//
-//        json shaderInfo = j["scene"]["shader"][i];
-//        std::string shaderType = shaderInfo["_type"];
-//
-//        Shader *shaderPtr = nullptr;
-//        if (shaderType == "Lambertian") {
-//
-//            sivelab::Vector3D diffuse;
-//            diffuse = shaderInfo["diffuse"];
-//
-//            std::cout << "Diffuse = " << diffuse << std::endl;
-//
-//            ShaderCoefficient kd(diffuse, 0);
-//            shaderPtr = new sivelab::Lambertian(kd);
-//        }
+    std::cout << "Number of shaders: " << j["scene"]["shader"].size() << std::endl;
+    for (auto i=0; i<j["scene"]["shader"].size(); i++) {
+
+        json shaderInfo = j["scene"]["shader"][i];
+        std::string shaderType = shaderInfo["_type"];
+
+        Shader *shaderPtr = nullptr;
+        if (shaderType == "Lambertian") {
+
+            sivelab::Vector3D diffuse;
+            diffuse = shaderInfo["diffuse"];
+
+            std::cout << "Diffuse = " << diffuse << std::endl;
+
+   //         ShaderCoefficient kd(diffuse, 0);
+            shaderPtr = new Lambertian(diffuse);
+        }
+
 //        else if (shaderType == "BlinnPhong" || shaderType == "Phong") {
 //
 //            float phongExp;
@@ -118,11 +120,11 @@ void SceneContainer::parseJSONData(const std::string &filename)
 //            else
 //                shaderPtr = new sivelab::Phong(diffuse, specular, phongExp);
 //        }
-//
-//        std::string name = shaderInfo["_name"];
-//        shaderPtr->setName(name);
-//        shaderMap[name] = shaderPtr;
-//    }
+
+        std::string name = shaderInfo["_name"];
+        shaderPtr->setName(name);
+        shaderMap[name] = shaderPtr;
+    }
 
 
     // //////////////////////////////////////
@@ -138,6 +140,7 @@ void SceneContainer::parseJSONData(const std::string &filename)
         Shape *sPtr = nullptr;
         std::string type = shapeInfo["_type"];
         std::string name = shapeInfo["_name"];
+        std::string color = shapeInfo["shader"]["_ref"];
 
         if (type == "sphere") {
             float radius;
@@ -165,7 +168,7 @@ void SceneContainer::parseJSONData(const std::string &filename)
 //        }
 
         sPtr->setName(name);
-  //      sPtr->provideShader( locateShader(shapeInfo["shader"]["_ref"]) );
+        sPtr->setColor(color);
 
 
         shapes.push_back(sPtr );
@@ -224,5 +227,5 @@ const std::vector<Shape *> &SceneContainer::getShapes() const {
 }
 
 const std::map<std::string, Shader *> &SceneContainer::getShaders() const {
-    return shaders;
+    return shaderMap;
 }

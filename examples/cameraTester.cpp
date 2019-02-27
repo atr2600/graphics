@@ -20,6 +20,7 @@
 #include "../renderer/HitStruct.h"
 #include <limits>
 #include <string>
+#include "../renderer/Shader.h"
 
 using namespace sivelab;
 
@@ -27,14 +28,15 @@ inline bool exists_test1 (const std::string& name);
 
 int main(int argc, char *argv[]){
 
-framebuffer fb(250, 250);
+framebuffer fb(1000, 1000);
 int temp = fb.getHeight();
 SceneContainer sc;
-std::string path = "../../renderer/sceneData/scenes_A/oneTriangle.json";
-
+std::string path = "../../renderer/sceneData/scenes_A/threeTriangles.json";
 if(exists_test1(path)){
     sc.parseJSONData(path);
 }
+
+//std::map<std::string, Shader *> colors = sc.getShaders();
 
 HitStruct h;
 //sc.addShapes(s);
@@ -48,23 +50,30 @@ HitStruct h;
         for (int i=0; i<fb.getWidth(); ++i) {
             Ray r;
             r = pCam->generateRay(i,j);
-
-
+            sivelab::Vector3D rgb = sivelab::Vector3D(-1,-1,-1);  //r.getDirection();
+            double tmax = DBL_MAX;
             Shape *s = sc.getShapes()[0];
+            for(int i = 0; i< sc.getShapes().size();i++){
+                if(sc.getShapes()[i]->intersect(0.05,tmax,h,r)){
+                    if(sc.getShapes()[i]->getTvalue()<tmax){
+                        tmax = sc.getShapes()[i]->getTvalue();
+                        rgb = sc.getShaders().at(sc.getShapes()[i]->getColor())->getColor();
+                    }
 
 
+                }
+            }
 
-            sivelab::Vector3D rgb = r.getDirection();
             rgb[0] += 1;
             rgb[1] += 1;
             rgb[2] += 1;
             rgb /= 2.0;
 
-            if(s->intersect(0.05,DBL_MAX,h,r)){
-                rgb[0]=0;
-                rgb[1]=0;
-                rgb[2]=0;
-            }
+//            if(s->intersect(0.05,DBL_MAX,h,r)){
+//                rgb[0]=0;
+//                rgb[1]=0;
+//                rgb[2]=0;
+//            }
 
             fb.setPixelColor(rgb, i, j, fb.getWidth());
         }

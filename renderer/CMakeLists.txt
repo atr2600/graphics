@@ -14,6 +14,6 @@ add_library (renderer-util
         Shader.cpp Shader.h
         Sphere.cpp Sphere.h
         HitStruct.cpp HitStruct.h
-        Scene_jsonParser.cpp Triangle.cpp Triangle.h)
+        Scene_jsonParser.cpp Triangle.cpp Triangle.h Lambertian.cpp Lambertian.h)
 
 target_link_libraries(renderer-util sive-util)

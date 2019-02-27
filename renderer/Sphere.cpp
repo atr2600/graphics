@@ -16,27 +16,24 @@ bool Sphere::intersect(double tmin, double tmax, HitStruct hit, const Ray r) {
     using namespace sivelab;
     float t0,t1;
 
-    double radius2 = pow(radius, 2.0);
-
-    Vector3D L = r.getDirection() - center;
+    Vector3D L = r.getOrigin() - center;
     float a = r.getDirection().dot(r.getDirection());
-    float b = 2*r.getDirection().dot(L);
-    float c = L.dot(L) - radius2;
-    if(!solveQuadratic(a,b,c,t0,t1)) {
-        return false;
+    float b = 2 * r.getDirection().dot(L);
+    float c = L.dot(L)-(radius*radius);
+    if(!solveQuadratic(a,b,c,t0,t1))return false;
+
+    if (t0>t1) std::swap(t0,t1);
+
+    if(t0<0){
+        t0 = t1;
+        if(t0<0) return false;
     }
 
-    if(t0<0||t1<0) return false;
-
-    if (t0<t1){
-        tmax = t0;
-        hit.setActualT(t0);
-    }else {
-        tmax = t1;
-        hit.setActualT(t1);
-    }
-
+    tmax = t0;
+    hit.setActualT(t0);
+    setTvalue(t0);
     return true;
+
 
 }
 

@@ -43,7 +43,7 @@ private:
     std::vector<Camera*> cameras;
     std::vector<Light*> lights;
     std::vector<Shape*> shapes;
-    std::map<std::string, Shader*> shaders;
+    std::map<std::string, Shader*> shaderMap;
 public:
     const std::vector<Camera *> &getCameras() const;
 

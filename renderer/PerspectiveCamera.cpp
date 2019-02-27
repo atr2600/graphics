@@ -57,14 +57,14 @@ Ray PerspectiveCamera::generateRay(int i, int j) {
 }
 
 PerspectiveCamera::PerspectiveCamera() {
-    width = 250;
-    height = 250;
+    width = 1000;
+    height = 1000;
     setRatio(1);
 }
 
 PerspectiveCamera::PerspectiveCamera(sivelab::Vector3D position, sivelab::Vector3D direction, double focalLength, double m_aspectRation, double imageWidth){
-    width = 250;
-    height = 250;
+    width = 1000;
+    height = 1000;
 
     setCsys(CoordinateSystem(direction,sivelab::Vector3D(0,1,0)));
     setRatio(m_aspectRation);

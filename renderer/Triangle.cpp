@@ -35,6 +35,11 @@ using namespace sivelab;
     if(v<0||u+v>1) return false;
 
     t = v0v2.dot(qvec) *invDet;
+
+    tmax = t;
+    hit.setActualT(t);
+    setTvalue(t);
+
     return (t>0) ? true : false;
 
 

@@ -28,13 +28,28 @@
 #include <string>
 
 class Shape {
-std::string name;
+private:
+    std::string name, color;
+    double tvalue;
+public:
+    double getTvalue() const;
+
+    void setTvalue(double tvalue);
+
+public:
+    void setColor(const std::string &color);
+
+public:
+    const std::string &getName() const;
+
 public:
     void setName(const std::string &name);
 
 public:
     Shape();
     virtual bool intersect(double tmin, double tmax, HitStruct hit, Ray r) = 0;
+
+    const std::string &getColor() const;
 
 
 };

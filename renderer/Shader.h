@@ -24,10 +24,31 @@
 #ifndef OPENGL_FCG_SHADER_H
 #define OPENGL_FCG_SHADER_H
 
+#include <string>
+#include "../src/Vector3D.h"
+using namespace sivelab;
 
 class Shader {
+private:
+public:
+    void setColor(const Vector3D &color);
+
+private:
+    sivelab::Vector3D color = sivelab::Vector3D(0,0,0);
+    std::string name = "";
+public:
+    void setName(const std::string &name);
+
+public:
+    const Vector3D &getColor() const;
+
+public:
+    Shader(const Vector3D &color);
+
 public:
     Shader();
+
+    const std::string &getName() const;
 
 };
 
