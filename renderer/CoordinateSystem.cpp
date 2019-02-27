@@ -8,12 +8,15 @@ CoordinateSystem::CoordinateSystem(){
 
 }
 CoordinateSystem::CoordinateSystem(sivelab::Vector3D direction, sivelab::Vector3D temp){
+    if(direction.dot(temp)!=0.0){
+        temp = sivelab::Vector3D(1.0,0.0,0.0);
+    }
 
     W = (-1*direction)/direction.length();
     W.normalize();
     U = temp.cross(W)/temp.cross(W).length();
     U.normalize();
-    V = W.cross(U);
+    V = U.cross(W);
     V.normalize();
 
 }

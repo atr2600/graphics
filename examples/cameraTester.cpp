@@ -32,7 +32,6 @@ int temp = fb.getHeight();
             Ray r;
             r = pCam->generateRay(i,j);
 
-
             sivelab::Vector3D rgb = r.getDirection();
             rgb[0] += 1;
             rgb[1] += 1;
