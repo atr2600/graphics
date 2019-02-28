@@ -64,7 +64,7 @@ SET(GLFW_STATIC_LIBRARIES "${GLFW_LIBRARIES}")
 INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/glm-0.9.9.3)
 
 # ----------------------------------------------------------
-# Boost
+# cp Boost
 #
 # This section tests for Boost support on the system. Boost is
 # required as it is used heavily with this code. Boost also allows the
