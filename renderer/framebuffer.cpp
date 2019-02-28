@@ -6,9 +6,9 @@
 #include <cstring>
 #include "framebuffer.h"
 #include "../src/handleGraphicsArgs.h"
+#include <string>
 
-
-void framebuffer::export_png() {
+void framebuffer::export_png(std::string path) {
     sivelab::Random prng;
     png::image<png::rgb_pixel > imData(width,height);
 
@@ -19,17 +19,6 @@ void framebuffer::export_png() {
             int i = x + width*y;
             sivelab::Vector3D color =  data[i];
 
-//            for (int i = 0; i < imgArray.length / 2; i++) {
-//                for (int j = 0; j < imgArray[i].length; j++) {
-//                    temp = imgArray[i][j];
-//                    imgArray[i][j] = imgArray[imgArray.length - 1 - i][j];
-//                    imgArray[imgArray.length - 1 -i][j] = temp;
-//                }
-//            }
-
-//            imData[imData.get_height() - 1 - y][x] = png::rgb_pixel(fmin(color[0], 1) * 255,
-//                                                  fmin(color[1], 1) * 255,
-//                                                  fmin(color[2], 1) * 255);
             imData[imData.get_height() - 1 - y][x] = png::rgb_pixel(fmin(color[0], 1) * 255,
                                                                     fmin(color[1], 1) * 255,
                                                                     fmin(color[2], 1) * 255);
@@ -37,7 +26,7 @@ void framebuffer::export_png() {
         }
     }
 
-    imData.write("blah.png");
+    imData.write(path);
 }
 
 /** This is our helper function that sets the pixel color. Pixel by Pixel.

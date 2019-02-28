@@ -16,8 +16,8 @@ void Camera::setFocalLength(float focalLength) {
     Camera::focalLength = focalLength;
 }
 
-void Camera::setImageWidth(float imageWidth) {
-    Camera::imageWidth = imageWidth;
+void Camera::setImagePlaneWidth(float imageWidth) {
+    Camera::imagePlaneWidth = imageWidth;
 }
 
 void Camera::setRatio(float ratio) {
@@ -28,6 +28,24 @@ void Camera::setCsys(const CoordinateSystem &csys) {
     Camera::csys = csys;
 }
 
-void Camera::setImageHeight(float imageHeight) {
-    Camera::imageHeight = imageHeight;
+void Camera::setImagePlaneHeight(float imagePlaneHeight) {
+    Camera::imagePlaneHeight = imagePlaneHeight;
 }
+
+float Camera::getWidth() const {
+    return width;
+}
+
+void Camera::setWidth(float width) {
+    Camera::width = width;
+}
+
+float Camera::getHeight() const {
+    return height;
+}
+
+void Camera::setHeight(float height) {
+    Camera::height = height;
+}
+
+

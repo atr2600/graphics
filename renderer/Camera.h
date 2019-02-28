@@ -38,14 +38,15 @@ public:
 
 protected:
 
-    float width, height, focalLength,imageHeight, imageWidth, ratio;
-public:
-    void setImageHeight(float imageHeight);
+    float width, height, focalLength, imagePlaneWidth, ratio;
+    float imagePlaneHeight = imagePlaneWidth*ratio;
 
 public:
     void setRatio(float ratio);
 
 public:
+    void setImagePlaneHeight(float imagePlaneHeight);
+
     /// Create a CameraClass
     virtual Ray generateRay(const int i, const int j) = 0;
 
@@ -53,9 +54,17 @@ public:
 
     void setDirection(const sivelab::Vector3D &direction);
 
+    float getWidth() const;
+
+    void setWidth(float width);
+
+    float getHeight() const;
+
+    void setHeight(float height);
+
     void setFocalLength(float focalLength);
 
-    void setImageWidth(float imageWidth);
+    void setImagePlaneWidth(float imagePlaneWidth);
 
 
 

@@ -14,7 +14,6 @@
 #include "../renderer/PerspectiveCamera.h"
 #include "../renderer/Camera.h"
 
-#include "SceneDataTypes.h"
 #include "../renderer/SceneContainer.h"
 #include "../renderer/Sphere.h"
 #include "../renderer/HitStruct.h"
@@ -71,7 +70,7 @@ int main(int argc, char *argv[]){
         }
     }
 
-    fb.export_png();
+    fb.export_png(args.outputFileName);
 
 }
 

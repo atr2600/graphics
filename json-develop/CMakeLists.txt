@@ -21,7 +21,7 @@ option(JSON_MultipleHeaders "Use non-amalgamated version of the library." OFF)
 ##
 ## CONFIGURATION
 ##
-set(NLOHMANN_JSON_TARGET_NAME               ${PROJECT_NAME})
+set(NLOHMANN_JSON_TARGET_NAME               ${PROJECT_NAME} ../main/run.cpp)
 set(NLOHMANN_JSON_CONFIG_INSTALL_DIR        "lib/cmake/${PROJECT_NAME}"
   CACHE INTERNAL "")
 set(NLOHMANN_JSON_INCLUDE_INSTALL_DIR       "include")
@@ -40,20 +40,8 @@ else()
     message(STATUS "Using the single-header code from ${NLOHMANN_JSON_INCLUDE_BUILD_DIR}")
 endif()
 
-##
-## TARGET
-## create target and add include path
-##
-add_library(${NLOHMANN_JSON_TARGET_NAME} INTERFACE)
-add_library(${PROJECT_NAME}::${NLOHMANN_JSON_TARGET_NAME} ALIAS ${NLOHMANN_JSON_TARGET_NAME})
-target_compile_features(${NLOHMANN_JSON_TARGET_NAME} INTERFACE cxx_std_11)
 
-target_include_directories(
-    ${NLOHMANN_JSON_TARGET_NAME}
-    INTERFACE
-    $<BUILD_INTERFACE:${NLOHMANN_JSON_INCLUDE_BUILD_DIR}>
-    $<INSTALL_INTERFACE:include>
-)
+
 
 ## add debug view definition file for msvc (natvis)
 if (MSVC)
@@ -106,18 +94,4 @@ if (NLOHMANN_ADD_NATVIS)
         DESTINATION .
 )
 endif()
-export(
-    TARGETS ${NLOHMANN_JSON_TARGET_NAME}
-    NAMESPACE ${PROJECT_NAME}::
-    FILE ${NLOHMANN_JSON_CMAKE_PROJECT_TARGETS_FILE}
-)
-install(
-    TARGETS ${NLOHMANN_JSON_TARGET_NAME}
-    EXPORT ${NLOHMANN_JSON_TARGETS_EXPORT_NAME}
-    INCLUDES DESTINATION ${NLOHMANN_JSON_INCLUDE_INSTALL_DIR}
-)
-install(
-    EXPORT ${NLOHMANN_JSON_TARGETS_EXPORT_NAME}
-    NAMESPACE ${PROJECT_NAME}::
-    DESTINATION ${NLOHMANN_JSON_CONFIG_INSTALL_DIR}
-)
+

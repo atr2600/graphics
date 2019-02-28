@@ -40,7 +40,7 @@
 #include"../src/Vector3D.h"
 #include "../src/png++/png.hpp"
 #include "../src/Random.h"
-
+#include <string>
 
 /**
  * This is our frame buffer class.
@@ -87,7 +87,7 @@ public:
      */
     void setPixelColor(sivelab::Vector3D rgb, int i, int j, int width);
 
-    void export_png();
+    void export_png(std::string path);
 
 };
 
