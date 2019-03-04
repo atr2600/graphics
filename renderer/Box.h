@@ -8,14 +8,16 @@
 
 #include "../src/Vector3D.h"
 #include "Triangle.h"
+#include "Shape.h"
 
-class Box {
+class Box : public Shape {
 private:
+    sivelab::Vector3D minPt, maxPt;
     Triangle triangles[12];
-    double minPt, maxPt;
+    sivelab::Vector3D pts[8];
 public:
-    Box(double minPt, double maxPt);
-
+    Box(sivelab::Vector3D minPt, sivelab::Vector3D maxPt);
+    bool intersect(double tmin, double tmax, HitStruct hit, Ray r);
 
 };
 
