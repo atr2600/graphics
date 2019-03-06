@@ -7,8 +7,14 @@
 #include "PerspectiveCamera.h"
 #include "Triangle.h"
 
+
+
+
 SceneContainer::SceneContainer() {}
 
+bool SceneContainer::VisibilityQuery(Ray r, double tmin, double tmax){
+     
+}
 
 void SceneContainer::addCameras() {
 
@@ -27,6 +33,7 @@ void SceneContainer::addShapes() {
 #include <fstream>
 #include "../src/Vector3D.h"
 #include "Lambertian.h"
+#include "Box.h"
 
 //// using this for convenience in specifying the namespace
 using json = nlohmann::json;
@@ -160,6 +167,15 @@ void SceneContainer::parseJSONData(const std::string &filename)
 
             sPtr = new Triangle(v0, v1, v2);
         }
+        else if (type == "box") {
+            sivelab::Vector3D minPt, maxPt;
+
+            minPt = shapeInfo["minPt"];
+            maxPt = shapeInfo["maxPt"];
+
+            sPtr = new Box(minPt, maxPt);
+        }
+        
 //        else if (type == "mesh") {
 //            std::string mesh_filename = shapeInfo["file"];
 //            std::string meshFile_fullPath(getFilePath() + "/" + mesh_filename);

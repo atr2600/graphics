@@ -78,6 +78,8 @@ public:
 
     void parseJSONData(const std::string &filename);
 
+    bool VisibilityQuery(Ray r, double tmin, double tmax);
+
 
 };
 

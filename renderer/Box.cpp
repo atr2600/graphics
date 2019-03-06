@@ -41,8 +41,8 @@ bool Box::intersect(double tmin, double tmax, HitStruct hit, Ray r){
             if(triangles[i].getTvalue()< getTvalue()){
                 setTvalue(triangles[i].getTvalue());
             }
+            return true;
         }
-
     }
-
+    return false;
 }
