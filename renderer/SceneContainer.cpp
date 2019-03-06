@@ -13,7 +13,7 @@
 SceneContainer::SceneContainer() {}
 
 bool SceneContainer::VisibilityQuery(Ray r, double tmin, double tmax){
-     
+
 }
 
 void SceneContainer::addCameras() {
