@@ -7,6 +7,12 @@
 CoordinateSystem::CoordinateSystem(){
 
 }
+
+/**
+ * Generates a coordinateSystem.
+ * @param direction
+ * @param temp
+ */
 CoordinateSystem::CoordinateSystem(sivelab::Vector3D direction, sivelab::Vector3D temp){
     if(direction.dot(temp)!=0.0){
         temp = sivelab::Vector3D(1.0,0.0,0.0);
@@ -21,14 +27,26 @@ CoordinateSystem::CoordinateSystem(sivelab::Vector3D direction, sivelab::Vector3
 
 }
 
+/**
+ * Returns the U vector
+ * @return U
+ */
 const sivelab::Vector3D &CoordinateSystem::getU() const {
     return U;
 }
 
+/**
+ * Returns the V vector.
+ * @return V
+ */
 const sivelab::Vector3D &CoordinateSystem::getV() const {
     return V;
 }
 
+/**
+ * Returns the W vectory.
+ * @return W
+ */
 const sivelab::Vector3D &CoordinateSystem::getW() const {
     return W;
 }

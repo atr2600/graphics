@@ -5,13 +5,32 @@
 #include "Sphere.h"
 #include <math.h>
 
+
+/**
+ *
+ */
 Sphere::Sphere() {}
 
+/**
+ *
+ * @param c1
+ * @param c2
+ * @param c3
+ * @param newRadius
+ */
 Sphere::Sphere(double c1, double c2, double c3, float newRadius){
     setCenter(sivelab::Vector3D(c1,c2,c3));
     setRadius(newRadius);
 }
 
+/**
+ *
+ * @param tmin
+ * @param tmax
+ * @param hit
+ * @param r
+ * @return
+ */
 bool Sphere::intersect(double tmin, double tmax, HitStruct hit, const Ray r) {
     using namespace sivelab;
     float t0,t1;
@@ -37,15 +56,27 @@ bool Sphere::intersect(double tmin, double tmax, HitStruct hit, const Ray r) {
 
 }
 
+/**
+ *
+ * @param a The A value in the quadratic formula.
+ * @param b The B value in the quadratic formula.
+ * @param c The C value in the quadratic formula.
+ * @param x0
+ * @param x1
+ * @return
+ */
 bool Sphere::solveQuadratic(const float &a, const float &b, const float &c, float &x0, float &x1)
 {
     float discr = b * b - 4 * a * c;
     if (discr < 0) return false;
     else if (discr == 0) x0 = x1 = - 0.5 * b / a;
     else {
-        float q = (b > 0) ?
-                  -0.5 * (b + sqrt(discr)) :
-                  -0.5 * (b - sqrt(discr));
+        float q;
+        if (b > 0) {
+            q = -0.5 * (b + sqrt(discr));
+        } else {
+            q = -0.5 * (b - sqrt(discr));
+        }
         x0 = q / a;
         x1 = c / q;
     }

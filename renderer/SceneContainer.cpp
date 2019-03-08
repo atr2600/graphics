@@ -34,10 +34,16 @@ void SceneContainer::addShapes() {
 #include "../src/Vector3D.h"
 #include "Lambertian.h"
 #include "Box.h"
+#include "PointLight.h"
 
 //// using this for convenience in specifying the namespace
 using json = nlohmann::json;
 
+
+/**
+ * Thank you Pete!!!
+ * @param filename
+ */
 void SceneContainer::parseJSONData(const std::string &filename)
 {
     std::cout << "Attempting to parse: " << filename << std::endl;
@@ -225,7 +231,7 @@ void SceneContainer::parseJSONData(const std::string &filename)
         radiantEnergy = j["scene"]["light"][i]["intensity"];
 
         // if ( type == "point" )
-        lights.push_back( new Light(position, radiantEnergy) );
+        lights.push_back( new PointLight(position, radiantEnergy) );
 
     }
 }

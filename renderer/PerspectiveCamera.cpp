@@ -7,7 +7,12 @@
 
 
 
-
+/**
+ * This generates the rays from the perspective camera.
+ * @param i
+ * @param j
+ * @return
+ */
 Ray PerspectiveCamera::generateRay(int i, int j) {
     Ray ray;
     using namespace sivelab;
@@ -43,12 +48,23 @@ Ray PerspectiveCamera::generateRay(int i, int j) {
 
 }
 
+/**
+ *
+ */
 PerspectiveCamera::PerspectiveCamera() {
     width = 100;
     height = 100;
     setRatio(1);
 }
 
+/**
+ * Create that perspective camera class.
+ * @param position
+ * @param direction
+ * @param focalLength
+ * @param m_aspectRation
+ * @param imagePlaneWidth
+ */
 PerspectiveCamera::PerspectiveCamera(sivelab::Vector3D position, sivelab::Vector3D direction, double focalLength, double m_aspectRation, double imagePlaneWidth){
     width = 100;
     height = 100;

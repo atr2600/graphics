@@ -24,9 +24,11 @@
 #ifndef OPENGL_FCG_LIGHT_H
 #define OPENGL_FCG_LIGHT_H
 
+#include "../src/Vector3D.h"
+
 
 class Light {
-private:
+protected:
     sivelab::Vector3D position, intensity;
 public:
     const sivelab::Vector3D &getPosition() const;
@@ -39,8 +41,19 @@ public:
 
     virtual ~Light(){}
 
+    /**
+     * Light Class.
+     * @param position
+     * @param intensity
+     */
     Light(sivelab::Vector3D position, sivelab::Vector3D intensity) : position(position), intensity(intensity){}
 
+    /**
+     *  Virtual function that sheds light on the objects.
+     * @param point
+     * @param lightDirction
+     * @param distance
+     */
     virtual void lightItUp(sivelab::Vector3D &point, sivelab::Vector3D &lightDirction, float &distance) const = 0;
 
 };

@@ -4,6 +4,11 @@
 
 #include "Box.h"
 
+/**
+ * Creates a box object.
+ * @param minPt
+ * @param maxPt
+ */
 Box::Box(sivelab::Vector3D minPt, sivelab::Vector3D maxPt) : minPt(minPt), maxPt(maxPt) {
     pts[0] = minPt;
     pts[1] = maxPt;
@@ -34,6 +39,14 @@ Box::Box(sivelab::Vector3D minPt, sivelab::Vector3D maxPt) : minPt(minPt), maxPt
     triangles[11] = Triangle(pts[1],pts[7],pts[4]);
 }
 
+/**
+ * Intersect function for the box object.
+ * @param tmin
+ * @param tmax
+ * @param hit
+ * @param r
+ * @return
+ */
 bool Box::intersect(double tmin, double tmax, HitStruct hit, Ray r){
 
     for(int i = 0;i<12;i++){

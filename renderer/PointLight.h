@@ -29,8 +29,11 @@
 
 class PointLight : public Light {
 public:
-    PointLight();
+
+
     PointLight(sivelab::Vector3D position, sivelab::Vector3D intensity);
+
+    void lightItUp(sivelab::Vector3D &point, sivelab::Vector3D &lightDirction, float &distance) const ;
 
 };
 

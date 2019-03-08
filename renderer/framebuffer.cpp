@@ -8,6 +8,10 @@
 #include "../src/handleGraphicsArgs.h"
 #include <string>
 
+/**
+ * This is used to export the framebuffer to a png file.
+ * @param path
+ */
 void framebuffer::export_png(std::string path) {
     sivelab::Random prng;
     png::image<png::rgb_pixel > imData(width,height);
