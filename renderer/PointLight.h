@@ -25,10 +25,12 @@
 #define OPENGL_FCG_POINTLIGHT_H
 
 #include "Light.h"
+#include "../src/Vector3D.h"
 
 class PointLight : public Light {
 public:
     PointLight();
+    PointLight(sivelab::Vector3D position, sivelab::Vector3D intensity);
 
 };
 

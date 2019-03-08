@@ -26,6 +26,22 @@
 
 
 class Light {
+private:
+    sivelab::Vector3D position, intensity;
+public:
+    const sivelab::Vector3D &getPosition() const;
+
+    void setPosition(const sivelab::Vector3D &position);
+
+    const sivelab::Vector3D &getIntensity() const;
+
+    void setIntensity(const sivelab::Vector3D &intensity);
+
+    virtual ~Light(){}
+
+    Light(sivelab::Vector3D position, sivelab::Vector3D intensity) : position(position), intensity(intensity){}
+
+    virtual void lightItUp(sivelab::Vector3D &point, sivelab::Vector3D &lightDirction, float &distance) const = 0;
 
 };
 

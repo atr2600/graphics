@@ -214,20 +214,20 @@ void SceneContainer::parseJSONData(const std::string &filename)
 #endif
 
 
-//    // Walk over all ligths
-//    std::cout << "Number of lights: " << j["scene"]["light"].size() << std::endl;
-//    for (auto i=0; i<j["scene"]["light"].size(); i++) {
-//
-//        std::string type = j["scene"]["light"][i]["_type"];
-//
-//        sivelab::Vector3D position, radiantEnergy;
-//        position = j["scene"]["light"][i]["position"];
-//        radiantEnergy = j["scene"]["light"][i]["intensity"];
-//
-//        // if ( type == "point" )
-//        lights.push_back( new Light(position, radiantEnergy) );
-//
-//    }
+    // Walk over all ligths
+    std::cout << "Number of lights: " << j["scene"]["light"].size() << std::endl;
+    for (auto i=0; i<j["scene"]["light"].size(); i++) {
+
+        std::string type = j["scene"]["light"][i]["_type"];
+
+        sivelab::Vector3D position, radiantEnergy;
+        position = j["scene"]["light"][i]["position"];
+        radiantEnergy = j["scene"]["light"][i]["intensity"];
+
+        // if ( type == "point" )
+        lights.push_back( new Light(position, radiantEnergy) );
+
+    }
 }
 
 const std::vector<Camera *> &SceneContainer::getCameras() const {
