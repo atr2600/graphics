@@ -36,8 +36,12 @@ using namespace sivelab;
 
     t = v0v2.dot(qvec) *invDet;
 
+    sivelab::Vector3D pointOfHit = r.getOrigin() + r.getDirection() *t;
+
     tmax = t;
     hit.setActualT(t);
+    hit.setPointInterect(pointOfHit);
+    hit.setNorm(v0v1.cross(v0v2));
     setTvalue(t);
 
     return (t>0) ? true : false;
