@@ -35,3 +35,7 @@ const sivelab::Vector3D &HitStruct::getPointInterect() const {
 const sivelab::Vector3D &HitStruct::getNorm() const {
     return norm;
 }
+
+float HitStruct::getActualT() const {
+    return actualT;
+}

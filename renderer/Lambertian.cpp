@@ -3,7 +3,7 @@
 //
 
 #include "Lambertian.h"
-#include <math.h>
+#include <algorithm>
 
 Lambertian::Lambertian(sivelab::Vector3D thisColor){
     setColor(thisColor);
@@ -26,19 +26,29 @@ sivelab::Vector3D Lambertian::applyShader(Ray &r, std::vector<Light *> &lights, 
     normal.normalize();
 
 
+   float cosTheta= std::max(0.0f, (float)normal.dot(lightDir));
 
 
 
     float temp = normal.dot(lightDir);
-    if(temp < 0.00001) return sivelab::Vector3D(-1,-1,-1);
+  //  if(temp < 0.00001) return sivelab::Vector3D(-1,-1,-1);
 
 
-    newColor += lights[0]->getIntensity() * getColor() *sivelab::Vector3D(1,1,1) * std::fmax(0.f,temp);
+    newColor += lights[0]->getIntensity() * getColor() *sivelab::Vector3D(1,1,1) * std::max(0.0f,temp);
 
+
+    /**
+     * Trying something new right here.
+     */
+
+ //   newColor = (getColor()/M_PI)*(std::fmax(0.f, normal.dot(lightDir))/(h.getActualT()*h.getActualT()))*lights[0]->getIntensity();
 
 
   //  }
 
     return newColor;
+
+//   return sivelab::Vector3D(cosTheta,cosTheta,cosTheta);
+
 
 }

@@ -24,6 +24,8 @@ public:
     void setPointInterect(const sivelab::Vector3D &pointInterect);
 
     void setActualT(float actualT);
+
+    float getActualT() const;
     //add shader pointer later
 
 

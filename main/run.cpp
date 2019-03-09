@@ -51,7 +51,7 @@ int main(int argc, char *argv[]){
         for (int i=0; i<fb.getWidth(); ++i) {
             Ray r;
             r = pCam->generateRay(i,j);
-            sivelab::Vector3D rgb = sivelab::Vector3D(-0.5,-0.5,-0.5);  //r.getDirection();
+            sivelab::Vector3D rgb = sivelab::Vector3D(0.25,0.23,0.23);  //r.getDirection();
             double tmax = DBL_MAX;
             Shape *s = sc.getShapes()[0];
             for(int i = 0; i< sc.getShapes().size();i++){
@@ -63,10 +63,6 @@ int main(int argc, char *argv[]){
                     }
                 }
             }
-            rgb[0] += 1;
-            rgb[1] += 1;
-            rgb[2] += 1;
-            rgb /= 2.0;
             fb.setPixelColor(rgb, i, j, fb.getWidth());
         }
     }
