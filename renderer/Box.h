@@ -23,7 +23,7 @@ private:
     sivelab::Vector3D pts[8];
 public:
     Box(sivelab::Vector3D minPt, sivelab::Vector3D maxPt);
-    bool intersect(double tmin, double tmax, HitStruct hit, Ray r);
+    bool intersect(double tmin, double tmax, HitStruct &hit, Ray r);
 
 };
 

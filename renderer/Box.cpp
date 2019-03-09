@@ -47,7 +47,7 @@ Box::Box(sivelab::Vector3D minPt, sivelab::Vector3D maxPt) : minPt(minPt), maxPt
  * @param r
  * @return
  */
-bool Box::intersect(double tmin, double tmax, HitStruct hit, Ray r){
+bool Box::intersect(double tmin, double tmax, HitStruct &hit, Ray r){
 
     for(int i = 0;i<12;i++){
         if(triangles[i].intersect(tmin,tmax, hit, r)){

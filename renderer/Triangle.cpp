@@ -13,7 +13,7 @@ Triangle::Triangle(sivelab::Vector3D v0, sivelab::Vector3D v1, sivelab::Vector3D
     setV2(v2);
 }
 
-bool Triangle::intersect(double tmin, double tmax, HitStruct hit, Ray r){
+bool Triangle::intersect(double tmin, double tmax, HitStruct &hit, Ray r){
 using namespace sivelab;
     float t, u, v;
     static const float kEpsilon = 1e-8;

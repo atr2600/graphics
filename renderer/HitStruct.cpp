@@ -27,3 +27,11 @@ void HitStruct::setPointInterect(const sivelab::Vector3D &pointInterect) {
 void HitStruct::setActualT(float actualT) {
     HitStruct::actualT = actualT;
 }
+
+const sivelab::Vector3D &HitStruct::getPointInterect() const {
+    return pointInterect;
+}
+
+const sivelab::Vector3D &HitStruct::getNorm() const {
+    return norm;
+}

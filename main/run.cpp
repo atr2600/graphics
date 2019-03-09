@@ -51,14 +51,15 @@ int main(int argc, char *argv[]){
         for (int i=0; i<fb.getWidth(); ++i) {
             Ray r;
             r = pCam->generateRay(i,j);
-            sivelab::Vector3D rgb = sivelab::Vector3D(-1,-1,-1);  //r.getDirection();
+            sivelab::Vector3D rgb = sivelab::Vector3D(-0.5,-0.5,-0.5);  //r.getDirection();
             double tmax = DBL_MAX;
             Shape *s = sc.getShapes()[0];
             for(int i = 0; i< sc.getShapes().size();i++){
                 if(sc.getShapes()[i]->intersect(0.05,tmax,h,r)){
                     if(sc.getShapes()[i]->getTvalue()<tmax){
                         tmax = sc.getShapes()[i]->getTvalue();
-                        rgb = sc.getShaders().at(sc.getShapes()[i]->getColor())->getColor();
+                        //rgb = sc.getShaders().at(sc.getShapes()[i]->getColor())->getColor();
+                        rgb = sc.getShaders().at(sc.getShapes()[i]->getColor())->applyShader(r,sc.getLights(),sc.getShapes(),h);
                     }
                 }
             }

@@ -114,7 +114,7 @@ void SceneContainer::parseJSONData(const std::string &filename)
 
             std::cout << "Diffuse = " << diffuse << std::endl;
 
-   //         ShaderCoefficient kd(diffuse, 0);
+    //        ShaderCoefficient kd(diffuse, 0);
             shaderPtr = new Lambertian(diffuse);
         }
 
@@ -236,18 +236,18 @@ void SceneContainer::parseJSONData(const std::string &filename)
     }
 }
 
-const std::vector<Camera *> &SceneContainer::getCameras() const {
+std::vector<Camera *> &SceneContainer::getCameras() {
     return cameras;
 }
 
-const std::vector<Light *> &SceneContainer::getLights() const {
+std::vector<Light *> &SceneContainer::getLights() {
     return lights;
 }
 
-const std::vector<Shape *> &SceneContainer::getShapes() const {
+std::vector<Shape *> &SceneContainer::getShapes() {
     return shapes;
 }
 
-const std::map<std::string, Shader *> &SceneContainer::getShaders() const {
+std::map<std::string, Shader *> &SceneContainer::getShaders() {
     return shaderMap;
 }

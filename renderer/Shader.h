@@ -24,8 +24,13 @@
 #ifndef OPENGL_FCG_SHADER_H
 #define OPENGL_FCG_SHADER_H
 
+#include <vector>
 #include <string>
 #include "../src/Vector3D.h"
+#include "../renderer/Shape.h"
+#include "../renderer/Light.h"
+#include "../renderer/HitStruct.h"
+
 using namespace sivelab;
 
 class Shader {
@@ -49,6 +54,8 @@ public:
     Shader();
 
     const std::string &getName() const;
+
+    virtual sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h )=0;
 
 };
 

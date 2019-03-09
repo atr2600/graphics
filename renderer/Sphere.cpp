@@ -31,7 +31,7 @@ Sphere::Sphere(double c1, double c2, double c3, float newRadius){
  * @param r
  * @return
  */
-bool Sphere::intersect(double tmin, double tmax, HitStruct hit, const Ray r) {
+bool Sphere::intersect(double tmin, double tmax, HitStruct &hit, const Ray r) {
     using namespace sivelab;
     float t0,t1;
 
@@ -48,9 +48,16 @@ bool Sphere::intersect(double tmin, double tmax, HitStruct hit, const Ray r) {
         if(t0<0) return false;
     }
 
+    sivelab::Vector3D pointOfHit = r.getOrigin() + r.getDirection() *t0;
+
     tmax = t0;
     hit.setActualT(t0);
+    hit.setPointInterect(pointOfHit);
+    hit.setNorm(pointOfHit - center);
+
     setTvalue(t0);
+
+
     return true;
 
 
