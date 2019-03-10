@@ -60,6 +60,7 @@ int main(int argc, char *argv[]){
                         tmax = sc.getShapes()[i]->getTvalue();
                         //rgb = sc.getShaders().at(sc.getShapes()[i]->getColor())->getColor();
                         rgb = sc.getShaders().at(sc.getShapes()[i]->getColor())->applyShader(r,sc.getLights(),sc.getShapes(),h);
+//                        rgb.clamp(0,1);
                     }
                 }
             }
