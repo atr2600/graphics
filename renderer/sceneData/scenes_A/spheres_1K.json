@@ -50,8 +50,8 @@
 				"diffuse": "0.941819 0.484835 0.670388",
 				"specular": "1 1 1",
 				"phongExp": 35.5465,
-				"_name": "LambertianMirror_0",
-				"_type": "Lambertian"
+				"_name": "blinnphongMirror_0",
+				"_type": "BlinnPhong"
 			},
 			{
 				"diffuse": "0.185338 0.365224 0.873936",
@@ -62,15 +62,15 @@
 				"diffuse": "0.69342 0.890681 0.827891",
 				"specular": "1 1 1",
 				"phongExp": 115.582,
-				"_name": "LambertianMirror_2",
-				"_type": "Lambertian"
+				"_name": "blinnphongMirror_2",
+				"_type": "BlinnPhong"
 			},
 			{
 				"diffuse": "0.99931 0.365784 0.136554",
 				"specular": "1 1 1",
 				"phongExp": 39.2122,
-				"_name": "Lambertian_3",
-				"_type": "Lambertian"
+				"_name": "blinnphong_3",
+				"_type": "BlinnPhong"
 			},
 			{
 				"diffuse": "0.512096 0.790364 0.438989",
@@ -81,8 +81,8 @@
 				"diffuse": "0.471322 0.594052 0.706368",
 				"specular": "1 1 1",
 				"phongExp": 101.984,
-				"_name": "LambertianMirror_5",
-				"_type": "Lambertian"
+				"_name": "blinnphongMirror_5",
+				"_type": "BlinnPhong"
 			},
 			{
 				"diffuse": "0.718401 0.817172 0.669762",
@@ -93,15 +93,15 @@
 				"diffuse": "0.886019 0.313354 0.930921",
 				"specular": "1 1 1",
   			        "phongExp": 111.757,
-				"_name": "Lambertian_7",
-				"_type": "Lambertian"
+				"_name": "blinnphong_7",
+				"_type": "BlinnPhong"
 			},
 			{
 				"diffuse": "0.897668 0.244369 0.48263",
 				"specular": "1 1 1",
 				"phongExp": 86.0139,
-				"_name": "LambertianMirror_8",
-				"_type": "Lambertian"
+				"_name": "blinnphongMirror_8",
+				"_type": "BlinnPhong"
 			},
 			{
 				"diffuse": "0.90733 0.247535 0.877337",
@@ -119,7 +119,7 @@
 				"center": "-150.272 -150.251 -149.874",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_0",
 				"_type": "sphere"
@@ -128,7 +128,7 @@
 				"center": "-149.543 -150.024 -117.025",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_1",
 				"_type": "sphere"
@@ -146,7 +146,7 @@
 				"center": "-149.676 -150.322 -50.3801",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_3",
 				"_type": "sphere"
@@ -173,7 +173,7 @@
 				"center": "-149.67 -149.888 49.9792",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_6",
 				"_type": "sphere"
@@ -182,7 +182,7 @@
 				"center": "-150.299 -149.904 83.1699",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_7",
 				"_type": "sphere"
@@ -200,7 +200,7 @@
 				"center": "-150.434 -150.385 149.653",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_9",
 				"_type": "sphere"
@@ -209,7 +209,7 @@
 				"center": "-150.341 -116.375 -150.183",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_10",
 				"_type": "sphere"
@@ -218,7 +218,7 @@
 				"center": "-150.344 -116.226 -116.815",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_11",
 				"_type": "sphere"
@@ -227,7 +227,7 @@
 				"center": "-150.41 -116.641 -83.3995",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_12",
 				"_type": "sphere"
@@ -245,7 +245,7 @@
 				"center": "-150.109 -116.272 -16.3206",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_14",
 				"_type": "sphere"
@@ -254,7 +254,7 @@
 				"center": "-149.755 -117.069 16.7277",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_15",
 				"_type": "sphere"
@@ -263,7 +263,7 @@
 				"center": "-149.872 -116.438 49.9729",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_16",
 				"_type": "sphere"
@@ -272,7 +272,7 @@
 				"center": "-149.841 -116.252 82.9549",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_17",
 				"_type": "sphere"
@@ -281,7 +281,7 @@
 				"center": "-149.848 -117.095 116.236",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_18",
 				"_type": "sphere"
@@ -290,7 +290,7 @@
 				"center": "-150.327 -116.893 149.899",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_19",
 				"_type": "sphere"
@@ -299,7 +299,7 @@
 				"center": "-150.311 -83.4565 -150.025",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_20",
 				"_type": "sphere"
@@ -308,7 +308,7 @@
 				"center": "-149.919 -82.8376 -116.946",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_21",
 				"_type": "sphere"
@@ -317,7 +317,7 @@
 				"center": "-150.066 -83.2678 -83.7945",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_22",
 				"_type": "sphere"
@@ -335,7 +335,7 @@
 				"center": "-149.811 -82.8818 -16.7856",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_24",
 				"_type": "sphere"
@@ -344,7 +344,7 @@
 				"center": "-149.549 -83.7468 16.953",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_25",
 				"_type": "sphere"
@@ -353,7 +353,7 @@
 				"center": "-150.498 -83.261 50.228",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_26",
 				"_type": "sphere"
@@ -371,7 +371,7 @@
 				"center": "-150.248 -83.2631 116.179",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_28",
 				"_type": "sphere"
@@ -389,7 +389,7 @@
 				"center": "-150.174 -49.6244 -149.673",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_30",
 				"_type": "sphere"
@@ -398,7 +398,7 @@
 				"center": "-150.397 -50.2298 -116.518",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_31",
 				"_type": "sphere"
@@ -407,7 +407,7 @@
 				"center": "-149.62 -49.9041 -83.7299",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_32",
 				"_type": "sphere"
@@ -416,7 +416,7 @@
 				"center": "-150.497 -49.5125 -49.5537",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_33",
 				"_type": "sphere"
@@ -434,7 +434,7 @@
 				"center": "-149.961 -49.6452 16.3549",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_35",
 				"_type": "sphere"
@@ -443,7 +443,7 @@
 				"center": "-150.006 -49.7215 50.1462",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_36",
 				"_type": "sphere"
@@ -470,7 +470,7 @@
 				"center": "-150.198 -50.1234 149.849",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_39",
 				"_type": "sphere"
@@ -515,7 +515,7 @@
 				"center": "-149.648 -16.2622 -16.4718",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_44",
 				"_type": "sphere"
@@ -524,7 +524,7 @@
 				"center": "-150.38 -16.669 16.8984",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_45",
 				"_type": "sphere"
@@ -533,7 +533,7 @@
 				"center": "-149.813 -16.9579 50.3544",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_46",
 				"_type": "sphere"
@@ -542,7 +542,7 @@
 				"center": "-149.527 -16.7322 83.262",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_47",
 				"_type": "sphere"
@@ -569,7 +569,7 @@
 				"center": "-150.025 16.3473 -149.66",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_50",
 				"_type": "sphere"
@@ -587,7 +587,7 @@
 				"center": "-150.043 16.6214 -83.7892",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_52",
 				"_type": "sphere"
@@ -596,7 +596,7 @@
 				"center": "-149.975 16.2024 -50.146",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_53",
 				"_type": "sphere"
@@ -614,7 +614,7 @@
 				"center": "-150.494 17.1002 16.6276",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_55",
 				"_type": "sphere"
@@ -632,7 +632,7 @@
 				"center": "-149.928 16.5422 83.0703",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_57",
 				"_type": "sphere"
@@ -659,7 +659,7 @@
 				"center": "-150.077 50.1957 -149.912",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_60",
 				"_type": "sphere"
@@ -686,7 +686,7 @@
 				"center": "-149.627 49.5947 -49.9891",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_63",
 				"_type": "sphere"
@@ -695,7 +695,7 @@
 				"center": "-149.944 49.8042 -16.7384",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_64",
 				"_type": "sphere"
@@ -722,7 +722,7 @@
 				"center": "-149.69 50.3388 83.4305",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_67",
 				"_type": "sphere"
@@ -731,7 +731,7 @@
 				"center": "-150.075 49.5969 116.913",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_68",
 				"_type": "sphere"
@@ -740,7 +740,7 @@
 				"center": "-149.832 49.6892 149.526",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_69",
 				"_type": "sphere"
@@ -767,7 +767,7 @@
 				"center": "-150.115 82.8848 -83.8236",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_72",
 				"_type": "sphere"
@@ -776,7 +776,7 @@
 				"center": "-150.137 83.452 -50.42",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_73",
 				"_type": "sphere"
@@ -785,7 +785,7 @@
 				"center": "-149.96 83.6445 -16.6095",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_74",
 				"_type": "sphere"
@@ -794,7 +794,7 @@
 				"center": "-150.452 83.7827 17.0323",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_75",
 				"_type": "sphere"
@@ -803,7 +803,7 @@
 				"center": "-149.92 83.3913 50.07",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_76",
 				"_type": "sphere"
@@ -812,7 +812,7 @@
 				"center": "-150.177 83.007 83.4288",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_77",
 				"_type": "sphere"
@@ -821,7 +821,7 @@
 				"center": "-149.934 83.6206 116.603",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_78",
 				"_type": "sphere"
@@ -830,7 +830,7 @@
 				"center": "-149.915 83.0692 150.002",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_79",
 				"_type": "sphere"
@@ -839,7 +839,7 @@
 				"center": "-150.128 116.46 -149.864",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_80",
 				"_type": "sphere"
@@ -848,7 +848,7 @@
 				"center": "-150.405 116.356 -117.023",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_81",
 				"_type": "sphere"
@@ -857,7 +857,7 @@
 				"center": "-149.662 116.181 -83.1918",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_82",
 				"_type": "sphere"
@@ -866,7 +866,7 @@
 				"center": "-149.633 116.878 -49.8883",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_83",
 				"_type": "sphere"
@@ -884,7 +884,7 @@
 				"center": "-149.795 116.75 16.2508",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_85",
 				"_type": "sphere"
@@ -893,7 +893,7 @@
 				"center": "-149.913 116.359 50.2289",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_86",
 				"_type": "sphere"
@@ -920,7 +920,7 @@
 				"center": "-150.312 117.121 150.399",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_89",
 				"_type": "sphere"
@@ -929,7 +929,7 @@
 				"center": "-149.851 149.895 -150.046",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_90",
 				"_type": "sphere"
@@ -947,7 +947,7 @@
 				"center": "-150.044 149.772 -83.586",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_92",
 				"_type": "sphere"
@@ -956,7 +956,7 @@
 				"center": "-150.02 149.627 -49.5637",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_93",
 				"_type": "sphere"
@@ -965,7 +965,7 @@
 				"center": "-150.268 149.652 -16.4545",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_94",
 				"_type": "sphere"
@@ -974,7 +974,7 @@
 				"center": "-149.665 150.09 16.7357",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_95",
 				"_type": "sphere"
@@ -983,7 +983,7 @@
 				"center": "-150.422 149.778 50.431",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_96",
 				"_type": "sphere"
@@ -992,7 +992,7 @@
 				"center": "-150.096 149.542 83.1835",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_97",
 				"_type": "sphere"
@@ -1001,7 +1001,7 @@
 				"center": "-149.887 149.805 116.991",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_98",
 				"_type": "sphere"
@@ -1010,7 +1010,7 @@
 				"center": "-149.529 149.914 149.921",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_99",
 				"_type": "sphere"
@@ -1019,7 +1019,7 @@
 				"center": "-116.37 -149.983 -150.086",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_100",
 				"_type": "sphere"
@@ -1028,7 +1028,7 @@
 				"center": "-116.371 -150.402 -116.874",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_101",
 				"_type": "sphere"
@@ -1082,7 +1082,7 @@
 				"center": "-116.224 -150.477 83.622",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_107",
 				"_type": "sphere"
@@ -1091,7 +1091,7 @@
 				"center": "-116.766 -149.744 116.317",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_108",
 				"_type": "sphere"
@@ -1100,7 +1100,7 @@
 				"center": "-116.716 -150.367 150.453",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_109",
 				"_type": "sphere"
@@ -1118,7 +1118,7 @@
 				"center": "-116.947 -117.012 -116.922",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_111",
 				"_type": "sphere"
@@ -1127,7 +1127,7 @@
 				"center": "-116.194 -116.946 -83.5499",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_112",
 				"_type": "sphere"
@@ -1136,7 +1136,7 @@
 				"center": "-116.635 -117.036 -50.4947",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_113",
 				"_type": "sphere"
@@ -1154,7 +1154,7 @@
 				"center": "-116.988 -117.092 16.4336",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_115",
 				"_type": "sphere"
@@ -1172,7 +1172,7 @@
 				"center": "-116.478 -116.362 83.5574",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_117",
 				"_type": "sphere"
@@ -1190,7 +1190,7 @@
 				"center": "-116.851 -116.812 150.137",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_119",
 				"_type": "sphere"
@@ -1199,7 +1199,7 @@
 				"center": "-116.621 -83.3822 -150.103",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_120",
 				"_type": "sphere"
@@ -1226,7 +1226,7 @@
 				"center": "-116.641 -83.0824 -50.4804",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_123",
 				"_type": "sphere"
@@ -1235,7 +1235,7 @@
 				"center": "-116.25 -83.5514 -16.9803",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_124",
 				"_type": "sphere"
@@ -1244,7 +1244,7 @@
 				"center": "-117.071 -83.259 16.843",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_125",
 				"_type": "sphere"
@@ -1253,7 +1253,7 @@
 				"center": "-116.243 -82.9169 50.4962",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_126",
 				"_type": "sphere"
@@ -1271,7 +1271,7 @@
 				"center": "-116.663 -83.2398 116.64",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_128",
 				"_type": "sphere"
@@ -1307,7 +1307,7 @@
 				"center": "-116.943 -50.4639 -83.5858",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_132",
 				"_type": "sphere"
@@ -1316,7 +1316,7 @@
 				"center": "-117.052 -49.9188 -49.7178",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_133",
 				"_type": "sphere"
@@ -1352,7 +1352,7 @@
 				"center": "-117.015 -50.1402 83.56",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_137",
 				"_type": "sphere"
@@ -1379,7 +1379,7 @@
 				"center": "-116.307 -16.2164 -150.163",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_140",
 				"_type": "sphere"
@@ -1388,7 +1388,7 @@
 				"center": "-116.493 -16.3786 -116.711",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_141",
 				"_type": "sphere"
@@ -1406,7 +1406,7 @@
 				"center": "-116.736 -17.096 -50.498",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_143",
 				"_type": "sphere"
@@ -1415,7 +1415,7 @@
 				"center": "-116.896 -16.7522 -17.0642",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_144",
 				"_type": "sphere"
@@ -1424,7 +1424,7 @@
 				"center": "-116.684 -16.9223 16.7592",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_145",
 				"_type": "sphere"
@@ -1442,7 +1442,7 @@
 				"center": "-116.173 -16.3253 83.6824",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_147",
 				"_type": "sphere"
@@ -1460,7 +1460,7 @@
 				"center": "-116.739 -16.1973 149.986",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_149",
 				"_type": "sphere"
@@ -1496,7 +1496,7 @@
 				"center": "-116.411 17.0714 -50.441",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_153",
 				"_type": "sphere"
@@ -1514,7 +1514,7 @@
 				"center": "-116.942 16.8386 17.0784",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_155",
 				"_type": "sphere"
@@ -1523,7 +1523,7 @@
 				"center": "-116.294 16.5725 50.1117",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_156",
 				"_type": "sphere"
@@ -1532,7 +1532,7 @@
 				"center": "-117.054 16.216 83.6953",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_157",
 				"_type": "sphere"
@@ -1541,7 +1541,7 @@
 				"center": "-116.516 16.671 116.804",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_158",
 				"_type": "sphere"
@@ -1550,7 +1550,7 @@
 				"center": "-116.529 17.0511 150.277",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_159",
 				"_type": "sphere"
@@ -1559,7 +1559,7 @@
 				"center": "-116.882 50.0284 -149.645",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_160",
 				"_type": "sphere"
@@ -1586,7 +1586,7 @@
 				"center": "-116.628 49.7606 -49.5035",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_163",
 				"_type": "sphere"
@@ -1595,7 +1595,7 @@
 				"center": "-116.306 50.1087 -16.2089",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_164",
 				"_type": "sphere"
@@ -1604,7 +1604,7 @@
 				"center": "-116.657 49.7866 17.1621",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_165",
 				"_type": "sphere"
@@ -1622,7 +1622,7 @@
 				"center": "-117.024 50.4553 83.7989",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_167",
 				"_type": "sphere"
@@ -1631,7 +1631,7 @@
 				"center": "-116.226 49.6845 116.259",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_168",
 				"_type": "sphere"
@@ -1676,7 +1676,7 @@
 				"center": "-116.637 83.6407 -49.6623",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_173",
 				"_type": "sphere"
@@ -1685,7 +1685,7 @@
 				"center": "-116.603 83.5363 -17.0523",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_174",
 				"_type": "sphere"
@@ -1694,7 +1694,7 @@
 				"center": "-116.826 83.4505 17.0824",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_175",
 				"_type": "sphere"
@@ -1703,7 +1703,7 @@
 				"center": "-116.695 82.9733 49.5144",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_176",
 				"_type": "sphere"
@@ -1721,7 +1721,7 @@
 				"center": "-116.896 83.5163 117.087",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_178",
 				"_type": "sphere"
@@ -1730,7 +1730,7 @@
 				"center": "-116.874 83.0028 150.497",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_179",
 				"_type": "sphere"
@@ -1739,7 +1739,7 @@
 				"center": "-116.519 116.622 -149.693",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_180",
 				"_type": "sphere"
@@ -1748,7 +1748,7 @@
 				"center": "-116.26 117.152 -116.778",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_181",
 				"_type": "sphere"
@@ -1757,7 +1757,7 @@
 				"center": "-116.329 116.96 -83.7422",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_182",
 				"_type": "sphere"
@@ -1775,7 +1775,7 @@
 				"center": "-116.617 117.068 -16.2611",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_184",
 				"_type": "sphere"
@@ -1802,7 +1802,7 @@
 				"center": "-117.061 116.656 82.9309",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_187",
 				"_type": "sphere"
@@ -1811,7 +1811,7 @@
 				"center": "-117.121 116.221 116.315",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_188",
 				"_type": "sphere"
@@ -1829,7 +1829,7 @@
 				"center": "-117.137 149.838 -150.34",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_190",
 				"_type": "sphere"
@@ -1847,7 +1847,7 @@
 				"center": "-116.741 150.095 -83.6127",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_192",
 				"_type": "sphere"
@@ -1874,7 +1874,7 @@
 				"center": "-116.344 149.979 16.1692",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_195",
 				"_type": "sphere"
@@ -1919,7 +1919,7 @@
 				"center": "-83.1726 -149.702 -149.605",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_200",
 				"_type": "sphere"
@@ -1928,7 +1928,7 @@
 				"center": "-83.214 -149.684 -117.121",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_201",
 				"_type": "sphere"
@@ -1937,7 +1937,7 @@
 				"center": "-83.456 -150.04 -83.4577",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_202",
 				"_type": "sphere"
@@ -1946,7 +1946,7 @@
 				"center": "-83.3692 -149.526 -49.866",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_203",
 				"_type": "sphere"
@@ -1964,7 +1964,7 @@
 				"center": "-83.245 -149.856 16.9819",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_205",
 				"_type": "sphere"
@@ -1982,7 +1982,7 @@
 				"center": "-83.5374 -149.783 83.6575",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_207",
 				"_type": "sphere"
@@ -1991,7 +1991,7 @@
 				"center": "-83.4194 -150.087 116.654",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_208",
 				"_type": "sphere"
@@ -2018,7 +2018,7 @@
 				"center": "-83.7189 -116.972 -116.755",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_211",
 				"_type": "sphere"
@@ -2045,7 +2045,7 @@
 				"center": "-83.719 -116.635 -16.8357",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_214",
 				"_type": "sphere"
@@ -2063,7 +2063,7 @@
 				"center": "-83.0618 -117.096 50.1557",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_216",
 				"_type": "sphere"
@@ -2081,7 +2081,7 @@
 				"center": "-83.6437 -116.695 117.158",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_218",
 				"_type": "sphere"
@@ -2090,7 +2090,7 @@
 				"center": "-83.416 -116.936 150.153",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_219",
 				"_type": "sphere"
@@ -2099,7 +2099,7 @@
 				"center": "-82.8621 -83.4326 -150.253",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_220",
 				"_type": "sphere"
@@ -2126,7 +2126,7 @@
 				"center": "-83.3787 -83.0096 -50.3874",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_223",
 				"_type": "sphere"
@@ -2135,7 +2135,7 @@
 				"center": "-83.1984 -83.2627 -16.7036",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_224",
 				"_type": "sphere"
@@ -2144,7 +2144,7 @@
 				"center": "-83.4701 -83.7855 16.5382",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_225",
 				"_type": "sphere"
@@ -2162,7 +2162,7 @@
 				"center": "-83.77 -83.5874 83.5776",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_227",
 				"_type": "sphere"
@@ -2189,7 +2189,7 @@
 				"center": "-83.613 -50.406 -149.676",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_230",
 				"_type": "sphere"
@@ -2198,7 +2198,7 @@
 				"center": "-83.2969 -50.4092 -116.21",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_231",
 				"_type": "sphere"
@@ -2207,7 +2207,7 @@
 				"center": "-83.1784 -49.6427 -83.8158",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_232",
 				"_type": "sphere"
@@ -2243,7 +2243,7 @@
 				"center": "-83.6817 -50.0553 49.7001",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_236",
 				"_type": "sphere"
@@ -2252,7 +2252,7 @@
 				"center": "-83.732 -50.4323 83.8317",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_237",
 				"_type": "sphere"
@@ -2261,7 +2261,7 @@
 				"center": "-83.7691 -49.7878 116.967",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_238",
 				"_type": "sphere"
@@ -2270,7 +2270,7 @@
 				"center": "-83.3068 -50.3883 149.671",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_239",
 				"_type": "sphere"
@@ -2279,7 +2279,7 @@
 				"center": "-83.1141 -17.1356 -149.557",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_240",
 				"_type": "sphere"
@@ -2306,7 +2306,7 @@
 				"center": "-83.621 -16.6025 -49.7384",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_243",
 				"_type": "sphere"
@@ -2315,7 +2315,7 @@
 				"center": "-83.3249 -16.5191 -16.2971",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_244",
 				"_type": "sphere"
@@ -2324,7 +2324,7 @@
 				"center": "-83.6903 -16.5885 16.3253",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_245",
 				"_type": "sphere"
@@ -2333,7 +2333,7 @@
 				"center": "-83.1624 -17.0452 49.9037",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_246",
 				"_type": "sphere"
@@ -2360,7 +2360,7 @@
 				"center": "-83.7698 -16.9549 150.057",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_249",
 				"_type": "sphere"
@@ -2369,7 +2369,7 @@
 				"center": "-83.7474 16.6296 -150.432",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_250",
 				"_type": "sphere"
@@ -2378,7 +2378,7 @@
 				"center": "-83.2955 16.7308 -117.066",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_251",
 				"_type": "sphere"
@@ -2387,7 +2387,7 @@
 				"center": "-83.6808 16.5754 -83.2447",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_252",
 				"_type": "sphere"
@@ -2396,7 +2396,7 @@
 				"center": "-83.1041 16.2849 -50.1913",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_253",
 				"_type": "sphere"
@@ -2414,7 +2414,7 @@
 				"center": "-82.9463 16.6179 16.6902",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_255",
 				"_type": "sphere"
@@ -2423,7 +2423,7 @@
 				"center": "-83.3465 16.6959 50.1335",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_256",
 				"_type": "sphere"
@@ -2432,7 +2432,7 @@
 				"center": "-83.3719 16.9173 83.5983",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_257",
 				"_type": "sphere"
@@ -2441,7 +2441,7 @@
 				"center": "-83.0823 17.0121 116.56",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_258",
 				"_type": "sphere"
@@ -2450,7 +2450,7 @@
 				"center": "-83.0917 16.5793 150.339",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_259",
 				"_type": "sphere"
@@ -2477,7 +2477,7 @@
 				"center": "-83.7457 49.5626 -83.3625",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_262",
 				"_type": "sphere"
@@ -2486,7 +2486,7 @@
 				"center": "-82.88 50.0906 -50.0675",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_263",
 				"_type": "sphere"
@@ -2504,7 +2504,7 @@
 				"center": "-83.7402 50.472 17.1166",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_265",
 				"_type": "sphere"
@@ -2513,7 +2513,7 @@
 				"center": "-83.3854 50.1067 49.8827",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_266",
 				"_type": "sphere"
@@ -2522,7 +2522,7 @@
 				"center": "-83.2075 49.563 83.0183",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_267",
 				"_type": "sphere"
@@ -2531,7 +2531,7 @@
 				"center": "-83.2914 50.4096 116.377",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_268",
 				"_type": "sphere"
@@ -2549,7 +2549,7 @@
 				"center": "-83.3965 83.0037 -150.047",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_270",
 				"_type": "sphere"
@@ -2558,7 +2558,7 @@
 				"center": "-83.0342 83.7259 -116.257",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_271",
 				"_type": "sphere"
@@ -2594,7 +2594,7 @@
 				"center": "-83.1247 83.799 16.7565",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_275",
 				"_type": "sphere"
@@ -2603,7 +2603,7 @@
 				"center": "-83.3479 83.0881 50.4972",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_276",
 				"_type": "sphere"
@@ -2612,7 +2612,7 @@
 				"center": "-82.8758 83.7717 83.0817",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_277",
 				"_type": "sphere"
@@ -2621,7 +2621,7 @@
 				"center": "-83.6455 83.1561 116.934",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_278",
 				"_type": "sphere"
@@ -2630,7 +2630,7 @@
 				"center": "-83.5717 83.706 149.595",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_279",
 				"_type": "sphere"
@@ -2639,7 +2639,7 @@
 				"center": "-83.5586 116.51 -150.329",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_280",
 				"_type": "sphere"
@@ -2648,7 +2648,7 @@
 				"center": "-83.548 117.021 -116.54",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_281",
 				"_type": "sphere"
@@ -2693,7 +2693,7 @@
 				"center": "-83.3845 116.872 49.6976",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_286",
 				"_type": "sphere"
@@ -2720,7 +2720,7 @@
 				"center": "-83.5905 117.151 150.4",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_289",
 				"_type": "sphere"
@@ -2738,7 +2738,7 @@
 				"center": "-83.2973 149.637 -116.434",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_291",
 				"_type": "sphere"
@@ -2756,7 +2756,7 @@
 				"center": "-83.7432 150.046 -50.2662",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_293",
 				"_type": "sphere"
@@ -2765,7 +2765,7 @@
 				"center": "-83.0749 150.391 -17.0543",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_294",
 				"_type": "sphere"
@@ -2774,7 +2774,7 @@
 				"center": "-83.5666 150.399 17.0325",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_295",
 				"_type": "sphere"
@@ -2783,7 +2783,7 @@
 				"center": "-83.5569 150.134 49.5011",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_296",
 				"_type": "sphere"
@@ -2792,7 +2792,7 @@
 				"center": "-83.4199 149.857 83.2393",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_297",
 				"_type": "sphere"
@@ -2810,7 +2810,7 @@
 				"center": "-82.8579 149.803 150.469",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_299",
 				"_type": "sphere"
@@ -2828,7 +2828,7 @@
 				"center": "-49.6398 -149.969 -116.85",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_301",
 				"_type": "sphere"
@@ -2846,7 +2846,7 @@
 				"center": "-50.4248 -150.468 -50.0863",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_303",
 				"_type": "sphere"
@@ -2855,7 +2855,7 @@
 				"center": "-49.7304 -149.921 -16.4733",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_304",
 				"_type": "sphere"
@@ -2864,7 +2864,7 @@
 				"center": "-49.5437 -150.452 16.7313",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_305",
 				"_type": "sphere"
@@ -2882,7 +2882,7 @@
 				"center": "-49.7478 -149.84 83.0533",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_307",
 				"_type": "sphere"
@@ -2891,7 +2891,7 @@
 				"center": "-50.4047 -149.802 117.041",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_308",
 				"_type": "sphere"
@@ -2900,7 +2900,7 @@
 				"center": "-49.5617 -149.72 150.237",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_309",
 				"_type": "sphere"
@@ -2918,7 +2918,7 @@
 				"center": "-50.1055 -117.157 -116.217",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_311",
 				"_type": "sphere"
@@ -2927,7 +2927,7 @@
 				"center": "-50.1616 -116.173 -83.1602",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_312",
 				"_type": "sphere"
@@ -2945,7 +2945,7 @@
 				"center": "-49.9173 -116.34 -16.8848",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_314",
 				"_type": "sphere"
@@ -2972,7 +2972,7 @@
 				"center": "-49.5112 -116.209 83.102",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_317",
 				"_type": "sphere"
@@ -2981,7 +2981,7 @@
 				"center": "-49.5155 -116.311 116.4",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_318",
 				"_type": "sphere"
@@ -2999,7 +2999,7 @@
 				"center": "-49.8372 -83.4731 -150.319",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_320",
 				"_type": "sphere"
@@ -3008,7 +3008,7 @@
 				"center": "-49.7307 -83.3207 -116.579",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_321",
 				"_type": "sphere"
@@ -3026,7 +3026,7 @@
 				"center": "-49.5205 -83.4169 -49.8962",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_323",
 				"_type": "sphere"
@@ -3053,7 +3053,7 @@
 				"center": "-50.1033 -83.5062 50.2317",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_326",
 				"_type": "sphere"
@@ -3062,7 +3062,7 @@
 				"center": "-49.9547 -82.8338 83.0261",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_327",
 				"_type": "sphere"
@@ -3080,7 +3080,7 @@
 				"center": "-50.4629 -83.5104 149.807",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_329",
 				"_type": "sphere"
@@ -3089,7 +3089,7 @@
 				"center": "-49.6526 -49.8543 -149.699",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_330",
 				"_type": "sphere"
@@ -3107,7 +3107,7 @@
 				"center": "-50.3118 -50.1498 -82.9382",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_332",
 				"_type": "sphere"
@@ -3143,7 +3143,7 @@
 				"center": "-50.4103 -50.2127 49.7543",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_336",
 				"_type": "sphere"
@@ -3152,7 +3152,7 @@
 				"center": "-49.5101 -49.8816 82.8639",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_337",
 				"_type": "sphere"
@@ -3161,7 +3161,7 @@
 				"center": "-50.2683 -49.9833 117.015",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_338",
 				"_type": "sphere"
@@ -3170,7 +3170,7 @@
 				"center": "-50.3258 -50.4864 150.163",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_339",
 				"_type": "sphere"
@@ -3179,7 +3179,7 @@
 				"center": "-49.5015 -16.2912 -149.65",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_340",
 				"_type": "sphere"
@@ -3188,7 +3188,7 @@
 				"center": "-50.4058 -17.0014 -116.899",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_341",
 				"_type": "sphere"
@@ -3242,7 +3242,7 @@
 				"center": "-50.2773 -16.543 83.5335",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_347",
 				"_type": "sphere"
@@ -3251,7 +3251,7 @@
 				"center": "-50.4233 -16.5697 117.033",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_348",
 				"_type": "sphere"
@@ -3260,7 +3260,7 @@
 				"center": "-49.7358 -16.6778 149.547",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_349",
 				"_type": "sphere"
@@ -3269,7 +3269,7 @@
 				"center": "-49.8318 17.1348 -150.123",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_350",
 				"_type": "sphere"
@@ -3278,7 +3278,7 @@
 				"center": "-50.2999 16.7552 -116.509",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_351",
 				"_type": "sphere"
@@ -3287,7 +3287,7 @@
 				"center": "-49.6452 16.3106 -83.7355",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_352",
 				"_type": "sphere"
@@ -3296,7 +3296,7 @@
 				"center": "-50.2088 16.5067 -50.0626",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_353",
 				"_type": "sphere"
@@ -3305,7 +3305,7 @@
 				"center": "-50.3608 16.8243 -16.7845",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_354",
 				"_type": "sphere"
@@ -3314,7 +3314,7 @@
 				"center": "-50.3845 16.7833 16.4372",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_355",
 				"_type": "sphere"
@@ -3323,7 +3323,7 @@
 				"center": "-49.5551 16.1758 49.6386",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_356",
 				"_type": "sphere"
@@ -3332,7 +3332,7 @@
 				"center": "-49.8626 16.3384 83.273",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_357",
 				"_type": "sphere"
@@ -3350,7 +3350,7 @@
 				"center": "-50.0497 16.3515 150.102",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_359",
 				"_type": "sphere"
@@ -3377,7 +3377,7 @@
 				"center": "-49.8497 50.3577 -82.961",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_362",
 				"_type": "sphere"
@@ -3386,7 +3386,7 @@
 				"center": "-49.6672 50.4644 -50.427",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_363",
 				"_type": "sphere"
@@ -3395,7 +3395,7 @@
 				"center": "-49.8232 49.6436 -16.3742",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_364",
 				"_type": "sphere"
@@ -3404,7 +3404,7 @@
 				"center": "-50.0483 50.3872 17.1109",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_365",
 				"_type": "sphere"
@@ -3449,7 +3449,7 @@
 				"center": "-49.716 83.3829 -150.037",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_370",
 				"_type": "sphere"
@@ -3458,7 +3458,7 @@
 				"center": "-50.3553 82.8589 -116.646",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_371",
 				"_type": "sphere"
@@ -3467,7 +3467,7 @@
 				"center": "-50.0904 83.1804 -83.8092",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_372",
 				"_type": "sphere"
@@ -3485,7 +3485,7 @@
 				"center": "-50.2568 82.9931 -17.0635",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_374",
 				"_type": "sphere"
@@ -3494,7 +3494,7 @@
 				"center": "-50.4062 83.6144 16.4928",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_375",
 				"_type": "sphere"
@@ -3503,7 +3503,7 @@
 				"center": "-50.2422 83.2187 50.2014",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_376",
 				"_type": "sphere"
@@ -3512,7 +3512,7 @@
 				"center": "-50.0797 83.1303 83.3597",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_377",
 				"_type": "sphere"
@@ -3521,7 +3521,7 @@
 				"center": "-49.5354 83.4853 116.963",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_378",
 				"_type": "sphere"
@@ -3539,7 +3539,7 @@
 				"center": "-50.343 117.012 -149.682",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_380",
 				"_type": "sphere"
@@ -3548,7 +3548,7 @@
 				"center": "-49.8046 116.719 -116.681",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_381",
 				"_type": "sphere"
@@ -3593,7 +3593,7 @@
 				"center": "-50.4152 116.586 49.5756",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_386",
 				"_type": "sphere"
@@ -3629,7 +3629,7 @@
 				"center": "-49.7746 150.378 -150.219",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_390",
 				"_type": "sphere"
@@ -3638,7 +3638,7 @@
 				"center": "-49.6079 150.091 -116.724",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_391",
 				"_type": "sphere"
@@ -3647,7 +3647,7 @@
 				"center": "-49.9756 150.051 -83.2503",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_392",
 				"_type": "sphere"
@@ -3656,7 +3656,7 @@
 				"center": "-50.4471 150.372 -49.5542",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_393",
 				"_type": "sphere"
@@ -3665,7 +3665,7 @@
 				"center": "-49.89 149.834 -16.23",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_394",
 				"_type": "sphere"
@@ -3692,7 +3692,7 @@
 				"center": "-49.5845 149.584 83.7863",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_397",
 				"_type": "sphere"
@@ -3701,7 +3701,7 @@
 				"center": "-49.5671 150.461 117.081",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_398",
 				"_type": "sphere"
@@ -3746,7 +3746,7 @@
 				"center": "-16.3381 -149.637 -49.6014",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_403",
 				"_type": "sphere"
@@ -3755,7 +3755,7 @@
 				"center": "-16.9125 -150.138 -16.5067",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_404",
 				"_type": "sphere"
@@ -3764,7 +3764,7 @@
 				"center": "-16.6755 -150.023 16.3121",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_405",
 				"_type": "sphere"
@@ -3782,7 +3782,7 @@
 				"center": "-16.2721 -149.68 82.855",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_407",
 				"_type": "sphere"
@@ -3791,7 +3791,7 @@
 				"center": "-17.0454 -149.938 116.992",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_408",
 				"_type": "sphere"
@@ -3818,7 +3818,7 @@
 				"center": "-17.0576 -116.642 -116.913",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_411",
 				"_type": "sphere"
@@ -3827,7 +3827,7 @@
 				"center": "-17.1586 -116.606 -83.7365",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_412",
 				"_type": "sphere"
@@ -3836,7 +3836,7 @@
 				"center": "-16.6374 -116.383 -50.2011",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_413",
 				"_type": "sphere"
@@ -3863,7 +3863,7 @@
 				"center": "-16.6236 -116.827 49.822",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_416",
 				"_type": "sphere"
@@ -3881,7 +3881,7 @@
 				"center": "-16.1807 -116.799 116.339",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_418",
 				"_type": "sphere"
@@ -3890,7 +3890,7 @@
 				"center": "-17.0366 -116.886 150.404",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_419",
 				"_type": "sphere"
@@ -3899,7 +3899,7 @@
 				"center": "-16.6805 -83.7858 -149.733",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_420",
 				"_type": "sphere"
@@ -3908,7 +3908,7 @@
 				"center": "-17.1483 -83.7592 -116.941",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_421",
 				"_type": "sphere"
@@ -3917,7 +3917,7 @@
 				"center": "-16.4608 -83.393 -82.9925",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_422",
 				"_type": "sphere"
@@ -3935,7 +3935,7 @@
 				"center": "-16.4128 -83.2229 -16.8494",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_424",
 				"_type": "sphere"
@@ -3998,7 +3998,7 @@
 				"center": "-16.1845 -50.26 -116.301",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_431",
 				"_type": "sphere"
@@ -4007,7 +4007,7 @@
 				"center": "-16.8765 -49.6528 -83.406",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_432",
 				"_type": "sphere"
@@ -4016,7 +4016,7 @@
 				"center": "-17.0672 -50.1562 -50.1316",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_433",
 				"_type": "sphere"
@@ -4025,7 +4025,7 @@
 				"center": "-16.3522 -49.7942 -16.7006",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_434",
 				"_type": "sphere"
@@ -4043,7 +4043,7 @@
 				"center": "-16.8418 -49.6069 50.0862",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_436",
 				"_type": "sphere"
@@ -4061,7 +4061,7 @@
 				"center": "-17.094 -50.3677 116.8",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_438",
 				"_type": "sphere"
@@ -4088,7 +4088,7 @@
 				"center": "-16.6134 -16.4721 -116.871",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_441",
 				"_type": "sphere"
@@ -4097,7 +4097,7 @@
 				"center": "-17.0513 -16.264 -83.3575",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_442",
 				"_type": "sphere"
@@ -4106,7 +4106,7 @@
 				"center": "-16.3184 -16.7332 -50.4217",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_443",
 				"_type": "sphere"
@@ -4115,7 +4115,7 @@
 				"center": "-16.9406 -17.0457 -16.8686",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_444",
 				"_type": "sphere"
@@ -4133,7 +4133,7 @@
 				"center": "-17.1651 -16.6227 49.7718",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_446",
 				"_type": "sphere"
@@ -4160,7 +4160,7 @@
 				"center": "-16.2295 -16.6968 149.644",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_449",
 				"_type": "sphere"
@@ -4169,7 +4169,7 @@
 				"center": "-16.3392 16.5844 -150",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_450",
 				"_type": "sphere"
@@ -4196,7 +4196,7 @@
 				"center": "-16.5827 16.8933 -50.1309",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_453",
 				"_type": "sphere"
@@ -4205,7 +4205,7 @@
 				"center": "-16.62 16.7352 -16.7155",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_454",
 				"_type": "sphere"
@@ -4232,7 +4232,7 @@
 				"center": "-16.2865 16.2974 83.4841",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_457",
 				"_type": "sphere"
@@ -4250,7 +4250,7 @@
 				"center": "-16.2399 16.5843 150.434",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_459",
 				"_type": "sphere"
@@ -4286,7 +4286,7 @@
 				"center": "-16.7408 50.3054 -49.6877",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_463",
 				"_type": "sphere"
@@ -4331,7 +4331,7 @@
 				"center": "-16.7293 50.1651 116.771",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_468",
 				"_type": "sphere"
@@ -4349,7 +4349,7 @@
 				"center": "-16.7284 83.8022 -149.785",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_470",
 				"_type": "sphere"
@@ -4358,7 +4358,7 @@
 				"center": "-16.1675 83.0473 -117.023",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_471",
 				"_type": "sphere"
@@ -4367,7 +4367,7 @@
 				"center": "-16.7636 83.1981 -83.2101",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_472",
 				"_type": "sphere"
@@ -4394,7 +4394,7 @@
 				"center": "-16.4268 83.0893 16.1834",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_475",
 				"_type": "sphere"
@@ -4403,7 +4403,7 @@
 				"center": "-16.697 83.7457 49.5934",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_476",
 				"_type": "sphere"
@@ -4421,7 +4421,7 @@
 				"center": "-16.4162 83.5244 116.8",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_478",
 				"_type": "sphere"
@@ -4430,7 +4430,7 @@
 				"center": "-16.4019 83.1429 149.959",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_479",
 				"_type": "sphere"
@@ -4439,7 +4439,7 @@
 				"center": "-17.1549 116.822 -149.876",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_480",
 				"_type": "sphere"
@@ -4466,7 +4466,7 @@
 				"center": "-17.0901 116.81 -50.0801",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_483",
 				"_type": "sphere"
@@ -4484,7 +4484,7 @@
 				"center": "-16.7804 117.063 16.2071",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_485",
 				"_type": "sphere"
@@ -4493,7 +4493,7 @@
 				"center": "-16.8555 116.315 49.6963",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_486",
 				"_type": "sphere"
@@ -4502,7 +4502,7 @@
 				"center": "-17.1138 116.455 83.2939",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_487",
 				"_type": "sphere"
@@ -4511,7 +4511,7 @@
 				"center": "-16.4638 116.454 116.978",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_488",
 				"_type": "sphere"
@@ -4520,7 +4520,7 @@
 				"center": "-16.4444 116.598 149.688",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_489",
 				"_type": "sphere"
@@ -4529,7 +4529,7 @@
 				"center": "-16.5387 149.721 -149.601",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_490",
 				"_type": "sphere"
@@ -4538,7 +4538,7 @@
 				"center": "-16.5857 149.77 -116.419",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_491",
 				"_type": "sphere"
@@ -4547,7 +4547,7 @@
 				"center": "-16.2496 150.015 -83.2817",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_492",
 				"_type": "sphere"
@@ -4556,7 +4556,7 @@
 				"center": "-16.7031 149.887 -50.4082",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_493",
 				"_type": "sphere"
@@ -4565,7 +4565,7 @@
 				"center": "-16.751 150.039 -16.6846",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_494",
 				"_type": "sphere"
@@ -4583,7 +4583,7 @@
 				"center": "-16.5013 149.903 50.4329",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_496",
 				"_type": "sphere"
@@ -4610,7 +4610,7 @@
 				"center": "-16.6531 150.155 150.194",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_499",
 				"_type": "sphere"
@@ -4619,7 +4619,7 @@
 				"center": "16.7537 -150.311 -149.603",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_500",
 				"_type": "sphere"
@@ -4637,7 +4637,7 @@
 				"center": "16.3721 -150.106 -83.8327",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_502",
 				"_type": "sphere"
@@ -4664,7 +4664,7 @@
 				"center": "16.6921 -150.191 16.8977",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_505",
 				"_type": "sphere"
@@ -4682,7 +4682,7 @@
 				"center": "16.9749 -149.568 83.6057",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_507",
 				"_type": "sphere"
@@ -4691,7 +4691,7 @@
 				"center": "16.7826 -150.135 116.801",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_508",
 				"_type": "sphere"
@@ -4700,7 +4700,7 @@
 				"center": "16.2726 -150.435 149.801",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_509",
 				"_type": "sphere"
@@ -4727,7 +4727,7 @@
 				"center": "16.9342 -117.144 -82.9446",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_512",
 				"_type": "sphere"
@@ -4745,7 +4745,7 @@
 				"center": "16.2068 -116.6 -16.4416",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_514",
 				"_type": "sphere"
@@ -4772,7 +4772,7 @@
 				"center": "16.5759 -116.285 83.2689",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_517",
 				"_type": "sphere"
@@ -4781,7 +4781,7 @@
 				"center": "16.2783 -116.579 116.966",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_518",
 				"_type": "sphere"
@@ -4790,7 +4790,7 @@
 				"center": "16.8552 -116.786 149.919",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_519",
 				"_type": "sphere"
@@ -4799,7 +4799,7 @@
 				"center": "16.248 -82.995 -150.251",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_520",
 				"_type": "sphere"
@@ -4808,7 +4808,7 @@
 				"center": "16.5627 -83.713 -117.001",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_521",
 				"_type": "sphere"
@@ -4817,7 +4817,7 @@
 				"center": "16.9826 -83.1459 -83.0765",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_522",
 				"_type": "sphere"
@@ -4826,7 +4826,7 @@
 				"center": "16.6251 -83.5121 -49.5396",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_523",
 				"_type": "sphere"
@@ -4835,7 +4835,7 @@
 				"center": "16.668 -83.5311 -16.9606",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_524",
 				"_type": "sphere"
@@ -4844,7 +4844,7 @@
 				"center": "16.3632 -83.8063 16.4813",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_525",
 				"_type": "sphere"
@@ -4853,7 +4853,7 @@
 				"center": "17.1081 -83.2806 49.5287",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_526",
 				"_type": "sphere"
@@ -4862,7 +4862,7 @@
 				"center": "16.9686 -83.5115 83.7328",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_527",
 				"_type": "sphere"
@@ -4871,7 +4871,7 @@
 				"center": "16.26 -83.5557 116.779",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_528",
 				"_type": "sphere"
@@ -4880,7 +4880,7 @@
 				"center": "16.5567 -83.303 149.821",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_529",
 				"_type": "sphere"
@@ -4898,7 +4898,7 @@
 				"center": "16.7333 -50.1091 -116.285",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_531",
 				"_type": "sphere"
@@ -4907,7 +4907,7 @@
 				"center": "16.2714 -49.7101 -83.4043",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_532",
 				"_type": "sphere"
@@ -4925,7 +4925,7 @@
 				"center": "16.8609 -49.9144 -16.8565",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_534",
 				"_type": "sphere"
@@ -4934,7 +4934,7 @@
 				"center": "16.3483 -49.6567 16.3826",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_535",
 				"_type": "sphere"
@@ -4943,7 +4943,7 @@
 				"center": "16.1903 -50.4371 50.307",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_536",
 				"_type": "sphere"
@@ -4961,7 +4961,7 @@
 				"center": "16.229 -50.4925 116.913",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_538",
 				"_type": "sphere"
@@ -4970,7 +4970,7 @@
 				"center": "16.2784 -49.6743 150.149",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_539",
 				"_type": "sphere"
@@ -4979,7 +4979,7 @@
 				"center": "17.0833 -16.1829 -149.539",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_540",
 				"_type": "sphere"
@@ -4988,7 +4988,7 @@
 				"center": "17.0323 -16.4843 -116.169",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_541",
 				"_type": "sphere"
@@ -5015,7 +5015,7 @@
 				"center": "17.1108 -16.6339 -16.5531",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_544",
 				"_type": "sphere"
@@ -5024,7 +5024,7 @@
 				"center": "16.6052 -16.8122 16.8111",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_545",
 				"_type": "sphere"
@@ -5033,7 +5033,7 @@
 				"center": "16.7866 -16.4907 49.5625",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_546",
 				"_type": "sphere"
@@ -5060,7 +5060,7 @@
 				"center": "16.3863 -16.9395 150.478",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_549",
 				"_type": "sphere"
@@ -5105,7 +5105,7 @@
 				"center": "16.5782 16.2216 -16.7155",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_554",
 				"_type": "sphere"
@@ -5123,7 +5123,7 @@
 				"center": "16.4722 17.0235 50.1243",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_556",
 				"_type": "sphere"
@@ -5132,7 +5132,7 @@
 				"center": "17.0918 16.4316 83.1021",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_557",
 				"_type": "sphere"
@@ -5168,7 +5168,7 @@
 				"center": "16.4954 50.2044 -117.131",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_561",
 				"_type": "sphere"
@@ -5177,7 +5177,7 @@
 				"center": "17.0831 49.7679 -83.327",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_562",
 				"_type": "sphere"
@@ -5195,7 +5195,7 @@
 				"center": "16.9803 50.1424 -16.8071",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_564",
 				"_type": "sphere"
@@ -5213,7 +5213,7 @@
 				"center": "16.1744 49.7919 49.7119",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_566",
 				"_type": "sphere"
@@ -5222,7 +5222,7 @@
 				"center": "16.8789 49.8001 83.1994",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_567",
 				"_type": "sphere"
@@ -5231,7 +5231,7 @@
 				"center": "16.9659 49.9342 116.623",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_568",
 				"_type": "sphere"
@@ -5240,7 +5240,7 @@
 				"center": "17.0152 50.4492 150.077",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_569",
 				"_type": "sphere"
@@ -5249,7 +5249,7 @@
 				"center": "16.6284 83.1126 -149.79",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_570",
 				"_type": "sphere"
@@ -5276,7 +5276,7 @@
 				"center": "16.8054 83.1492 -49.9967",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_573",
 				"_type": "sphere"
@@ -5312,7 +5312,7 @@
 				"center": "16.7303 83.215 83.2787",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_577",
 				"_type": "sphere"
@@ -5321,7 +5321,7 @@
 				"center": "17.0364 83.8015 116.49",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_578",
 				"_type": "sphere"
@@ -5330,7 +5330,7 @@
 				"center": "16.6914 83.4837 149.575",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_579",
 				"_type": "sphere"
@@ -5348,7 +5348,7 @@
 				"center": "16.7901 116.423 -116.94",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_581",
 				"_type": "sphere"
@@ -5366,7 +5366,7 @@
 				"center": "16.6777 116.468 -49.9728",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_583",
 				"_type": "sphere"
@@ -5375,7 +5375,7 @@
 				"center": "16.7892 116.329 -16.4661",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_584",
 				"_type": "sphere"
@@ -5402,7 +5402,7 @@
 				"center": "16.3536 116.512 83.1574",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_587",
 				"_type": "sphere"
@@ -5429,7 +5429,7 @@
 				"center": "17.1194 150.13 -150.205",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_590",
 				"_type": "sphere"
@@ -5438,7 +5438,7 @@
 				"center": "16.1751 150.493 -116.559",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_591",
 				"_type": "sphere"
@@ -5465,7 +5465,7 @@
 				"center": "16.324 149.538 -16.9147",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_594",
 				"_type": "sphere"
@@ -5483,7 +5483,7 @@
 				"center": "16.3517 150.298 49.9447",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_596",
 				"_type": "sphere"
@@ -5501,7 +5501,7 @@
 				"center": "16.3551 150.359 116.596",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_598",
 				"_type": "sphere"
@@ -5528,7 +5528,7 @@
 				"center": "49.6811 -150.152 -116.614",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_601",
 				"_type": "sphere"
@@ -5537,7 +5537,7 @@
 				"center": "49.9484 -149.836 -83.4445",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_602",
 				"_type": "sphere"
@@ -5546,7 +5546,7 @@
 				"center": "50.2649 -150.468 -50.0751",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_603",
 				"_type": "sphere"
@@ -5555,7 +5555,7 @@
 				"center": "50.3006 -150.211 -16.171",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_604",
 				"_type": "sphere"
@@ -5564,7 +5564,7 @@
 				"center": "50.216 -150.31 16.9875",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_605",
 				"_type": "sphere"
@@ -5582,7 +5582,7 @@
 				"center": "50.045 -150.448 83.4311",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_607",
 				"_type": "sphere"
@@ -5591,7 +5591,7 @@
 				"center": "49.8327 -149.846 117.074",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_608",
 				"_type": "sphere"
@@ -5600,7 +5600,7 @@
 				"center": "49.7146 -150.26 150.426",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_609",
 				"_type": "sphere"
@@ -5627,7 +5627,7 @@
 				"center": "50.4744 -117.104 -83.5695",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_612",
 				"_type": "sphere"
@@ -5636,7 +5636,7 @@
 				"center": "49.822 -116.564 -49.7212",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_613",
 				"_type": "sphere"
@@ -5681,7 +5681,7 @@
 				"center": "50.331 -116.77 116.426",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_618",
 				"_type": "sphere"
@@ -5690,7 +5690,7 @@
 				"center": "49.6424 -116.602 150.401",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_619",
 				"_type": "sphere"
@@ -5699,7 +5699,7 @@
 				"center": "50.2669 -83.7208 -150.32",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_620",
 				"_type": "sphere"
@@ -5708,7 +5708,7 @@
 				"center": "49.8016 -83.3302 -117.096",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_621",
 				"_type": "sphere"
@@ -5717,7 +5717,7 @@
 				"center": "49.5179 -83.3802 -83.1293",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_622",
 				"_type": "sphere"
@@ -5726,7 +5726,7 @@
 				"center": "49.6167 -82.8477 -49.5193",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_623",
 				"_type": "sphere"
@@ -5735,7 +5735,7 @@
 				"center": "49.6044 -83.1911 -16.7289",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_624",
 				"_type": "sphere"
@@ -5744,7 +5744,7 @@
 				"center": "49.7706 -83.5994 16.7717",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_625",
 				"_type": "sphere"
@@ -5753,7 +5753,7 @@
 				"center": "49.8272 -83.2577 50.2069",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_626",
 				"_type": "sphere"
@@ -5771,7 +5771,7 @@
 				"center": "49.9948 -83.6146 116.612",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_628",
 				"_type": "sphere"
@@ -5807,7 +5807,7 @@
 				"center": "49.7853 -50.2951 -83.3554",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_632",
 				"_type": "sphere"
@@ -5816,7 +5816,7 @@
 				"center": "50.422 -49.8178 -50.2153",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_633",
 				"_type": "sphere"
@@ -5834,7 +5834,7 @@
 				"center": "49.8077 -49.5239 16.2595",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_635",
 				"_type": "sphere"
@@ -5843,7 +5843,7 @@
 				"center": "49.668 -49.8661 50.3739",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_636",
 				"_type": "sphere"
@@ -5852,7 +5852,7 @@
 				"center": "49.776 -49.5141 83.0068",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_637",
 				"_type": "sphere"
@@ -5861,7 +5861,7 @@
 				"center": "50.0691 -49.5956 116.182",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_638",
 				"_type": "sphere"
@@ -5870,7 +5870,7 @@
 				"center": "49.6757 -49.9327 150.349",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_639",
 				"_type": "sphere"
@@ -5906,7 +5906,7 @@
 				"center": "49.5147 -17.1423 -50.2",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_643",
 				"_type": "sphere"
@@ -5942,7 +5942,7 @@
 				"center": "50.3338 -16.3174 83.7227",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_647",
 				"_type": "sphere"
@@ -5960,7 +5960,7 @@
 				"center": "50.1908 -16.2479 149.889",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_649",
 				"_type": "sphere"
@@ -5987,7 +5987,7 @@
 				"center": "50.091 16.5637 -83.6396",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_652",
 				"_type": "sphere"
@@ -5996,7 +5996,7 @@
 				"center": "49.9703 16.9158 -49.909",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_653",
 				"_type": "sphere"
@@ -6005,7 +6005,7 @@
 				"center": "50.1764 16.3748 -16.988",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_654",
 				"_type": "sphere"
@@ -6014,7 +6014,7 @@
 				"center": "49.8032 16.3167 17.1045",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_655",
 				"_type": "sphere"
@@ -6023,7 +6023,7 @@
 				"center": "49.7707 16.5552 49.7156",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_656",
 				"_type": "sphere"
@@ -6041,7 +6041,7 @@
 				"center": "50.3771 16.2409 116.31",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_658",
 				"_type": "sphere"
@@ -6050,7 +6050,7 @@
 				"center": "50.3391 16.213 149.972",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_659",
 				"_type": "sphere"
@@ -6068,7 +6068,7 @@
 				"center": "50.3737 49.7598 -116.628",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_661",
 				"_type": "sphere"
@@ -6086,7 +6086,7 @@
 				"center": "50.3268 49.5384 -49.9404",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_663",
 				"_type": "sphere"
@@ -6104,7 +6104,7 @@
 				"center": "49.6116 49.57 16.8025",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_665",
 				"_type": "sphere"
@@ -6113,7 +6113,7 @@
 				"center": "50.3799 49.7307 49.9702",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_666",
 				"_type": "sphere"
@@ -6122,7 +6122,7 @@
 				"center": "50.284 49.9631 83.0658",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_667",
 				"_type": "sphere"
@@ -6149,7 +6149,7 @@
 				"center": "50.0903 83.0821 -150.486",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_670",
 				"_type": "sphere"
@@ -6167,7 +6167,7 @@
 				"center": "49.98 83.7787 -83.7077",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_672",
 				"_type": "sphere"
@@ -6176,7 +6176,7 @@
 				"center": "50.249 83.2245 -50.2628",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_673",
 				"_type": "sphere"
@@ -6185,7 +6185,7 @@
 				"center": "50.4302 83.464 -16.2967",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_674",
 				"_type": "sphere"
@@ -6194,7 +6194,7 @@
 				"center": "49.5141 83.5924 16.8816",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_675",
 				"_type": "sphere"
@@ -6212,7 +6212,7 @@
 				"center": "50.3223 83.3367 83.6607",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_677",
 				"_type": "sphere"
@@ -6230,7 +6230,7 @@
 				"center": "50.4656 83.1558 149.701",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_679",
 				"_type": "sphere"
@@ -6257,7 +6257,7 @@
 				"center": "49.7042 116.843 -83.1683",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_682",
 				"_type": "sphere"
@@ -6284,7 +6284,7 @@
 				"center": "50.4889 116.314 16.1683",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_685",
 				"_type": "sphere"
@@ -6293,7 +6293,7 @@
 				"center": "50.203 116.342 49.8056",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_686",
 				"_type": "sphere"
@@ -6329,7 +6329,7 @@
 				"center": "50.3969 150.043 -150.095",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_690",
 				"_type": "sphere"
@@ -6338,7 +6338,7 @@
 				"center": "49.8691 149.782 -117.035",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_691",
 				"_type": "sphere"
@@ -6365,7 +6365,7 @@
 				"center": "50.2276 150.328 -17.1117",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_694",
 				"_type": "sphere"
@@ -6374,7 +6374,7 @@
 				"center": "49.8502 149.589 16.5079",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_695",
 				"_type": "sphere"
@@ -6410,7 +6410,7 @@
 				"center": "49.766 150.448 150.246",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_699",
 				"_type": "sphere"
@@ -6419,7 +6419,7 @@
 				"center": "83.3115 -150.203 -150.495",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_700",
 				"_type": "sphere"
@@ -6428,7 +6428,7 @@
 				"center": "83.7659 -149.955 -116.752",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_701",
 				"_type": "sphere"
@@ -6455,7 +6455,7 @@
 				"center": "83.5419 -149.696 -17.0189",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_704",
 				"_type": "sphere"
@@ -6464,7 +6464,7 @@
 				"center": "83.3268 -150.427 16.9568",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_705",
 				"_type": "sphere"
@@ -6500,7 +6500,7 @@
 				"center": "83.2429 -149.85 150.378",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_709",
 				"_type": "sphere"
@@ -6509,7 +6509,7 @@
 				"center": "83.2899 -116.604 -149.67",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_710",
 				"_type": "sphere"
@@ -6518,7 +6518,7 @@
 				"center": "83.6304 -116.586 -116.591",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_711",
 				"_type": "sphere"
@@ -6527,7 +6527,7 @@
 				"center": "83.1901 -116.905 -83.2659",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_712",
 				"_type": "sphere"
@@ -6536,7 +6536,7 @@
 				"center": "83.746 -116.854 -50.1262",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_713",
 				"_type": "sphere"
@@ -6545,7 +6545,7 @@
 				"center": "83.2606 -116.176 -16.6058",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_714",
 				"_type": "sphere"
@@ -6563,7 +6563,7 @@
 				"center": "83.5263 -117.118 49.6394",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_716",
 				"_type": "sphere"
@@ -6572,7 +6572,7 @@
 				"center": "82.9591 -116.196 82.8739",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_717",
 				"_type": "sphere"
@@ -6581,7 +6581,7 @@
 				"center": "82.9811 -116.317 116.266",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_718",
 				"_type": "sphere"
@@ -6590,7 +6590,7 @@
 				"center": "83.3838 -116.437 149.569",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_719",
 				"_type": "sphere"
@@ -6599,7 +6599,7 @@
 				"center": "83.5638 -83.7385 -149.772",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_720",
 				"_type": "sphere"
@@ -6608,7 +6608,7 @@
 				"center": "82.9075 -83.4266 -116.717",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_721",
 				"_type": "sphere"
@@ -6626,7 +6626,7 @@
 				"center": "83.1908 -83.7838 -50.3226",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_723",
 				"_type": "sphere"
@@ -6653,7 +6653,7 @@
 				"center": "82.8882 -83.4577 49.5761",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_726",
 				"_type": "sphere"
@@ -6662,7 +6662,7 @@
 				"center": "83.7245 -83.7952 83.3415",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_727",
 				"_type": "sphere"
@@ -6671,7 +6671,7 @@
 				"center": "82.9803 -83.4784 116.532",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_728",
 				"_type": "sphere"
@@ -6680,7 +6680,7 @@
 				"center": "83.7019 -83.8 149.772",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_729",
 				"_type": "sphere"
@@ -6689,7 +6689,7 @@
 				"center": "83.2325 -49.7815 -149.734",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_730",
 				"_type": "sphere"
@@ -6698,7 +6698,7 @@
 				"center": "83.6306 -50.0028 -116.592",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_731",
 				"_type": "sphere"
@@ -6707,7 +6707,7 @@
 				"center": "83.5061 -49.9404 -83.1144",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_732",
 				"_type": "sphere"
@@ -6716,7 +6716,7 @@
 				"center": "83.5631 -49.7602 -50.4929",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_733",
 				"_type": "sphere"
@@ -6725,7 +6725,7 @@
 				"center": "83.6966 -50.0279 -16.4679",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_734",
 				"_type": "sphere"
@@ -6752,7 +6752,7 @@
 				"center": "83.6312 -50.0715 83.1141",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_737",
 				"_type": "sphere"
@@ -6761,7 +6761,7 @@
 				"center": "83.5776 -49.9464 117.14",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_738",
 				"_type": "sphere"
@@ -6770,7 +6770,7 @@
 				"center": "82.8724 -50.1677 149.91",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_739",
 				"_type": "sphere"
@@ -6779,7 +6779,7 @@
 				"center": "83.7731 -17.0976 -150.169",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_740",
 				"_type": "sphere"
@@ -6797,7 +6797,7 @@
 				"center": "83.3821 -16.4318 -83.1534",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_742",
 				"_type": "sphere"
@@ -6806,7 +6806,7 @@
 				"center": "83.1213 -17.0776 -49.571",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_743",
 				"_type": "sphere"
@@ -6815,7 +6815,7 @@
 				"center": "83.767 -17.1617 -16.8662",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_744",
 				"_type": "sphere"
@@ -6824,7 +6824,7 @@
 				"center": "83.1769 -16.9548 16.5296",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_745",
 				"_type": "sphere"
@@ -6842,7 +6842,7 @@
 				"center": "83.1875 -16.9424 83.4946",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_747",
 				"_type": "sphere"
@@ -6851,7 +6851,7 @@
 				"center": "82.9073 -16.7868 116.624",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_748",
 				"_type": "sphere"
@@ -6860,7 +6860,7 @@
 				"center": "83.1668 -16.8539 150.338",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_749",
 				"_type": "sphere"
@@ -6869,7 +6869,7 @@
 				"center": "83.3254 17.1442 -150.09",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_750",
 				"_type": "sphere"
@@ -6878,7 +6878,7 @@
 				"center": "83.234 16.18 -116.288",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_751",
 				"_type": "sphere"
@@ -6896,7 +6896,7 @@
 				"center": "83.5307 16.9789 -50.2379",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_753",
 				"_type": "sphere"
@@ -6914,7 +6914,7 @@
 				"center": "83.059 16.577 16.1834",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_755",
 				"_type": "sphere"
@@ -6923,7 +6923,7 @@
 				"center": "83.3734 16.5412 50.2032",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_756",
 				"_type": "sphere"
@@ -6950,7 +6950,7 @@
 				"center": "83.0979 16.5591 149.755",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_759",
 				"_type": "sphere"
@@ -6959,7 +6959,7 @@
 				"center": "83.2667 49.6033 -150.298",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_760",
 				"_type": "sphere"
@@ -6968,7 +6968,7 @@
 				"center": "83.1895 50.4907 -116.538",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_761",
 				"_type": "sphere"
@@ -6986,7 +6986,7 @@
 				"center": "82.8825 49.8207 -49.8973",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_763",
 				"_type": "sphere"
@@ -6995,7 +6995,7 @@
 				"center": "83.2382 49.7061 -16.7153",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_764",
 				"_type": "sphere"
@@ -7004,7 +7004,7 @@
 				"center": "83.5568 50.2832 17.0193",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_765",
 				"_type": "sphere"
@@ -7022,7 +7022,7 @@
 				"center": "83.1012 49.5691 83.4945",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_767",
 				"_type": "sphere"
@@ -7031,7 +7031,7 @@
 				"center": "83.8133 49.831 116.336",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_768",
 				"_type": "sphere"
@@ -7049,7 +7049,7 @@
 				"center": "83.3505 83.6449 -150.245",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_770",
 				"_type": "sphere"
@@ -7058,7 +7058,7 @@
 				"center": "83.6552 83.7604 -116.685",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_771",
 				"_type": "sphere"
@@ -7067,7 +7067,7 @@
 				"center": "83.2223 83.6682 -83.2338",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_772",
 				"_type": "sphere"
@@ -7139,7 +7139,7 @@
 				"center": "83.0508 116.516 -149.618",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_780",
 				"_type": "sphere"
@@ -7157,7 +7157,7 @@
 				"center": "83.6384 116.747 -83.5078",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_782",
 				"_type": "sphere"
@@ -7166,7 +7166,7 @@
 				"center": "83.0541 116.435 -50.1434",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_783",
 				"_type": "sphere"
@@ -7184,7 +7184,7 @@
 				"center": "83.1891 116.474 16.9412",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_785",
 				"_type": "sphere"
@@ -7202,7 +7202,7 @@
 				"center": "83.0987 117.134 83.2656",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_787",
 				"_type": "sphere"
@@ -7211,7 +7211,7 @@
 				"center": "83.6066 116.74 116.437",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_788",
 				"_type": "sphere"
@@ -7229,7 +7229,7 @@
 				"center": "83.4128 149.588 -149.793",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_790",
 				"_type": "sphere"
@@ -7265,7 +7265,7 @@
 				"center": "83.2226 150.287 -16.8278",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_794",
 				"_type": "sphere"
@@ -7283,7 +7283,7 @@
 				"center": "83.3834 149.956 50.463",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_796",
 				"_type": "sphere"
@@ -7310,7 +7310,7 @@
 				"center": "83.2922 149.669 150.171",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_799",
 				"_type": "sphere"
@@ -7328,7 +7328,7 @@
 				"center": "116.296 -149.643 -116.574",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_801",
 				"_type": "sphere"
@@ -7346,7 +7346,7 @@
 				"center": "116.182 -149.611 -49.9921",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_803",
 				"_type": "sphere"
@@ -7355,7 +7355,7 @@
 				"center": "117.073 -149.75 -16.7214",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_804",
 				"_type": "sphere"
@@ -7373,7 +7373,7 @@
 				"center": "116.785 -150.054 49.8286",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_806",
 				"_type": "sphere"
@@ -7382,7 +7382,7 @@
 				"center": "116.53 -150.17 83.1422",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_807",
 				"_type": "sphere"
@@ -7391,7 +7391,7 @@
 				"center": "116.691 -150.258 116.719",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_808",
 				"_type": "sphere"
@@ -7409,7 +7409,7 @@
 				"center": "116.204 -116.9 -150.178",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_810",
 				"_type": "sphere"
@@ -7418,7 +7418,7 @@
 				"center": "116.481 -116.246 -116.764",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_811",
 				"_type": "sphere"
@@ -7436,7 +7436,7 @@
 				"center": "116.798 -116.978 -49.875",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_813",
 				"_type": "sphere"
@@ -7445,7 +7445,7 @@
 				"center": "117.067 -116.175 -16.583",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_814",
 				"_type": "sphere"
@@ -7463,7 +7463,7 @@
 				"center": "116.315 -116.693 49.724",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_816",
 				"_type": "sphere"
@@ -7481,7 +7481,7 @@
 				"center": "116.733 -116.639 116.563",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_818",
 				"_type": "sphere"
@@ -7490,7 +7490,7 @@
 				"center": "116.461 -116.769 149.987",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_819",
 				"_type": "sphere"
@@ -7517,7 +7517,7 @@
 				"center": "116.895 -83.5685 -83.1542",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_822",
 				"_type": "sphere"
@@ -7535,7 +7535,7 @@
 				"center": "116.981 -83.1971 -16.1759",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_824",
 				"_type": "sphere"
@@ -7562,7 +7562,7 @@
 				"center": "116.643 -83.3007 83.7952",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_827",
 				"_type": "sphere"
@@ -7580,7 +7580,7 @@
 				"center": "117.131 -83.0202 150.131",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_829",
 				"_type": "sphere"
@@ -7589,7 +7589,7 @@
 				"center": "117.165 -49.9753 -149.968",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_830",
 				"_type": "sphere"
@@ -7598,7 +7598,7 @@
 				"center": "116.666 -49.9629 -116.68",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_831",
 				"_type": "sphere"
@@ -7616,7 +7616,7 @@
 				"center": "116.941 -49.9888 -49.6959",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_833",
 				"_type": "sphere"
@@ -7625,7 +7625,7 @@
 				"center": "116.767 -49.7801 -16.8682",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_834",
 				"_type": "sphere"
@@ -7643,7 +7643,7 @@
 				"center": "116.222 -50.423 50.3084",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_836",
 				"_type": "sphere"
@@ -7661,7 +7661,7 @@
 				"center": "116.536 -49.6766 116.507",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_838",
 				"_type": "sphere"
@@ -7679,7 +7679,7 @@
 				"center": "117.032 -16.2884 -149.964",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_840",
 				"_type": "sphere"
@@ -7688,7 +7688,7 @@
 				"center": "116.812 -16.7947 -116.198",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_841",
 				"_type": "sphere"
@@ -7697,7 +7697,7 @@
 				"center": "116.234 -16.3239 -83.6889",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_842",
 				"_type": "sphere"
@@ -7715,7 +7715,7 @@
 				"center": "116.803 -17.0207 -16.4461",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_844",
 				"_type": "sphere"
@@ -7724,7 +7724,7 @@
 				"center": "116.622 -16.3951 17.1576",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_845",
 				"_type": "sphere"
@@ -7742,7 +7742,7 @@
 				"center": "116.558 -16.2589 83.1655",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_847",
 				"_type": "sphere"
@@ -7751,7 +7751,7 @@
 				"center": "116.685 -17.0666 116.394",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_848",
 				"_type": "sphere"
@@ -7760,7 +7760,7 @@
 				"center": "116.211 -16.2271 149.575",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_849",
 				"_type": "sphere"
@@ -7769,7 +7769,7 @@
 				"center": "116.732 16.8192 -149.564",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_850",
 				"_type": "sphere"
@@ -7778,7 +7778,7 @@
 				"center": "116.479 17.1476 -116.737",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_851",
 				"_type": "sphere"
@@ -7823,7 +7823,7 @@
 				"center": "116.656 16.6043 50.0812",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_856",
 				"_type": "sphere"
@@ -7832,7 +7832,7 @@
 				"center": "116.391 16.9684 83.6311",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_857",
 				"_type": "sphere"
@@ -7850,7 +7850,7 @@
 				"center": "116.206 17.0043 150.443",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_859",
 				"_type": "sphere"
@@ -7868,7 +7868,7 @@
 				"center": "116.428 49.6422 -116.89",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_861",
 				"_type": "sphere"
@@ -7895,7 +7895,7 @@
 				"center": "116.307 50.2541 -16.561",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_864",
 				"_type": "sphere"
@@ -7904,7 +7904,7 @@
 				"center": "116.693 49.5641 16.7103",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_865",
 				"_type": "sphere"
@@ -7922,7 +7922,7 @@
 				"center": "116.622 49.932 83.0647",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_867",
 				"_type": "sphere"
@@ -7931,7 +7931,7 @@
 				"center": "116.543 50.2207 116.847",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_868",
 				"_type": "sphere"
@@ -7949,7 +7949,7 @@
 				"center": "116.455 83.6954 -149.974",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_870",
 				"_type": "sphere"
@@ -7967,7 +7967,7 @@
 				"center": "117.135 82.8468 -83.5729",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_872",
 				"_type": "sphere"
@@ -7985,7 +7985,7 @@
 				"center": "116.255 83.7673 -16.2274",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_874",
 				"_type": "sphere"
@@ -7994,7 +7994,7 @@
 				"center": "116.923 83.0983 17.1522",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_875",
 				"_type": "sphere"
@@ -8012,7 +8012,7 @@
 				"center": "116.297 82.8666 83.5131",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_877",
 				"_type": "sphere"
@@ -8030,7 +8030,7 @@
 				"center": "116.251 83.0451 150.304",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_879",
 				"_type": "sphere"
@@ -8039,7 +8039,7 @@
 				"center": "116.327 116.27 -150.01",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_880",
 				"_type": "sphere"
@@ -8048,7 +8048,7 @@
 				"center": "116.931 116.905 -116.189",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_881",
 				"_type": "sphere"
@@ -8057,7 +8057,7 @@
 				"center": "116.898 116.809 -83.6912",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_882",
 				"_type": "sphere"
@@ -8066,7 +8066,7 @@
 				"center": "116.326 116.299 -49.8955",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_883",
 				"_type": "sphere"
@@ -8084,7 +8084,7 @@
 				"center": "116.272 116.78 17.0903",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_885",
 				"_type": "sphere"
@@ -8102,7 +8102,7 @@
 				"center": "116.644 116.22 83.3523",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_887",
 				"_type": "sphere"
@@ -8120,7 +8120,7 @@
 				"center": "116.944 117.116 150.033",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_889",
 				"_type": "sphere"
@@ -8129,7 +8129,7 @@
 				"center": "116.659 150.346 -150.072",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_890",
 				"_type": "sphere"
@@ -8138,7 +8138,7 @@
 				"center": "116.577 149.812 -116.93",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_891",
 				"_type": "sphere"
@@ -8147,7 +8147,7 @@
 				"center": "117.038 150.028 -83.4731",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_892",
 				"_type": "sphere"
@@ -8156,7 +8156,7 @@
 				"center": "116.336 149.568 -50.0849",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_893",
 				"_type": "sphere"
@@ -8174,7 +8174,7 @@
 				"center": "116.986 149.863 16.3772",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_895",
 				"_type": "sphere"
@@ -8183,7 +8183,7 @@
 				"center": "117.119 149.626 49.9033",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_896",
 				"_type": "sphere"
@@ -8201,7 +8201,7 @@
 				"center": "116.189 150.002 116.913",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_898",
 				"_type": "sphere"
@@ -8210,7 +8210,7 @@
 				"center": "116.459 149.976 150.091",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_899",
 				"_type": "sphere"
@@ -8219,7 +8219,7 @@
 				"center": "150.042 -150.237 -149.991",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_900",
 				"_type": "sphere"
@@ -8228,7 +8228,7 @@
 				"center": "149.857 -149.512 -116.711",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_901",
 				"_type": "sphere"
@@ -8255,7 +8255,7 @@
 				"center": "149.504 -150.146 -16.3141",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_904",
 				"_type": "sphere"
@@ -8264,7 +8264,7 @@
 				"center": "149.925 -149.825 16.7695",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_905",
 				"_type": "sphere"
@@ -8273,7 +8273,7 @@
 				"center": "150.367 -149.576 49.8238",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_906",
 				"_type": "sphere"
@@ -8291,7 +8291,7 @@
 				"center": "149.67 -150.283 117.065",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_908",
 				"_type": "sphere"
@@ -8327,7 +8327,7 @@
 				"center": "149.776 -116.272 -83.5341",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_912",
 				"_type": "sphere"
@@ -8345,7 +8345,7 @@
 				"center": "150.498 -117.086 -16.9228",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_914",
 				"_type": "sphere"
@@ -8381,7 +8381,7 @@
 				"center": "149.905 -116.175 117.06",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_918",
 				"_type": "sphere"
@@ -8390,7 +8390,7 @@
 				"center": "150.022 -116.637 149.862",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_919",
 				"_type": "sphere"
@@ -8399,7 +8399,7 @@
 				"center": "150.395 -83.0005 -150.262",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_920",
 				"_type": "sphere"
@@ -8417,7 +8417,7 @@
 				"center": "149.519 -83.279 -82.8404",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_922",
 				"_type": "sphere"
@@ -8426,7 +8426,7 @@
 				"center": "149.744 -82.9828 -50.454",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_923",
 				"_type": "sphere"
@@ -8462,7 +8462,7 @@
 				"center": "149.688 -83.5647 83.405",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_927",
 				"_type": "sphere"
@@ -8471,7 +8471,7 @@
 				"center": "150.036 -82.9785 116.991",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_928",
 				"_type": "sphere"
@@ -8480,7 +8480,7 @@
 				"center": "150.281 -83.5106 149.835",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_929",
 				"_type": "sphere"
@@ -8498,7 +8498,7 @@
 				"center": "149.537 -49.6218 -117.125",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_931",
 				"_type": "sphere"
@@ -8507,7 +8507,7 @@
 				"center": "150.013 -49.5097 -83.2256",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_932",
 				"_type": "sphere"
@@ -8516,7 +8516,7 @@
 				"center": "150.262 -50.3809 -49.7024",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_933",
 				"_type": "sphere"
@@ -8534,7 +8534,7 @@
 				"center": "149.629 -49.7937 16.5431",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_935",
 				"_type": "sphere"
@@ -8543,7 +8543,7 @@
 				"center": "150.323 -50.1814 50.2301",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_936",
 				"_type": "sphere"
@@ -8588,7 +8588,7 @@
 				"center": "149.526 -16.9892 -116.578",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_941",
 				"_type": "sphere"
@@ -8597,7 +8597,7 @@
 				"center": "149.649 -16.1826 -83.679",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_942",
 				"_type": "sphere"
@@ -8624,7 +8624,7 @@
 				"center": "149.742 -16.2125 16.8486",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_945",
 				"_type": "sphere"
@@ -8633,7 +8633,7 @@
 				"center": "149.688 -16.5554 49.7912",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_946",
 				"_type": "sphere"
@@ -8642,7 +8642,7 @@
 				"center": "150.324 -16.5009 83.7558",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_947",
 				"_type": "sphere"
@@ -8660,7 +8660,7 @@
 				"center": "150.246 -16.2596 149.869",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_949",
 				"_type": "sphere"
@@ -8705,7 +8705,7 @@
 				"center": "150.003 16.2683 -16.3336",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_954",
 				"_type": "sphere"
@@ -8723,7 +8723,7 @@
 				"center": "150.036 16.1914 50.0909",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_956",
 				"_type": "sphere"
@@ -8750,7 +8750,7 @@
 				"center": "150.398 16.5658 149.955",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_959",
 				"_type": "sphere"
@@ -8777,7 +8777,7 @@
 				"center": "150.226 50.4042 -83.1945",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_962",
 				"_type": "sphere"
@@ -8786,7 +8786,7 @@
 				"center": "149.62 50.4653 -49.7531",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_963",
 				"_type": "sphere"
@@ -8795,7 +8795,7 @@
 				"center": "150.197 50.4294 -16.6088",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_964",
 				"_type": "sphere"
@@ -8804,7 +8804,7 @@
 				"center": "150.454 50.3615 17.0412",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_965",
 				"_type": "sphere"
@@ -8813,7 +8813,7 @@
 				"center": "149.944 50.0823 50.4264",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_966",
 				"_type": "sphere"
@@ -8831,7 +8831,7 @@
 				"center": "149.618 49.5649 116.173",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_968",
 				"_type": "sphere"
@@ -8840,7 +8840,7 @@
 				"center": "150.389 49.5995 149.575",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_969",
 				"_type": "sphere"
@@ -8849,7 +8849,7 @@
 				"center": "149.925 83.2782 -149.91",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_970",
 				"_type": "sphere"
@@ -8867,7 +8867,7 @@
 				"center": "150.283 83.1037 -83.2352",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_972",
 				"_type": "sphere"
@@ -8876,7 +8876,7 @@
 				"center": "150.205 83.7281 -49.9295",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_973",
 				"_type": "sphere"
@@ -8885,7 +8885,7 @@
 				"center": "149.826 83.3076 -16.9217",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_974",
 				"_type": "sphere"
@@ -8903,7 +8903,7 @@
 				"center": "150.494 83.7038 50.0675",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_976",
 				"_type": "sphere"
@@ -8912,7 +8912,7 @@
 				"center": "150.194 83.6973 83.1189",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_977",
 				"_type": "sphere"
@@ -8930,7 +8930,7 @@
 				"center": "149.919 83.1701 149.873",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_979",
 				"_type": "sphere"
@@ -8939,7 +8939,7 @@
 				"center": "149.735 117.022 -149.98",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_980",
 				"_type": "sphere"
@@ -8948,7 +8948,7 @@
 				"center": "150.37 116.827 -116.438",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_981",
 				"_type": "sphere"
@@ -8957,7 +8957,7 @@
 				"center": "149.528 116.34 -83.4407",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_982",
 				"_type": "sphere"
@@ -8966,7 +8966,7 @@
 				"center": "150.415 116.235 -49.7003",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_983",
 				"_type": "sphere"
@@ -8975,7 +8975,7 @@
 				"center": "149.78 116.834 -16.9537",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_984",
 				"_type": "sphere"
@@ -8993,7 +8993,7 @@
 				"center": "149.629 116.986 50.1289",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_986",
 				"_type": "sphere"
@@ -9002,7 +9002,7 @@
 				"center": "149.896 117.047 83.6698",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_5"
+					"_ref": "blinnphongMirror_5"
 				},
 				"_name": "sphere_987",
 				"_type": "sphere"
@@ -9011,7 +9011,7 @@
 				"center": "149.72 116.733 116.767",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_7"
+					"_ref": "blinnphong_7"
 				},
 				"_name": "sphere_988",
 				"_type": "sphere"
@@ -9020,7 +9020,7 @@
 				"center": "149.935 117.03 150.452",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_989",
 				"_type": "sphere"
@@ -9038,7 +9038,7 @@
 				"center": "150.189 150.174 -116.887",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_991",
 				"_type": "sphere"
@@ -9047,7 +9047,7 @@
 				"center": "150.346 149.905 -83.6891",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_992",
 				"_type": "sphere"
@@ -9065,7 +9065,7 @@
 				"center": "150.381 150.268 -16.4582",
 				"radius": 10,
 				"shader": {
-					"_ref": "Lambertian_3"
+					"_ref": "blinnphong_3"
 				},
 				"_name": "sphere_994",
 				"_type": "sphere"
@@ -9074,7 +9074,7 @@
 				"center": "150.109 149.56 16.805",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_995",
 				"_type": "sphere"
@@ -9083,7 +9083,7 @@
 				"center": "149.603 150.375 50.1176",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_996",
 				"_type": "sphere"
@@ -9092,7 +9092,7 @@
 				"center": "150.066 150.494 83.29",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_8"
+					"_ref": "blinnphongMirror_8"
 				},
 				"_name": "sphere_997",
 				"_type": "sphere"
@@ -9101,7 +9101,7 @@
 				"center": "149.95 150.165 116.998",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_2"
+					"_ref": "blinnphongMirror_2"
 				},
 				"_name": "sphere_998",
 				"_type": "sphere"
@@ -9110,7 +9110,7 @@
 				"center": "149.701 149.523 150.369",
 				"radius": 10,
 				"shader": {
-					"_ref": "LambertianMirror_0"
+					"_ref": "blinnphongMirror_0"
 				},
 				"_name": "sphere_999",
 				"_type": "sphere"

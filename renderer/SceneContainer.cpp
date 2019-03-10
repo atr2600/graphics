@@ -35,6 +35,7 @@ void SceneContainer::addShapes() {
 #include "Lambertian.h"
 #include "Box.h"
 #include "PointLight.h"
+#include "BlinnPhong.h"
 
 //// using this for convenience in specifying the namespace
 using json = nlohmann::json;
@@ -118,21 +119,19 @@ void SceneContainer::parseJSONData(const std::string &filename)
             shaderPtr = new Lambertian(diffuse);
         }
 
-//        else if (shaderType == "BlinnPhong" || shaderType == "Phong") {
-//
-//            float phongExp;
-//            sivelab::Vector3D diffuse, specular;
-//            diffuse = shaderInfo["diffuse"];
-//            specular = shaderInfo["specular"];
-//            phongExp = shaderInfo["phongExp"];
-//
+        else if (shaderType == "BlinnPhong" || shaderType == "Phong") {
+
+            float phongExp;
+            sivelab::Vector3D diffuse, specular;
+            diffuse = shaderInfo["diffuse"];
+            specular = shaderInfo["specular"];
+            phongExp = shaderInfo["phongExp"];
+
 //            ShaderCoefficient kd(diffuse, 0);
 //            ShaderCoefficient ks(specular, 0);
-//            if (shaderType == "BlinnPhong")
-//                shaderPtr = new sivelab::BlinnPhong(kd, ks, phongExp);
-//            else
-//                shaderPtr = new sivelab::Phong(diffuse, specular, phongExp);
-//        }
+            if (shaderType == "BlinnPhong")
+                shaderPtr = new BlinnPhong(diffuse, specular, phongExp);
+        }
 
         std::string name = shaderInfo["_name"];
         shaderPtr->setName(name);

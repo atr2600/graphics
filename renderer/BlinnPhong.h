@@ -6,7 +6,23 @@
 #define OPENGL_FCG_BLINNPHONG_H
 
 
-class BlinnPhong {
+#include "../src/Vector3D.h"
+#include "Shader.h"
+
+using namespace sivelab;
+
+class BlinnPhong : public Shader {
+
+protected:
+
+    Vector3D diffuse, specular;
+    float phongExp;
+
+public:
+    BlinnPhong(const Vector3D &diffuse, const Vector3D &specular, float phongExp);
+
+    sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h );
+
 
 };
 
