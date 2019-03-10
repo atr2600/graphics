@@ -50,7 +50,7 @@ bool Sphere::intersect(double tmin, double &tmax, HitStruct &hit, const Ray r) {
 
     sivelab::Vector3D pointOfHit = r.getOrigin() + r.getDirection() *t0;
 
-    tmax = t0;
+   // tmax = t0;
     hit.setActualT(t0);
     hit.setPointInterect(pointOfHit);
     hit.setNorm(pointOfHit - center);

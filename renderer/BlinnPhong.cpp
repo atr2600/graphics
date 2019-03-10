@@ -27,18 +27,14 @@ sivelab::Vector3D BlinnPhong::applyShader(Ray &r, std::vector<Light *> &lights, 
             sivelab::Vector3D H = (lightDir + (r.getDirection()) * -1);
             H.normalize();
 
-            float Ks = pow(std::max((float) normal.dot(H), 0.0f), phongExp);
+            double Ks = pow(std::max(normal.dot(H), 0.0), phongExp);
             newColor += (lights[i]->getIntensity() * getColor() *
-                         std::max(0.0f, (float) normal.dot(lightDir)));
-            newColor.clamp(0.0, 1.0);
-//        newColor = diffuse * lights[i]->getIntensity()*std::max(0.0f, (float) normal.dot(lightDir))
-//                + specular * lights[i]->getIntensity()*Ks;
+                         std::max(0.0, normal.dot(lightDir)));
             newColor += specular * Ks;
-            newColor.clamp(0.0, 1.0);
         }
     }
 
-    return newColor;
+    return newColor.clamp(0,1);
 
 }
 

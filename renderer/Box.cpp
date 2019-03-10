@@ -11,14 +11,17 @@
  * @param maxPt
  */
 Box::Box(sivelab::Vector3D minPt, sivelab::Vector3D maxPt) : minPt(minPt), maxPt(maxPt) {
+    using namespace sivelab;
     pts[0] = minPt;
     pts[1] = maxPt;
-    pts[2] = sivelab::Vector3D(pts[0][0], pts[0][1], pts[1][2]);
-    pts[3] = sivelab::Vector3D(pts[0][0], pts[1][1], pts[0][2]);
-    pts[4] = sivelab::Vector3D(pts[1][0], pts[0][1], pts[0][2]);
-    pts[5] = sivelab::Vector3D(pts[0][0], pts[1][1], pts[1][2]);
-    pts[6] = sivelab::Vector3D(pts[1][0], pts[0][1], pts[1][2]);
-    pts[7] = sivelab::Vector3D(pts[1][0], pts[1][1], pts[0][2]);
+    pts[2] = sivelab::Vector3D(pts[0][0], pts[0][1], pts[1][2]);  //min, min, max
+    pts[3] = sivelab::Vector3D(pts[0][0], pts[1][1], pts[0][2]);  //min max min
+    pts[4] = sivelab::Vector3D(pts[1][0], pts[0][1], pts[0][2]);  //max, min, min
+    pts[5] = sivelab::Vector3D(pts[0][0], pts[1][1], pts[1][2]);  //min, max, max
+    pts[6] = sivelab::Vector3D(pts[1][0], pts[0][1], pts[1][2]);  //max, min, max
+    pts[7] = sivelab::Vector3D(pts[1][0], pts[1][1], pts[0][2]);  //max, max, min
+
+
 
     //top of box (6,2,8,4)
     triangles[0] = Triangle(pts[5],pts[1],pts[7]);

@@ -12,7 +12,7 @@ Lambertian::Lambertian(sivelab::Vector3D thisColor){
 
 
 sivelab::Vector3D Lambertian::applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h ){
-    sivelab::Vector3D newColor(-1,-1,-1);
+    sivelab::Vector3D newColor(0,0,0);
 
     for(int i = 0; i < lights.size(); i++) {
         sivelab::Vector3D lightP = lights[i]->getPosition();
@@ -26,6 +26,7 @@ sivelab::Vector3D Lambertian::applyShader(Ray &r, std::vector<Light *> &lights, 
 
         newColor += lights[i]->getIntensity() * getColor() * sivelab::Vector3D(1, 1, 1) *
                     std::max(0.0f, (float) normal.dot(lightDir));
+        newColor = newColor.clamp(0.0,1.0);
 
     }
 
