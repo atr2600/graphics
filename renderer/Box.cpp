@@ -2,6 +2,7 @@
 // Created by brand on 3/4/2019.
 //
 
+#include <cfloat>
 #include "Box.h"
 
 /**
@@ -47,15 +48,15 @@ Box::Box(sivelab::Vector3D minPt, sivelab::Vector3D maxPt) : minPt(minPt), maxPt
  * @param r
  * @return
  */
-bool Box::intersect(double tmin, double tmax, HitStruct &hit, Ray r){
+bool Box::intersect(double tmin, double &tmax, HitStruct &hit, Ray r){
 
+    bool test = false;
     for(int i = 0;i<12;i++){
-        if(triangles[i].intersect(tmin,tmax, hit, r)){
-            if(triangles[i].getTvalue()< getTvalue()){
-                setTvalue(triangles[i].getTvalue());
-            }
-            return true;
+        if(triangles[i].intersect(0.0001,tmax, hit, r)){
+            tmax = hit.getActualT();
+            test = true;
         }
     }
-    return false;
+    return test;
+
 }

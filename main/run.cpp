@@ -37,12 +37,7 @@ int main(int argc, char *argv[]){
         sc.parseJSONData(path);
     }
 
-    //std::map<std::string, Shader *> colors = sc.getShaders();
-
     HitStruct h;
-    // focal length  = 1, image plane width = 0.5, position = (0, 0, 0), view direction = (0, 0, -1)
-    // POSITION - DIRECTION - FOCAL LENGTH - ASPECT RATIO - IMAGE PLANE WIDTH
-    //PerspectiveCamera *pCam= new PerspectiveCamera(sivelab::Vector3D(0, 0, 0), sivelab::Vector3D(0, 0, -1), 1, 0.5, 0.5);
 
     Camera *pCam = sc.getCameras()[0];
     pCam->setWidth(args.width);
@@ -58,7 +53,6 @@ int main(int argc, char *argv[]){
                 if(sc.getShapes()[i]->intersect(0.05,tmax,h,r)){
                     if(sc.getShapes()[i]->getTvalue()<tmax){
                         tmax = sc.getShapes()[i]->getTvalue();
-                        //rgb = sc.getShaders().at(sc.getShapes()[i]->getColor())->getColor();
                         rgb = sc.getShaders().at(sc.getShapes()[i]->getColor())->applyShader(r,sc.getLights(),sc.getShapes(),h);
 //                        rgb.clamp(0,1);
                     }

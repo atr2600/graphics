@@ -31,7 +31,7 @@ Sphere::Sphere(double c1, double c2, double c3, float newRadius){
  * @param r
  * @return
  */
-bool Sphere::intersect(double tmin, double tmax, HitStruct &hit, const Ray r) {
+bool Sphere::intersect(double tmin, double &tmax, HitStruct &hit, const Ray r) {
     using namespace sivelab;
     float t0,t1;
 

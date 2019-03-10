@@ -13,7 +13,7 @@ Triangle::Triangle(sivelab::Vector3D v0, sivelab::Vector3D v1, sivelab::Vector3D
     setV2(v2);
 }
 
-bool Triangle::intersect(double tmin, double tmax, HitStruct &hit, Ray r){
+bool Triangle::intersect(double tmin, double &tmax, HitStruct &hit, Ray r){
 using namespace sivelab;
     float t, u, v;
     static const float kEpsilon = 1e-8;
@@ -38,7 +38,9 @@ using namespace sivelab;
 
     sivelab::Vector3D pointOfHit = r.getOrigin() + r.getDirection() *t;
 
-    tmax = t;
+//    tmax = t;
+//    if(tmax >)
+
     hit.setActualT(t);
     hit.setPointInterect(pointOfHit);
     hit.setNorm(v0v1.cross(v0v2));

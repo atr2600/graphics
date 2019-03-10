@@ -44,7 +44,7 @@ public:
 
     Shape();
 
-    virtual bool intersect(double tmin, double tmax, HitStruct &hit, Ray r) = 0;
+    virtual bool intersect(double tmin, double &tmax, HitStruct &hit, Ray r) = 0;
 
     const std::string &getColor() const;
 

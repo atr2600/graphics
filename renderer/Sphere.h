@@ -38,7 +38,7 @@ private:
 public:
     Sphere();
     Sphere(double c1, double c2, double c3, float newRadius);
-    bool intersect(double tmin, double tmax, HitStruct &hit, const Ray r);
+    bool intersect(double tmin, double &tmax, HitStruct &hit, const Ray r);
     bool solveQuadratic(const float &a, const float &b, const float &c, float &x0, float &x1);
 
 };
