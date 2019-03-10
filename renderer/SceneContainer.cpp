@@ -14,6 +14,12 @@ SceneContainer::SceneContainer() {}
 
 bool SceneContainer::VisibilityQuery(Ray r, double tmin, double tmax){
 
+    HitStruct h;
+    for(int i = 0; i<getShapes().size();i++){
+        if(getShapes()[i]->intersect(tmin,tmax, h,r)) return true;
+    }
+    return false;
+
 }
 
 void SceneContainer::addCameras() {
