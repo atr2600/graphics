@@ -8,7 +8,7 @@
 
 
 sivelab::Vector3D BlinnPhong::applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h ){
-    sivelab::Vector3D newColor(-1,-1,-1);
+    sivelab::Vector3D newColor(0,0,0);
 
     for(int i = 0; i < lights.size(); i++) {
         sivelab::Vector3D lightP = lights[i]->getPosition();
@@ -20,14 +20,16 @@ sivelab::Vector3D BlinnPhong::applyShader(Ray &r, std::vector<Light *> &lights, 
         sivelab::Vector3D normal = h.getNorm();
         normal.normalize();
 
-        sivelab::Vector3D H = (lightDir + r.getDirection());
+        sivelab::Vector3D H = (lightDir + (r.getDirection())*-1);
         H.normalize();
 
 
         float Ks = pow(std::max((float)normal.dot(H),0.0f),phongExp);
 
-        newColor +=  specular * Ks + lights[i]->getIntensity() * getColor() * sivelab::Vector3D(1, 1, 1) *
+        newColor +=  lights[i]->getIntensity() * getColor() * sivelab::Vector3D(1, 1, 1) *
                     std::max(0.0f, (float) normal.dot(lightDir));
+
+        newColor += specular * Ks;
 
     }
 
