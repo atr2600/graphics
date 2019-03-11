@@ -1,10 +1,10 @@
 #! /bin/bash
 
-cmake
+cmake .
 
 cd main/
 
-make
+make -j
 
 ./run -w 250 -h 250 -i ../renderer/sceneData/scenes_A/spheres_1K.json -o ../spheres_1k.png
 ./run -w 250 -h 250 -i ../renderer/sceneData/scenes_A/lotsOTriangles.json -o ../lotsOTriangles.png
