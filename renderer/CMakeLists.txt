@@ -5,6 +5,7 @@ add_library (renderer-util
         CoordinateSystem.cpp CoordinateSystem.h
         framebuffer.h framebuffer.cpp
         Light.cpp Light.h
+        MIrror.cpp MIrror.h
         NormalShader.cpp NormalShader.h
         PerspectiveCamera.cpp PerspectiveCamera.h
         PointLight.cpp PointLight.h
