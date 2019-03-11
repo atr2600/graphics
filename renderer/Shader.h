@@ -55,6 +55,9 @@ public:
 
     const std::string &getName() const;
 
+
+    virtual bool VisibilityQuery(Ray r, double tmin, double tmax, std::vector<Shape *> &shapes) = 0;
+
     virtual sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h )=0;
 
 };

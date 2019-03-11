@@ -14,6 +14,7 @@ class Lambertian : public Shader {
 public:
     Lambertian(sivelab::Vector3D thisColor);
 
+
     bool VisibilityQuery(Ray r, double tmin, double tmax, std::vector<Shape *> &shapes);
 
     sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h );

@@ -22,25 +22,25 @@ Box::Box(sivelab::Vector3D minPt, sivelab::Vector3D maxPt) : minPt(minPt), maxPt
     pts[7] = sivelab::Vector3D(pts[1][0], pts[1][1], pts[0][2]);  //max, max, min
 
 
-
-    //top of box (6,2,8,4)
-    triangles[0] = Triangle(pts[5],pts[1],pts[7]);
-    triangles[1] = Triangle(pts[5],pts[3],pts[7]);
-    //bottom of box (3,7,5,1)
-    triangles[2] = Triangle(pts[2],pts[6],pts[4]);
-    triangles[3] = Triangle(pts[2],pts[0],pts[4]);
-    //front
-    triangles[4] = Triangle(pts[3],pts[7],pts[4]);
-    triangles[5] = Triangle(pts[3],pts[0],pts[4]);
+//
+//    //top of box (6,2,8,4)
+//    triangles[0] = Triangle(pts[7],pts[5],pts[1]);
+//    triangles[1] = Triangle(pts[7],pts[3],pts[5]);
+//    //bottom of box (3,7,5,1)
+//    triangles[2] = Triangle(pts[2],pts[6],pts[4]);
+//    triangles[3] = Triangle(pts[2],pts[4],pts[0]);
+//    //front
+//    triangles[4] = Triangle(pts[4],pts[7],pts[3]);
+//    triangles[5] = Triangle(pts[4],pts[3],pts[0]);
     //Back
     triangles[6] = Triangle(pts[5],pts[2],pts[6]);
-    triangles[7] = Triangle(pts[5],pts[1],pts[6]);
-    // left side
-    triangles[8] = Triangle(pts[5],pts[2],pts[0]);
-    triangles[9] = Triangle(pts[5],pts[3],pts[0]);
-    // right side
-    triangles[10] = Triangle(pts[1],pts[6],pts[4]);
-    triangles[11] = Triangle(pts[1],pts[7],pts[4]);
+    triangles[7] = Triangle(pts[5],pts[6],pts[1]);
+//    // left side
+//    triangles[8] = Triangle(pts[5],pts[2],pts[0]);
+//    triangles[9] = Triangle(pts[5],pts[3],pts[0]);
+//    // right side
+//    triangles[10] = Triangle(pts[1],pts[6],pts[4]);
+//    triangles[11] = Triangle(pts[1],pts[7],pts[4]);
 }
 
 /**
