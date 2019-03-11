@@ -17,6 +17,9 @@ class Box : public Shape {
     /**
      * Turning 2 points into 8 points. Turning those 8 points into 12 triangles.
      */
+public:
+    Triangle *getTriangles();
+
 private:
     sivelab::Vector3D minPt, maxPt;
     Triangle triangles[12];

@@ -56,6 +56,7 @@ void SceneContainer::parseJSONData(const std::string &filename)
     std::cout << "Attempting to parse: " << filename << std::endl;
     std::ifstream inputFileStream( filename );
 
+
     // ///////////////////////////////////////
     // open file and parse by json class
     // ///////////////////////////////////////
@@ -138,6 +139,11 @@ void SceneContainer::parseJSONData(const std::string &filename)
             if (shaderType == "BlinnPhong")
                 shaderPtr = new BlinnPhong(diffuse, specular, phongExp);
         }
+        else if (shaderType =="Mirror"){
+
+            shaderPtr = new Mirror();
+
+        }
 
         std::string name = shaderInfo["_name"];
         shaderPtr->setName(name);
@@ -152,7 +158,7 @@ void SceneContainer::parseJSONData(const std::string &filename)
     // //////////////////////////////////////
     std::cout << "Number of shapes: " << j["scene"]["shape"].size() << std::endl;
     for (auto i=0; i<j["scene"]["shape"].size(); i++) {
-
+        bool bypass = false;
         json shapeInfo = j["scene"]["shape"][i];
 
         Shape *sPtr = nullptr;
@@ -179,12 +185,24 @@ void SceneContainer::parseJSONData(const std::string &filename)
             sPtr = new Triangle(v0, v1, v2);
         }
         else if (type == "box") {
+            bypass = true;
             sivelab::Vector3D minPt, maxPt;
 
             minPt = shapeInfo["minPt"];
             maxPt = shapeInfo["maxPt"];
-
+            Box *boxPtr = new Box(minPt,maxPt);
             sPtr = new Box(minPt, maxPt);
+
+
+            for(int i = 0; i<12;i++){
+                Triangle* tPtr = boxPtr->getTriangles()+i;
+                tPtr->setName(name);
+                tPtr->setColor(color);
+                shapes.push_back(tPtr);
+            }
+
+
+
         }
         
 //        else if (type == "mesh") {
@@ -193,12 +211,14 @@ void SceneContainer::parseJSONData(const std::string &filename)
 //
 //            sPtr = new OBJMesh( meshFile_fullPath, m_useBVH );
 //        }
+        if(!bypass){
+            sPtr->setName(name);
+            sPtr->setColor(color);
 
-        sPtr->setName(name);
-        sPtr->setColor(color);
 
+            shapes.push_back(sPtr );
+        }
 
-        shapes.push_back(sPtr );
     }
 
 

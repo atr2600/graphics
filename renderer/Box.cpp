@@ -24,23 +24,23 @@ Box::Box(sivelab::Vector3D minPt, sivelab::Vector3D maxPt) : minPt(minPt), maxPt
 
 //
 //    //top of box (6,2,8,4)
-//    triangles[0] = Triangle(pts[7],pts[5],pts[1]);
-//    triangles[1] = Triangle(pts[7],pts[3],pts[5]);
-//    //bottom of box (3,7,5,1)
-//    triangles[2] = Triangle(pts[2],pts[6],pts[4]);
-//    triangles[3] = Triangle(pts[2],pts[4],pts[0]);
+    triangles[0] = Triangle(pts[7],pts[5],pts[1]);
+    triangles[1] = Triangle(pts[7],pts[3],pts[5]);
+    //bottom of box (3,7,5,1)
+    triangles[2] = Triangle(pts[2],pts[6],pts[4]);
+    triangles[3] = Triangle(pts[2],pts[4],pts[0]);
 //    //front
-//    triangles[4] = Triangle(pts[4],pts[7],pts[3]);
-//    triangles[5] = Triangle(pts[4],pts[3],pts[0]);
-    //Back
+    triangles[4] = Triangle(pts[4],pts[7],pts[3]);
+    triangles[5] = Triangle(pts[4],pts[3],pts[0]);
+ //   Back
     triangles[6] = Triangle(pts[5],pts[2],pts[6]);
     triangles[7] = Triangle(pts[5],pts[6],pts[1]);
 //    // left side
-//    triangles[8] = Triangle(pts[5],pts[2],pts[0]);
-//    triangles[9] = Triangle(pts[5],pts[3],pts[0]);
+    triangles[8] = Triangle(pts[5],pts[2],pts[0]);
+    triangles[9] = Triangle(pts[5],pts[0],pts[3]);
 //    // right side
-//    triangles[10] = Triangle(pts[1],pts[6],pts[4]);
-//    triangles[11] = Triangle(pts[1],pts[7],pts[4]);
+    triangles[10] = Triangle(pts[1],pts[4],pts[6]);
+    triangles[11] = Triangle(pts[1],pts[7],pts[4]);
 }
 
 /**
@@ -53,13 +53,10 @@ Box::Box(sivelab::Vector3D minPt, sivelab::Vector3D maxPt) : minPt(minPt), maxPt
  */
 bool Box::intersect(double tmin, double &tmax, HitStruct &hit, Ray r){
 
-    bool test = false;
-    for(int i = 0;i<12;i++){
-        if(triangles[i].intersect(0.0001,tmax, hit, r)){
-            tmax = hit.getActualT();
-            test = true;
-        }
-    }
-    return test;
+//I do not store boxes in the stack. I only store the 12 triangles when you parse a box.
 
+}
+
+Triangle *Box::getTriangles(){
+    return triangles;
 }

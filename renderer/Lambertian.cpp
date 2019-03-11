@@ -25,7 +25,8 @@ sivelab::Vector3D Lambertian::applyShader(Ray &r, std::vector<Light *> &lights, 
         lightDir.normalize();
         sivelab::Vector3D normal = h.getNorm();
         normal.normalize();
-        intensity += lights[i]->getIntensity()*std::max(0.0f, (float) normal.dot(lightDir));
+        intensity = lights[i]->getIntensity()*std::max(0.0f, (float) normal.dot(lightDir));
+
         sivelab::Vector3D testHp = hP + (shadowDir * 0.0001);
         Ray sRay = Ray(shadowDir, testHp);
 
