@@ -96,7 +96,7 @@ add_subdirectory(main)
 
 # If you want, we can also compile the tests directory that are
 # essentially examples for how to use some of the classes and code.
-add_subdirectory(examples)
+
 
 #
 # Rendering Code
