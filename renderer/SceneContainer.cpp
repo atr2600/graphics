@@ -6,6 +6,7 @@
 #include "Sphere.h"
 #include "PerspectiveCamera.h"
 #include "Triangle.h"
+#include "Mirror.h"
 
 
 

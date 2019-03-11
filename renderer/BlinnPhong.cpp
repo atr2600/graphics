@@ -5,9 +5,9 @@
 #include "BlinnPhong.h"
 #include <math.h>
 #include <cfloat>
+#include <map>
 
-
-sivelab::Vector3D BlinnPhong::applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h ){
+sivelab::Vector3D BlinnPhong::applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h, std::map<std::string, Shader*> &shaders){
     sivelab::Vector3D newColor(0,0,0);
     sivelab::Vector3D intensity;
 

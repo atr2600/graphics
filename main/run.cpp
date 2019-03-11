@@ -25,13 +25,15 @@ using namespace sivelab;
 
 inline bool exists_test1 (const std::string& name);
 
-int main(int argc, char *argv[]){
 
+
+int main(int argc, char *argv[]){
+    SceneContainer sc;
     GraphicsArgs args;
     args.process(argc, argv);
     framebuffer fb(args.width, args.height);
     int temp = fb.getHeight();
-    SceneContainer sc;
+
     std::string path = args.inputFileName;
     if(exists_test1(path)){
         sc.parseJSONData(path);
@@ -53,7 +55,7 @@ int main(int argc, char *argv[]){
                 if(sc.getShapes()[i]->intersect(0.05,tmax,h,r)){
                     if(sc.getShapes()[i]->getTvalue()<tmax){
                         tmax = sc.getShapes()[i]->getTvalue();
-                        rgb = sc.getShaders().at(sc.getShapes()[i]->getColor())->applyShader(r,sc.getLights(),sc.getShapes(),h);
+                        rgb = sc.getShaders().at(sc.getShapes()[i]->getColor())->applyShader(r,sc.getLights(),sc.getShapes(),h, sc.getShaders());
 //                        rgb.clamp(0,1);
                     }
                 }

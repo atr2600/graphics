@@ -8,7 +8,7 @@
 
 #include "../src/Vector3D.h"
 #include "Shader.h"
-
+#include <map>
 using namespace sivelab;
 
 class BlinnPhong : public Shader {
@@ -22,7 +22,7 @@ public:
     BlinnPhong(const Vector3D &diffuse, const Vector3D &specular, float phongExp);
 
     bool VisibilityQuery(Ray r, double tmin, double tmax, std::vector<Shape *> &shapes);
-    sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h );
+    sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h, std::map<std::string, Shader*> &shaders);
 
 
 };

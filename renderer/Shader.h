@@ -30,6 +30,7 @@
 #include "../renderer/Shape.h"
 #include "../renderer/Light.h"
 #include "../renderer/HitStruct.h"
+#include <map>
 
 using namespace sivelab;
 
@@ -58,7 +59,7 @@ public:
 
     virtual bool VisibilityQuery(Ray r, double tmin, double tmax, std::vector<Shape *> &shapes) = 0;
 
-    virtual sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h )=0;
+    virtual sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h, std::map<std::string, Shader*> &shaders)=0;
 
 };
 

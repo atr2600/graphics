@@ -5,14 +5,14 @@
 #include "Lambertian.h"
 #include <algorithm>
 #include <cfloat>
-
+#include <map>
 Lambertian::Lambertian(sivelab::Vector3D thisColor){
     setColor(thisColor);
 }
 
 
 
-sivelab::Vector3D Lambertian::applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h ){
+sivelab::Vector3D Lambertian::applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h, std::map<std::string, Shader*> &shaders){
     sivelab::Vector3D newColor(0,0,0);
     sivelab::Vector3D intensity;
 
