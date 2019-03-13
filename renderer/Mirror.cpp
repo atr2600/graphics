@@ -11,7 +11,8 @@ sivelab::Vector3D Mirror::applyShader(Ray &r, std::vector<Light *> &lights, std:
     using namespace sivelab;
     int count = 10;
     double max = DBL_MAX;
-    Ray newRay(h.getNorm(),(h.getPointInterect() + (h.getNorm() * 0.001)));
+    Vector3D newDir = r.getDirection()-2*(r.getDirection().dot(h.getNorm()))*h.getNorm();
+    Ray newRay(newDir,(h.getPointInterect() + (newDir * 0.001)));
     return reflection(newRay, 0.0001, max, shapes,shaders ,lights);
 
 }
