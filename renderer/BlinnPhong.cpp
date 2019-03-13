@@ -26,7 +26,7 @@ sivelab::Vector3D BlinnPhong::applyShader(Ray &r, std::vector<Light *> &lights, 
         Ray sRay = Ray(shadowDir, testHp);
         sivelab::Vector3D H = (lightDir + (r.getDirection()) * -1);
         H.normalize();
-        sivelab::Vector3D Ks = specular * pow(std::max(normal.dot(H), 0.0), phongExp);
+        sivelab::Vector3D Ks = specular * pow(std::max(normal.dot(H), 0.0), phongExp)*lights[i]->getIntensity();
 
         if(!VisibilityQuery(sRay, 0.0001, DBL_MAX , shapes)){
             newColor += intensity * getColor() * sivelab::Vector3D(1, 1, 1);
