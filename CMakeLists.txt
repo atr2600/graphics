@@ -108,7 +108,7 @@ add_subdirectory(main)
 #
 # This builds a simple OpenGL example that you can use to get started with OpenGL.
 #
-# add_subdirectory(OpenGL)
+add_subdirectory(OpenGL)
 
 #
 # Unit Tests - by enabling testing with cmake, we can create a target
