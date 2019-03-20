@@ -15,16 +15,16 @@
 int CheckGLErrors(const char *s)
 {
     int errCount = 0;
-    
+
     return errCount;
 }
 
 int main(void)
 {
-    // 
+    //
     // INITIALIZATION PART
     //
-    
+
     /* Initialize the library */
     if (!glfwInit())
         exit (-1);
@@ -39,11 +39,11 @@ int main(void)
     int winWidth = 1000;
     float aspectRatio = 16.0 / 9.0; // winWidth / (float)winHeight;
     int winHeight = winWidth / aspectRatio;
-    
+
     GLFWwindow* window = glfwCreateWindow(winWidth, winHeight, "FCG4E Examples", NULL, NULL);
     if (!window) {
         std::cerr << "GLFW did not create a window!" << std::endl;
-        
+
         glfwTerminate();
         return -1;
     }
@@ -79,7 +79,7 @@ int main(void)
     // RENDER LOOP
     //
     double timeDiff = 0.0, startFrameTime = 0.0, endFrameTime = 0.0;
-    
+
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
@@ -117,7 +117,7 @@ int main(void)
         if (glfwGetKey( window, GLFW_KEY_ESCAPE ) == GLFW_PRESS)
             glfwSetWindowShouldClose(window, 1);
     }
-  
+
     glfwTerminate();
     return 0;
 }
