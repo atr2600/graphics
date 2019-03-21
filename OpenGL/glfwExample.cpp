@@ -24,6 +24,9 @@ int main(void)
     //
     // INITIALIZATION PART
     //
+    #ifdef WSL
+    setenv("DISPLAY", "127.0.0.1:0", true);
+    #endif
 
     /* Initialize the library */
     if (!glfwInit())
