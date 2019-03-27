@@ -3,9 +3,9 @@ INCLUDE_DIRECTORIES( $(CMAKE_SRC_DIR)/json-develop)
 include_directories(${CMAKE_SOURCE_DIR}/raytrace)
 include_directories(${CMAKE_SOURCE_DIR}/renderer)
 
-INCLUDE_DIRECTORIES(${OPENGL_INCLUDE_DIR})
-link_libraries (${OPENGL_LIBRARY})
-include_directories(${GLFW_INCLUDE_DIRS})
+#INCLUDE_DIRECTORIES(${OPENGL_INCLUDE_DIR})
+#link_libraries (${OPENGL_LIBRARY})
+#include_directories(${GLFW_INCLUDE_DIRS})
 
 add_library (renderer-util
         Camera.cpp Camera.h

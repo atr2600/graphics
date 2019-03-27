@@ -77,6 +77,8 @@ int RendererOpenGL::render() {
     glGetIntegerv(GL_MAJOR_VERSION, &major_version);
     std::cout << "GL_MAJOR_VERSION: " << major_version << std::endl;
 
+
+
     //
     // RENDER LOOP
     //

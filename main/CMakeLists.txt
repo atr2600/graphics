@@ -7,8 +7,6 @@ INCLUDE_DIRECTORIES(${OPENGL_INCLUDE_DIR})
 link_libraries (${OPENGL_LIBRARY})
 include_directories(${GLFW_INCLUDE_DIRS})
 
-
-
 add_executable(run
         run.cpp
         )
