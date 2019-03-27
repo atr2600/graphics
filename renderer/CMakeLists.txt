@@ -27,17 +27,13 @@ add_library (renderer-util
         RendererBasic.h RendererOpenGL.cpp RendererOpenGL.h
         )
 
-add_executable(run
-        run.cpp
-        )
-
-target_link_libraries(run renderer-util sive-util)
-
-target_link_libraries (run ${GLEW_LIBRARIES})
-target_link_libraries (run glfw ${GLFW_STATIC_LIBRARIES})
-target_link_libraries(run sive-util)
-target_link_libraries(run renderer-util)
-target_link_libraries(run ${Boost_PROGRAM_OPTIONS_LIBRARIES})
-target_link_libraries(run ${PNG_LIBRARY})
-target_link_libraries(run ${ZLIB_LIBRARY})
-target_link_libraries(run ${OPENGL_LIBRARY})
+#target_link_libraries(run renderer-util sive-util)
+#
+#target_link_libraries (run ${GLEW_LIBRARIES})
+#target_link_libraries (run glfw ${GLFW_STATIC_LIBRARIES})
+#target_link_libraries(run sive-util)
+#target_link_libraries(run renderer-util)
+#target_link_libraries(run ${Boost_PROGRAM_OPTIONS_LIBRARIES})
+#target_link_libraries(run ${PNG_LIBRARY})
+#target_link_libraries(run ${ZLIB_LIBRARY})
+#target_link_libraries(run ${OPENGL_LIBRARY})

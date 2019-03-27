@@ -8,9 +8,6 @@
 #include "Triangle.h"
 #include "Mirror.h"
 
-
-
-
 SceneContainer::SceneContainer() {
     setBackground(sivelab::Vector3D(0,0,0));
 }
@@ -36,7 +33,6 @@ void SceneContainer::addLights() {
 void SceneContainer::addShapes() {
 
 }
-//
 
 #include <nlohmann/json.hpp>
 #include <fstream>
@@ -105,6 +101,9 @@ void SceneContainer::parseJSONData(const std::string &filename)
 
     }
 
+    /**
+     * This is setting the background color.
+     */
     sivelab::Vector3D backgroundcolor;
     json back = j["scene"];
     if(!back["bgColor"].is_null()){
@@ -251,8 +250,6 @@ void SceneContainer::parseJSONData(const std::string &filename)
     sPtr->setName(name);
     sPtr->provideShader( shaderPtr );
   }
-
-
 
 #endif
 
