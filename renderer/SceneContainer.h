@@ -44,6 +44,7 @@ private:
     std::vector<Light*> lights;
     std::vector<Shape*> shapes;
     std::map<std::string, Shader*> shaderMap;
+    sivelab::Vector3D background;
 public:
     std::vector<Camera *> &getCameras() ;
 
@@ -71,6 +72,11 @@ public:
      * Add a light to the class.
      */
     void addLights();
+
+    const Vector3D &getBackground() const;
+
+    void setBackground(const Vector3D &background);
+
     /**
      * Add a Camera to the class.
      */

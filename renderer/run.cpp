@@ -7,10 +7,10 @@
 #include <cstdlib>
 #include <cassert>
 
-#include "Vector3D.h"
+#include "../src/Vector3D.h"
 #include "../renderer/framebuffer.h"
-#include "XMLSceneParser.h"
-#include "handleGraphicsArgs.h"
+#include "../src/XMLSceneParser.h"
+#include "../src/handleGraphicsArgs.h"
 #include "../renderer/PerspectiveCamera.h"
 #include "../renderer/Camera.h"
 

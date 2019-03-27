@@ -1,16 +1,8 @@
-#include <cstdlib>
-#include <iostream>
-#include <vector>
+//
+// Created by brand on 3/26/2019.
+//
 
-#include <GL/glew.h>
-#include <GLFW/glfw3.h> 
-
-#define GLM_FORCE_RADIANS
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"
-#include "glm/gtc/type_ptr.hpp"
-
-#include "GLSL.h"
+#include "RendererOpenGL.h"
 
 int CheckGLErrors(const char *s)
 {
@@ -19,8 +11,12 @@ int CheckGLErrors(const char *s)
     return errCount;
 }
 
-int main(void)
-{
+RendererOpenGL::RendererOpenGL(const SceneContainer &sc, int framebufferwidth, int framebufferheight) : renderer(sc,
+                                                                                                                 framebufferwidth,
+                                                                                                                 framebufferheight) {}
+
+int RendererOpenGL::render() {
+
     //This is for windows, if you are running linux you want to comment line 26 out. Need to
     // to make a argument to set this one.
     setenv("DISPLAY", "127.0.0.1:0", true);
@@ -39,7 +35,7 @@ int main(void)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     /* Create a windowed mode window and its OpenGL context */
-    int winWidth = 250;
+    int winWidth = getFramebufferwidth();
     float aspectRatio = 1; // winWidth / (float)winHeight;
     int winHeight = winWidth / aspectRatio;
 
@@ -69,7 +65,9 @@ int main(void)
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
 
-    glClearColor(0.0, 0.7, 1.0, 1.0);
+
+
+    glClearColor((GLclampf) sc.getBackground()[0], (GLclampf) sc.getBackground()[1], (GLclampf) sc.getBackground()[2], 1.0);
 
     int fb_width, fb_height;
     glfwGetFramebufferSize(window, &fb_width, &fb_height);
@@ -79,7 +77,7 @@ int main(void)
     glGetIntegerv(GL_MAJOR_VERSION, &major_version);
     std::cout << "GL_MAJOR_VERSION: " << major_version << std::endl;
 
-    // 
+    //
     // RENDER LOOP
     //
     double timeDiff = 0.0, startFrameTime = 0.0, endFrameTime = 0.0;
@@ -125,4 +123,3 @@ int main(void)
     glfwTerminate();
     return 0;
 }
-

@@ -11,7 +11,9 @@
 
 
 
-SceneContainer::SceneContainer() {}
+SceneContainer::SceneContainer() {
+    setBackground(sivelab::Vector3D(0,0,0));
+}
 
 bool SceneContainer::VisibilityQuery(Ray r, double tmin, double tmax){
 
@@ -77,7 +79,6 @@ void SceneContainer::parseJSONData(const std::string &filename)
         for (auto i=0; i<jsonCameraStructure.size(); i++) {
 
             json camInfo = jsonCameraStructure[i];
-
             sivelab::Vector3D position, viewDir;
             position = camInfo["position"];
 
@@ -103,6 +104,16 @@ void SceneContainer::parseJSONData(const std::string &filename)
         }
 
     }
+
+    sivelab::Vector3D backgroundcolor;
+    json back = j["scene"];
+    if(!back["bgColor"].is_null()){
+        backgroundcolor = back["bgColor"];
+        setBackground(backgroundcolor);
+    }
+
+
+//    setBackground(backgroundcolor);
 
     // //////////////////////////////
     //
@@ -276,4 +287,12 @@ std::vector<Shape *> &SceneContainer::getShapes() {
 
 std::map<std::string, Shader *> &SceneContainer::getShaders() {
     return shaderMap;
+}
+
+const Vector3D &SceneContainer::getBackground() const {
+    return background;
+}
+
+void SceneContainer::setBackground(const Vector3D &background) {
+    SceneContainer::background = background;
 }
