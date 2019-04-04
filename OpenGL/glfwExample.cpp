@@ -3,7 +3,8 @@
 #include <vector>
 
 #include <GL/glew.h>
-#include <GLFW/glfw3.h> 
+#include <GLFW/glfw3.h>
+#include "GLSL.h"
 
 #define GLM_FORCE_RADIANS
 #include "glm/glm.hpp"
@@ -23,14 +24,10 @@ int main(void)
 {
     //This is for windows, if you are running linux you want to comment line 26 out. Need to
     // to make a argument to set this one.
-    setenv("DISPLAY", "127.0.0.1:0", true);
+//    setenv("DISPLAY", "127.0.0.1:0", true);
     //
     // INITIALIZATION PART
     //
-    #ifdef WSL
-    setenv("DISPLAY", "127.0.0.1:0", true);
-    #endif
-
     /* Initialize the library */
     if (!glfwInit())
         exit (-1);
@@ -42,7 +39,7 @@ int main(void)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     /* Create a windowed mode window and its OpenGL context */
-    int winWidth = 250;
+    int winWidth = 1000;
     float aspectRatio = 1; // winWidth / (float)winHeight;
     int winHeight = winWidth / aspectRatio;
 
@@ -72,7 +69,7 @@ int main(void)
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
 
-    glClearColor(0.0, 0.7, 1.0, 1.0);
+    glClearColor(0.5, 0.5, 0.5, 1.0);
 
     int fb_width, fb_height;
     glfwGetFramebufferSize(window, &fb_width, &fb_height);
@@ -86,6 +83,43 @@ int main(void)
     // RENDER LOOP
     //
     double timeDiff = 0.0, startFrameTime = 0.0, endFrameTime = 0.0;
+    // Reference Step 1 above
+    GLuint m_triangleVBO;
+    glGenBuffers(1, &m_triangleVBO);
+
+// Reference Step 2 above
+    glBindBuffer(GL_ARRAY_BUFFER, m_triangleVBO);
+
+// The following code allocates memory on the host to hold
+// the vertices in the CPU host memory.  We use the std::vector
+// initialization list to set the vertex data:
+    std::vector< float > host_VertexBuffer{ -1.0f, -1.0f, 0.0f,    // V0                                                                                0.5f, -0.5f, 0.0f,     // V1
+                                            1.0f, -1.0f, 0.0f,
+                                            0.0f,1.0f,0.0f};
+    int numBytes = host_VertexBuffer.size() * sizeof(float);
+
+// Reference Step 3 above
+    glBufferData(GL_ARRAY_BUFFER, numBytes, host_VertexBuffer.data(), GL_STATIC_DRAW);
+
+// Once the data has been copied to the GPU, it can safely be deleted from the host
+// memory.
+    host_VertexBuffer.clear();
+    GLuint m_VAO;
+    glGenVertexArrays(1, &m_VAO);  // Step 1 above
+    glBindVertexArray(m_VAO);      // Step 2 above
+
+    glEnableVertexAttribArray(0);  // enable attrib 0 (Step 3)
+
+    glBindBuffer(GL_ARRAY_BUFFER, m_triangleVBO);  // Step 4
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), 0);  // Step 5
+
+// When done binding a VAO, you can unbind it by passing 0 to the bind call
+    glBindVertexArray(0);
+
+    sivelab::GLSLObject shader;
+    shader.addShader( "../../OpenGL/vertexShader_passthrough.glsl", sivelab::GLSLObject::VERTEX_SHADER );
+    shader.addShader( "../../OpenGL/fragmentShader_passthrough.glsl", sivelab::GLSLObject::FRAGMENT_SHADER );
+    shader.createProgram();
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
@@ -99,6 +133,13 @@ int main(void)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         /* Render stuff here */
+        shader.activate();  // bind the shader that will process the vertices and fragments
+
+        glBindVertexArray(m_VAO);            // bind the VAO
+        glDrawArrays(GL_TRIANGLES, 0, 3);    // tell OpenGL to render it
+        glBindVertexArray(0);
+
+        shader.deactivate(); // unbind the shader so it doesn't affect other vertex data
 
         // Swap the front and back buffers
         // glfwSwapInterval(0);

@@ -19,7 +19,7 @@ int RendererOpenGL::render() {
 
     //This is for windows, if you are running linux you want to comment line 26 out. Need to
     // to make a argument to set this one.
-    setenv("DISPLAY", "127.0.0.1:0", true);
+//    setenv("DISPLAY", "127.0.0.1:0", true);
     //
     // INITIALIZATION PART
     //
