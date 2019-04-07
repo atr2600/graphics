@@ -25,11 +25,53 @@
 
 #include "../renderer/HitStruct.h"
 #include "../renderer/Ray.h"
+#include "BoundingBox.h"
 #include <string>
 
+using namespace sivelab;
+
 class Shape {
-private:
-    std::string name, color;
+public:
+    std::string name, color, returnName;
+    double returnTvalue;
+    bool isthisabox;
+    Vector3D max;
+    Vector3D min;
+    sivelab::Vector3D xdim, ydim, zdim;
+public:
+    const Shape &getReturnShape() const;
+
+    Shape();
+
+    const Vector3D &getXdim() const;
+
+    void setXdim(const Vector3D &xdim);
+
+    const Vector3D &getYdim() const;
+
+    void setYdim(const Vector3D &ydim);
+
+    const Vector3D &getZdim() const;
+
+    void setZdim(const Vector3D &zdim);
+
+    const Vector3D &getMax() const;
+
+    void setMax(const Vector3D &max);
+
+    const Vector3D &getMin() const;
+
+    void setMin(const Vector3D &min);
+
+    bool compareX(Shape &i, Shape &j);
+
+    bool compareY(Shape &i, Shape &j);
+
+    bool compareZ(Shape &i, Shape &j);
+
+public:
+
+protected:
     double tvalue;
 public:
     double getTvalue() const;
@@ -42,9 +84,9 @@ public:
 
     void setName(const std::string &name);
 
-    Shape();
+    bool intersect(double tmin, double &tmax, HitStruct &hit, Ray r){
 
-    virtual bool intersect(double tmin, double &tmax, HitStruct &hit, Ray r) = 0;
+    }
 
     const std::string &getColor() const;
 

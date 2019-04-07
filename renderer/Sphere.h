@@ -27,6 +27,7 @@
 class Sphere: public Shape {
 private:
     sivelab::Vector3D center = sivelab::Vector3D(0,0.0,-5);
+    BoundingBox bounds;
 public:
     void setCenter(const sivelab::Vector3D &center);
 

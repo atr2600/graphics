@@ -5,6 +5,7 @@
 #include "RendererBasic.h"
 #include "renderer.h"
 #include <cfloat>
+#include "BVH.h"
 
 RendererBasic::RendererBasic(const SceneContainer &sc, int framebufferwidth, int framebufferheight, int raysPerPixel)
                                                 : renderer(sc, framebufferwidth, framebufferheight) {
@@ -24,6 +25,7 @@ bool RendererBasic::render(std::string output) {
     Camera *pCam = sc.getCameras()[0];
     pCam->setWidth(framebufferwidth);
     pCam->setHeight(framebufferheight);
+    BVH boxes(sc.getShapes(),0);
     for (int j=0; j<fb.getHeight(); ++j) {
         for (int i=0; i<fb.getWidth(); ++i) {
             sivelab::Vector3D background = sivelab::Vector3D(0.5,0.62,0.43);  //r.getDirection();
@@ -36,18 +38,20 @@ bool RendererBasic::render(std::string output) {
                     Ray r;
                     r = pCam->generateRay(i,j,f,d, rpp); //r.getDirection();
                     double tmax = DBL_MAX;
-                    Shape *s = sc.getShapes()[0];
+
                     sivelab::Vector3D temp = background;
-                    for(int z = 0; z< sc.getShapes().size();z++){
+                  //  for(int z = 0; z< sc.getShapes().size();z++){
+                    if(boxes.intersect(0.05,tmax,h,r)){
 
-                        if(sc.getShapes()[z]->intersect(0.05,tmax,h,r)){
-                            if(sc.getShapes()[z]->getTvalue()<tmax){
-                                tmax = sc.getShapes()[z]->getTvalue();
-                                temp = sc.getShaders().at(sc.getShapes()[z]->getColor())->applyShader(r, sc.getLights(), sc.getShapes(), h, sc.getShaders(),softX,softY);
-                            }
+                        if(boxes.returnTvalue<tmax){
+                            tmax = boxes.returnTvalue;
+                            temp = sc.getShaders().at(boxes.returnName)->applyShader(r, sc.getLights(), sc.getShapes(), h, sc.getShaders(),softX,softY);
                         }
-
                     }
+//                        if(sc.getShapes()[z]->intersect(0.05,tmax,h,r)){
+//
+//                        }
+//                    }
                     rgb += temp;
                 }
 

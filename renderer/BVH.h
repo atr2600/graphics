@@ -7,32 +7,23 @@
 
 
 #include <vector>
+#include <boost/exception/detail/shared_ptr.hpp>
 #include "Shape.h"
+#include "Sphere.h"
+#include "Triangle.h"
 
 class BVH : public Shape {
-private:
-    sivelab::Vector3D xdim, ydim, zdim; //[0]=min; [1]= mid; [2] = max
 public:
-    Shape * leftChild, rightChild;
+    Shape * leftChild;
+    Shape * rightChild;
 
-    BVH(std::vector<* BVH> shapes, int h);
+    BVH(std::vector<Shape *> BVHs, int h);
 
     BVH( Shape * s);
 
     bool intersect(double tmin, double &tmax, HitStruct &hit, Ray r);
 
-    const sivelab::Vector3D &getXdim() const;
-
-    void setXdim(const sivelab::Vector3D &xdim);
-
-    const sivelab::Vector3D &getYdim() const;
-
-    void setYdim(const sivelab::Vector3D &ydim);
-
-    const sivelab::Vector3D &getZdim() const;
-
-    void setZdim(const sivelab::Vector3D &zdim);
-
+    void setValues(Shape * child, std::vector<Shape *> tree);
 
 };
 
