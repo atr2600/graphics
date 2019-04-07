@@ -15,7 +15,7 @@ CoordinateSystem::CoordinateSystem(){
  */
 CoordinateSystem::CoordinateSystem(sivelab::Vector3D direction, sivelab::Vector3D temp){
 
-    temp = sivelab::Vector3D(0.0,1.0,0.0);
+//    temp = sivelab::Vector3D(0.0,1.0,0.0);
 
 
     W = (-1*direction)/direction.length();

@@ -29,17 +29,65 @@
 
 class Light {
 protected:
-    sivelab::Vector3D position, intensity;
+    sivelab::Vector3D position, intensity, normal;
+    std::string name;
+    float height, width;
 public:
-    const sivelab::Vector3D &getPosition() const;
+    Light(const sivelab::Vector3D &position, const sivelab::Vector3D &intensity, const sivelab::Vector3D &normal,
+          float height, float width) : position(position), intensity(intensity), normal(normal), height(height),
+                                       width(width) {}
 
-    void setPosition(const sivelab::Vector3D &position);
-
-    const sivelab::Vector3D &getIntensity() const;
-
-    void setIntensity(const sivelab::Vector3D &intensity);
+public:
 
     virtual ~Light(){}
+
+    const sivelab::Vector3D &getPosition() const {
+        return position;
+    }
+
+    void setPosition(const sivelab::Vector3D &position) {
+        Light::position = position;
+    }
+
+    const std::string &getName() const {
+        return name;
+    }
+
+    void setName(const std::string &name) {
+        Light::name = name;
+    }
+
+    const sivelab::Vector3D &getIntensity() const {
+        return intensity;
+    }
+
+    void setIntensity(const sivelab::Vector3D &intensity) {
+        Light::intensity = intensity;
+    }
+
+    const sivelab::Vector3D &getNormal() const {
+        return normal;
+    }
+
+    void setNormal(const sivelab::Vector3D &normal) {
+        Light::normal = normal;
+    }
+
+    float getHeight() const {
+        return height;
+    }
+
+    void setHeight(float height) {
+        Light::height = height;
+    }
+
+    float getWidth() const {
+        return width;
+    }
+
+    void setWidth(float width) {
+        Light::width = width;
+    }
 
     /**
      * Light Class.
@@ -55,6 +103,7 @@ public:
      * @param distance
      */
     virtual void lightItUp(sivelab::Vector3D &point, sivelab::Vector3D &lightDirction, float &distance) const = 0;
+
 
 };
 

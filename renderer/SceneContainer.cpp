@@ -7,6 +7,14 @@
 #include "PerspectiveCamera.h"
 #include "Triangle.h"
 #include "Mirror.h"
+#include <nlohmann/json.hpp>
+#include <fstream>
+#include "../src/Vector3D.h"
+#include "Lambertian.h"
+#include "Box.h"
+#include "PointLight.h"
+#include "BlinnPhong.h"
+#include "AreaLight.h"
 
 SceneContainer::SceneContainer() {
     setBackground(sivelab::Vector3D(0,0,0));
@@ -34,13 +42,7 @@ void SceneContainer::addShapes() {
 
 }
 
-#include <nlohmann/json.hpp>
-#include <fstream>
-#include "../src/Vector3D.h"
-#include "Lambertian.h"
-#include "Box.h"
-#include "PointLight.h"
-#include "BlinnPhong.h"
+
 
 //// using this for convenience in specifying the namespace
 using json = nlohmann::json;
@@ -263,9 +265,19 @@ void SceneContainer::parseJSONData(const std::string &filename)
         sivelab::Vector3D position, radiantEnergy;
         position = j["scene"]["light"][i]["position"];
         radiantEnergy = j["scene"]["light"][i]["intensity"];
+        if ( type == "point" ){
+            lights.push_back( new PointLight(position, radiantEnergy) );
+        } else if ( type == "area" ) {
+            sivelab::Vector3D normal;
+            normal = j["scene"]["light"][i]["normal"];
 
-        // if ( type == "point" )
-        lights.push_back( new PointLight(position, radiantEnergy) );
+            float width = 1.0, length = 1.0;
+            width = j["scene"]["light"][i]["width"];
+            length = j["scene"]["light"][i]["length"];
+
+            lights.push_back( new AreaLight(position,radiantEnergy,normal,length,width) );
+        }
+
 
     }
 }

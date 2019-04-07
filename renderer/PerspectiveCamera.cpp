@@ -13,12 +13,14 @@
  * @param j
  * @return
  */
-Ray PerspectiveCamera::generateRay(int i, int j) {
+Ray PerspectiveCamera::generateRay(int i, int j, int rppX, int rppY, int rpp) {
     Ray ray;
     using namespace sivelab;
     /**
      * origin + (-distance(W vector)+uU + vV)
      */
+
+
 
     Vector3D uU, vV, dW, newDirection; //Vectors
     double t, b, r, l; //TOP BOTTOM RIGHT LEFT
@@ -30,8 +32,8 @@ Ray PerspectiveCamera::generateRay(int i, int j) {
 
     double u, v, d; //Scalers... d is the distance.(FocalLength)
     d = focalLength;
-    u = l + (r-l)*(i+0.5)/(double)width;
-    v = b + (t - b)*(j+0.5)/(double)height;
+    u = l + (r-l)*(i+drand48())/(double)width;
+    v = b + (t - b)*(j+drand48())/(double)height;
 
     ray.setOrigin(position);
     dW = (csys.getW());

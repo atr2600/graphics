@@ -15,8 +15,14 @@
 class RendererBasic : public renderer {
 private:
     framebuffer fb;
+    int rpp;
 public:
-    RendererBasic(const SceneContainer &sc, int framebufferwidth, int framebufferheight);
+    int getRpp() const;
+
+    void setRpp(int rpp);
+
+public:
+    RendererBasic(const SceneContainer &sc, int framebufferwidth, int framebufferheight,int raysPerPixel);
 
     void setFb(const framebuffer &fb);
 

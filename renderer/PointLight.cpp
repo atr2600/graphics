@@ -7,7 +7,11 @@
 
 
 PointLight::PointLight(sivelab::Vector3D position, sivelab::Vector3D intensity)
-        : Light(position, intensity) {}
+        : Light(position, intensity) {
+    setHeight(0.0);
+    setWidth(0.0);
+    setNormal(sivelab::Vector3D(0,0,0));
+}
 
 
 
@@ -23,5 +27,4 @@ void PointLight::lightItUp(sivelab::Vector3D &point, sivelab::Vector3D &lightDir
     float r2 = lightDirction.normalize();
     distance = (r2*r2);
     lightDirction /= distance;
-
 }

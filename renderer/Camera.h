@@ -48,7 +48,7 @@ public:
     void setImagePlaneHeight(float imagePlaneHeight);
 
     /// Create a CameraClass
-    virtual Ray generateRay(const int i, const int j) = 0;
+    virtual Ray generateRay(const int i, const int j, const int rppX, const int rppY, const int rpp) = 0;
 
     void setPosition(const sivelab::Vector3D &position);
 

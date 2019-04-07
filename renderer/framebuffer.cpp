@@ -83,8 +83,6 @@ framebuffer::framebuffer(int argc, char **argv) {
         for (int j=0;j<width;j++){
             sivelab::Vector3D c( 0.0f, 0.0f, 0.0f );
             setPixelColor(c, i, j, width);
-
-
         }
     }
 }

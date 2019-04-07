@@ -7,12 +7,19 @@
 #include <cfloat>
 #include <map>
 
-sivelab::Vector3D BlinnPhong::applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h, std::map<std::string, Shader*> &shaders){
+sivelab::Vector3D BlinnPhong::applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h, std::map<std::string, Shader*> &shaders, double softX, double softY){
     sivelab::Vector3D newColor(0,0,0);
     sivelab::Vector3D intensity;
 
     for(int i = 0; i < lights.size(); i++) {
         sivelab::Vector3D lightP = lights[i]->getPosition();
+        if(lights[i]->getName() == "area"){
+            float y = lights[i]->getHeight();
+            float x = lights[i]->getWidth();
+            lightP[0] += -(x/2) + (x)*softX;
+            lightP[2] += (-y/2) + (y)*softY;
+        }
+
         sivelab::Vector3D hP = h.getPointInterect();
         sivelab::Vector3D lightDir(lightP[0] - hP[0], lightP[1] - hP[1], lightP[2] - hP[2]);
         sivelab::Vector3D shadowDir(lightP[0] - hP[0], lightP[1] - hP[1], lightP[2] - hP[2]);

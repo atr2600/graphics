@@ -33,7 +33,7 @@ private:
 public:
     PerspectiveCamera();
     PerspectiveCamera(sivelab::Vector3D position, sivelab::Vector3D direction, double focalLength, double m_aspectRation, double imageWidth);
-    Ray generateRay(int i, int j);
+    Ray generateRay(int i, int j, int rppX, int rppY, int rpp);
 
 
 

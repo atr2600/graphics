@@ -41,11 +41,11 @@ int main(int argc, char *argv[]){
     }
 
 
-//    RendererBasic rend(sc, args.width,args.height);
-//    rend.render(args.outputFileName);
-
-    RendererOpenGL rend(sc, args.width, args.height);
-    rend.render();
+    RendererBasic rend(sc, args.width,args.height, args.rpp);
+    rend.render(args.outputFileName);
+//
+//    RendererOpenGL rend(sc, args.width, args.height);
+//    rend.render();
 
 }
 

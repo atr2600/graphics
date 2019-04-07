@@ -7,7 +7,8 @@
 #include <cfloat>
 
 sivelab::Vector3D Mirror::applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes,
-                                      HitStruct &h, std::map<std::string, Shader*> &shaders) {
+                                      HitStruct &h, std::map<std::string, Shader*> &shaders, double softX, double softY) {
+
     using namespace sivelab;
     int count = 10;
     double max = DBL_MAX;
@@ -25,11 +26,12 @@ sivelab::Vector3D Mirror::reflection(Ray r, double tmin, double &tmax, std::vect
     using namespace sivelab;
     HitStruct h;
     Vector3D rgb(0,0,0);
+    double empty = 0;
     for(int i = 0; i<shapes.size();i++){
         if(shapes[i]->intersect(0.05,tmax, h,r)) {
             if(shapes[i]->getTvalue()<=tmax){
                 tmax = shapes[i]->getTvalue();
-                rgb = shaders.at(shapes[i]->getColor())->applyShader(r,lights,shapes,h,shaders);
+                rgb = shaders.at(shapes[i]->getColor())->applyShader(r,lights,shapes,h,shaders, 0,0);
 
             }
         }

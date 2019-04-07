@@ -42,8 +42,10 @@ public:
 private:
     sivelab::Vector3D color = sivelab::Vector3D(0,0,0);
     std::string name = "";
+
 public:
     void setName(const std::string &name);
+    double *rpp;
 
 public:
     const Vector3D &getColor() const;
@@ -59,7 +61,10 @@ public:
 
     virtual bool VisibilityQuery(Ray r, double tmin, double tmax, std::vector<Shape *> &shapes) = 0;
 
-    virtual sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h, std::map<std::string, Shader*> &shaders)=0;
+    /**
+     * rperp = rays per pixel. This is a solution for the soft shadows in some of the shaders.
+     */
+    virtual sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h, std::map<std::string, Shader*> &shaders, double softX, double softY)=0;
 
 };
 
