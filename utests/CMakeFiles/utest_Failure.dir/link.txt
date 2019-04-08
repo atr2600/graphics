@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/utest_Failure.dir/utest_Failure.cpp.o  -o utest_Failure ../src/libsive-util.a ../renderer/librenderer-util.a -Wl,-Bstatic -lboost_program_options -lboost_unit_test_framework -Wl,-Bdynamic 

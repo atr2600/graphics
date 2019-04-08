@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/ncc1701/graphicsCode/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_54dab/fast"
+/usr/bin/make -f CMakeFiles/cmTC_54dab.dir/build.make CMakeFiles/cmTC_54dab.dir/build
+make[1]: Entering directory '/home/ncc1701/graphicsCode/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_54dab.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_54dab.dir/CheckSymbolExists.c.o   -c /home/ncc1701/graphicsCode/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_54dab
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_54dab.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_54dab.dir/CheckSymbolExists.c.o  -o cmTC_54dab 
+CMakeFiles/cmTC_54dab.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_54dab.dir/build.make:97: recipe for target 'cmTC_54dab' failed
+make[1]: *** [cmTC_54dab] Error 1
+make[1]: Leaving directory '/home/ncc1701/graphicsCode/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_54dab/fast' failed
+make: *** [cmTC_54dab/fast] Error 2
+
+File /home/ncc1701/graphicsCode/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/ncc1701/graphicsCode/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_96d65/fast"
+/usr/bin/make -f CMakeFiles/cmTC_96d65.dir/build.make CMakeFiles/cmTC_96d65.dir/build
+make[1]: Entering directory '/home/ncc1701/graphicsCode/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_96d65.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_96d65.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_96d65
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_96d65.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_96d65.dir/CheckFunctionExists.c.o  -o cmTC_96d65 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_96d65.dir/build.make:97: recipe for target 'cmTC_96d65' failed
+make[1]: *** [cmTC_96d65] Error 1
+make[1]: Leaving directory '/home/ncc1701/graphicsCode/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_96d65/fast' failed
+make: *** [cmTC_96d65/fast] Error 2
+
+
