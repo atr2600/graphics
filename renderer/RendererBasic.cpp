@@ -38,26 +38,55 @@ bool RendererBasic::render(std::string output) {
                     Ray r;
                     r = pCam->generateRay(i,j,f,d, rpp); //r.getDirection();
                     double tmax = DBL_MAX;
-
+                    Shape *s = sc.getShapes()[0];
                     sivelab::Vector3D temp = background;
-                  //  for(int z = 0; z< sc.getShapes().size();z++){
-                    if(boxes.intersect(0.05,tmax,h,r)){
+                    for(int z = 0; z< sc.getShapes().size();z++){
 
-                        if(boxes.returnTvalue<tmax){
-                            tmax = boxes.returnTvalue;
-                            temp = sc.getShaders().at(boxes.returnName)->applyShader(r, sc.getLights(), sc.getShapes(), h, sc.getShaders(),softX,softY);
+                        if(sc.getShapes()[z]->intersect(0.05,tmax,h,r)){
+                            if(sc.getShapes()[z]->getTvalue()<tmax){
+                                tmax = sc.getShapes()[z]->getTvalue();
+                                temp = sc.getShaders().at(sc.getShapes()[z]->getColor())->applyShader(r, sc.getLights(), sc.getShapes(), h, sc.getShaders(),softX,softY);
+                            }
                         }
+
                     }
-//                        if(sc.getShapes()[z]->intersect(0.05,tmax,h,r)){
-//
-//                        }
-//                    }
                     rgb += temp;
                 }
 
             }
             rgb /= (double)(rpp*rpp);
             fb.setPixelColor(rgb, i, j, fb.getWidth());
+//======================================================================================================
+//============= UNDER CONSTRUCTION HERE =============== WORKING ON THE BVH =============================
+//                for(int f= 0; f < rpp; f++){
+//                    drand48();
+//                    double softX = drand48();
+//                    double softY = drand48();
+//                    Ray r;
+//                    r = pCam->generateRay(i,j,f,d, rpp); //r.getDirection();
+//                    double tmax = DBL_MAX;
+//
+//                    sivelab::Vector3D temp = background;
+//                  //  for(int z = 0; z< sc.getShapes().size();z++){
+//                    if(boxes.intersect(0.05,tmax,h,r)){
+//
+//                        if(boxes.returnTvalue<9990999999){
+//                            tmax = boxes.returnTvalue;
+//                            temp = sc.getShaders().at(h.shader)->applyShader(r, sc.getLights(), sc.getShapes(), h, sc.getShaders(),softX,softY);
+//                        }
+//                    }
+////                        if(sc.getShapes()[z]->intersect(0.05,tmax,h,r)){
+////
+////                        }
+////                    }
+//                    rgb += temp;
+//                }
+//
+//            }
+//            rgb /= (double)(rpp*rpp);
+//            fb.setPixelColor(rgb, i, j, fb.getWidth());
+// =============================================================================================================
+// ============================================================================================================
         }
     }
 

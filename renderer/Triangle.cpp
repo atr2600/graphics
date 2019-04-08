@@ -22,6 +22,9 @@ Triangle::Triangle(sivelab::Vector3D v0, sivelab::Vector3D v1, sivelab::Vector3D
     bounds.expand(v1);
     bounds.expand(v2);
 
+    max = bounds.max;
+    min = bounds.min;
+
     //Expanding the bounds real quick.
     min = min - v0;
     max = max + v0;
@@ -60,6 +63,7 @@ using namespace sivelab;
 //    tmax = t;
 //    if(tmax >)
 
+    hit.shader = getName();
     hit.setActualT(t);
     hit.setPointInterect(pointOfHit);
     hit.setNorm(v0v1.cross(v0v2));

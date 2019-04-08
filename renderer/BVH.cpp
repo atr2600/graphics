@@ -6,57 +6,88 @@
 #include <algorithm>
 #include "BVH.h"
 
-BVH::BVH(Shape *s) {
 
-    sivelab::Vector3D min, max;
-    min = s->getMax();
-    max = s->getMax();
-    xdim[0] = min[0];
-    xdim[2] = max[0];
-    xdim[1] = (max[0]+min[0]/2);
-    ydim[0] = min[1];
-    ydim[2] = max[1];
-    ydim[1] = (max[1]+min[1]/2);
-    zdim[0] = min[2];
-    zdim[2] = max[2];
-    zdim[1] = (max[2]+min[2]/2);
-    isthisabox=false;
-    leftChild = s;
-    rightChild = nullptr;
-
-
-}
 
 BVH::BVH(std::vector<Shape *> BVHs, int h) {
     //Check size for 1 or 2
     // Then you can just set the child to left and right
     // this is the osrt section
 
-    //xsort 0
-    //ysort 1
-    //zsort 2
-    isthisabox=true;
+    if(BVHs.size()==1){
+        sivelab::Vector3D min, max;
+        min = BVHs[0]->getMax();
+        max = BVHs[0]->getMax();
+        xdim[0] = min[0];
+        xdim[2] = max[0];
+        xdim[1] = (max[0]+min[0]/2);
+        ydim[0] = min[1];
+        ydim[2] = max[1];
+        ydim[1] = (max[1]+min[1]/2);
+        zdim[0] = min[2];
+        zdim[2] = max[2];
+        zdim[1] = (max[2]+min[2]/2);
+        isthisabox=false;
+        leftChild = BVHs[0];
+        rightChild = nullptr;
+    } else if(BVHs.size()==2){
+        isthisabox=true;
+        leftChild = BVHs[0];
+        rightChild = BVHs[1];
+        rightChild->isthisabox=false;
+        leftChild->isthisabox=false;
+        leftChild->setXdim(sivelab::Vector3D(BVHs[0]->getXdim()));
+        leftChild->setYdim(sivelab::Vector3D(BVHs[0]->getYdim()));
+        leftChild->setZdim(sivelab::Vector3D(BVHs[0]->getZdim()));
 
-    if(h == 0) std::sort(BVHs.begin(),BVHs.end());
-    if(h == 1) std::sort(BVHs.begin(),BVHs.end());
-    if(h == 2) std::sort(BVHs.begin(),BVHs.end());
+        leftChild->xdim[1] = leftChild->xdim[2]-leftChild->xdim[0];
+        leftChild->ydim[1] = leftChild->ydim[2]-leftChild->ydim[0];
+        leftChild->zdim[1] = leftChild->zdim[2]-leftChild->zdim[0];
+
+        rightChild->setXdim(sivelab::Vector3D(BVHs[1]->getXdim()));
+        rightChild->setYdim(sivelab::Vector3D(BVHs[1]->getYdim()));
+        rightChild->setZdim(sivelab::Vector3D(BVHs[1]->getZdim()));
+        rightChild->xdim[1] = rightChild->xdim[2]-rightChild->xdim[0];
+        rightChild->ydim[1] = rightChild->ydim[2]-rightChild->ydim[0];
+        rightChild->zdim[1] = rightChild->zdim[2]-rightChild->zdim[0];
+
+        minOrMax(leftChild,rightChild);
 
 
-    if(BVHs.size()!=1){
-        std::vector<Shape *> leftB(BVHs.begin(),BVHs.begin()+BVHs.size()/2);
-        std::vector<Shape*> rightB(BVHs.begin()+BVHs.size()/2,BVHs.end());
-
+    } else{
+        isthisabox=true;
+        if(h == 0) std::sort(BVHs.begin(),BVHs.end());
+        if(h == 1) std::sort(BVHs.begin(),BVHs.end());
+        if(h == 2) std::sort(BVHs.begin(),BVHs.end());
+        std::vector<Shape*> leftB(BVHs.begin(),BVHs.begin()+BVHs.size()/2);
+        std::vector<Shape*> rightB((BVHs.begin()+BVHs.size()/2),BVHs.end());
+        leftChild->isthisabox=true;
+        rightChild->isthisabox=true;
         leftChild = new BVH(leftB,h+1);
         rightChild = new BVH(rightB,h+1);
         setValues((leftChild),leftB);
         setValues((rightChild),rightB);
-        
-    } else {
-      leftChild = new BVH(BVHs[0]);
-      rightChild = nullptr;
+        minOrMax(leftChild,rightChild);
+
+
     }
 
+}
 
+void BVH::minOrMax(Shape *l, Shape*r){
+    Vector3D lmin = l->getMin();
+    Vector3D rmin = r->getMax();
+    Vector3D lmax = l->getMax();
+    Vector3D rmax = r->getMax();
+
+
+    for(int i = 0; i < 3;i++){
+        if(lmin[i]<rmin[i]){
+            min[i] = lmin[i];
+        } else min [i] = rmin[i];
+        if(lmax[i]>rmax[i]){
+            max[i]= lmax[i];
+        } else max[i]= rmax[i];
+    }
 
 }
 
@@ -91,63 +122,50 @@ void BVH::setValues(Shape* child, std::vector<Shape*> tree) {
     child->zdim[1] = child->zdim[2]-child->zdim[0];
 }
 
-bool BVH::intersect(double tmin, double &tmax, HitStruct &hit, Ray r) {
-    double  txmin, txmax, tymin, tymax, tzmin, tzmax, txymin, txymax, txyzmax, txyzmin;
-
+bool BVH::intersect(double tminArg, double &tmaxArg, HitStruct &hit, Ray r) {
+    
+    double  txmin, txmax, tymin, tymax, tzmin, tzmax, txymin, txymax, txyzmax, txyzmin, tmin, tmax;
     double tHit, tNear;
 
-    if(r.getDirection()[0] >= 0){
-        txmin = (xdim[0]-r.getOrigin()[0])/r.getDirection()[0];
-        txmax = (xdim[2]-r.getOrigin()[0])/r.getDirection()[0];
-    } else {
-        txmin = (xdim[2]-r.getOrigin()[0])/r.getDirection()[0];
-        txmax = (xdim[0]-r.getOrigin()[0])/r.getDirection()[0];
-    }
-    if(r.getDirection()[1] >= 0){
-        tymin = (ydim[0]-r.getOrigin()[1])/r.getDirection()[1];
-        tymax = (ydim[2]-r.getOrigin()[1])/r.getDirection()[1];
-    } else {
-        tymin = (ydim[2]-r.getOrigin()[1])/r.getDirection()[1];
-        tymax = (ydim[0]-r.getOrigin()[1])/r.getDirection()[1];
-    }
+    int sign[3];
+    sign[0] = ((1/r.getDirection()[0]) < 0);
+    sign[1] = ((1/r.getDirection()[1]) < 0);
+    sign[2] = ((1/r.getDirection()[2]) < 0);
 
-    txymin = (txmin > tymin ? txmin:tymin);
-    txymax = (txmax < tymax ? txmax:tymax);
-    
-    if(r.getDirection()[2] >= 0){
-        tzmin = (zdim[0]-r.getOrigin()[2])/r.getDirection()[2];
-        tzmax = (zdim[2]-r.getOrigin()[2])/r.getDirection()[2];
-    } else {
-        tzmin = (zdim[2]-r.getOrigin()[2])/r.getDirection()[2];
-        tzmax = (zdim[0]-r.getOrigin()[2])/r.getDirection()[2];
-    }
+    tmin  = (bounds[sign[0]    ][0] - r.getOrigin()[0]) * (1/r.getDirection()[0]);
+    tmax  = (bounds[1 - sign[0]][0] - r.getOrigin()[0]) * (1/r.getDirection()[0]);
+    tymin = (bounds[sign[1]    ][1] - r.getOrigin()[1]) * (1/r.getDirection()[1]);
+    tymax = (bounds[1 - sign[1]][1] - r.getOrigin()[1]) * (1/r.getDirection()[1]);
 
-    if(tymax < tymin){
+    if ((tmin > tymax) || (tymin > tmax))
         return false;
-    }
 
+    if (tymin > tmin)
+        tmin = tymin;
+    if (tymax < tmax)
+        tmax = tymax;
 
-    if(txymax < txymin){
+    tzmin = (bounds[sign[2]    ][2] - r.getOrigin()[2]) * (1/r.getDirection()[2]);
+    tzmax = (bounds[1 - sign[2]][2] - r.getOrigin()[2]) * (1/r.getDirection()[2]);
+
+    if ((tmin > tzmax) || (tzmin > tmax))
         return false;
-    }
-    txyzmin = (txymin > tzmin ? txymin:tzmin);
-    txyzmax = (txymax < tzmax ? txymax:tzmax);
-    if(txyzmin>txyzmax){
-        return false;
-    }
 
-    bool ifHit = leftChild->intersect(tmin, tmax, hit, r);
+    if (tzmin > tmin)
+        tmin = tzmin;
+    if (tzmax < tmax)
+        tmax = tzmax;
 
-    if(rightChild != nullptr){
-        ifHit = ifHit || rightChild->intersect(tmin,tmax, hit, r);
-    }
+    tHit = tmin;
 
-    if(ifHit && !isthisabox){
-        returnName = leftChild->getColor();
-        returnTvalue = leftChild->getTvalue();
-    }
+
+    bool ifHitLeft = leftChild->intersect(tmin, tmax, hit, r);
+    bool ifHitRight = rightChild->intersect(tmin,tmax, hit, r);
+    bool ifHit = false;
+    if((ifHitLeft)||(ifHitRight)) ifHit = true;
+
+
     return ifHit;
-
 }
 
 

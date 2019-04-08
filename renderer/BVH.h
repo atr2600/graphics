@@ -17,6 +17,8 @@ public:
     Shape * leftChild;
     Shape * rightChild;
 
+    Vector3D bounds[2];
+
     BVH(std::vector<Shape *> BVHs, int h);
 
     BVH( Shape * s);
@@ -24,6 +26,8 @@ public:
     bool intersect(double tmin, double &tmax, HitStruct &hit, Ray r);
 
     void setValues(Shape * child, std::vector<Shape *> tree);
+
+    void minOrMax(Shape *l, Shape*r);
 
 };
 
