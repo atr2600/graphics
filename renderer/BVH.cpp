@@ -44,6 +44,10 @@ BVH::BVH(std::vector<Shape *> BVHs, int h) {
         if(h == 2) std::sort(BVHs.begin(),BVHs.end(), compareItZ);
         std::vector<Shape*> leftB(BVHs.begin(),BVHs.begin()+BVHs.size()/2);
         std::vector<Shape*> rightB((BVHs.begin()+BVHs.size()/2),BVHs.end());
+
+        int test = leftB.size();
+        int testright = rightB.size();
+
         leftChild = new BVH(leftB,h+1);
         rightChild = new BVH(rightB,h+1);
         minOrMax(leftChild,rightChild);
@@ -52,15 +56,6 @@ BVH::BVH(std::vector<Shape *> BVHs, int h) {
 
 
 }
-
-
-
-
-
-
-
-
-
 
 void BVH::minOrMax(Shape *l, Shape*r){
     Vector3D lmin = l->getMin();
@@ -127,15 +122,12 @@ bool BVH::intersect(double tminArg, double &t, HitStruct &hit, Ray r) {
         return false;
     }
 
-
     bool ifHit = false;
     bool ifHitRight = false;
     bool ifHitLeft = leftChild->intersect(tmin, t, lhit, r);
     if(rightChild != nullptr){
        ifHitRight = rightChild->intersect(tmin,t, rhit, r);
     }
-
-
 
     if((ifHitLeft)||(ifHitRight)) {
         ifHit = true;
@@ -148,8 +140,6 @@ bool BVH::intersect(double tminArg, double &t, HitStruct &hit, Ray r) {
                 hit = rhit;
                 return true;
             }
-
-
         } else if(ifHitLeft){
             hit = lhit;
             return true;
@@ -157,11 +147,8 @@ bool BVH::intersect(double tminArg, double &t, HitStruct &hit, Ray r) {
             hit = rhit;
             return true;
         }
-
     }
-
-
-    return ifHit;
+    return false;
 }
 
 

@@ -24,15 +24,15 @@ public:
     void minOrMax(Shape *l, Shape*r);
 
     static bool compareItX(Shape * a, Shape * b) {
-        return a->xdim[1] < a->xdim[1];
+        return a->mid[0] < b->mid[0];
     }
 
     static bool compareItY(Shape * a, Shape * b) {
-        return a->ydim[1] < a->ydim[1];
+        return a->mid[1] < b->mid[1];
     }
 
     static bool compareItZ(Shape * a, Shape * b) {
-        return a->zdim[1] < a->zdim[1];
+        return a->mid[2] < b->mid[2];
     }
 
 
