@@ -45,11 +45,11 @@ bool RendererBasic::render(std::string output) {
                     sivelab::Vector3D temp = background;
                   //  for(int z = 0; z< sc.getShapes().size();z++){
                   //this intersect function is always false....
-                  Shape *testersphere = boxes.leftChild;
 
                     if(boxes.intersect(0.006,tmax,h,r)){
-                        if(h.getActualT()<9999999){
-                            tmax = h.getActualT();
+                        if(boxes.getTvalue()<tmax){
+                            tmax = boxes.tvalue;
+
                             temp = sc.getShaders().at(h.shader)->applyShader(r, sc.getLights(), sc.getShapes(), h, sc.getShaders(),softX,softY);
                         }
                     }

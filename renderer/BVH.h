@@ -14,12 +14,12 @@
 
 class BVH : public Shape {
 public:
+    HitStruct lhit,rhit;
 
     BVH(std::vector<Shape *> BVHs, int h);
 
     bool intersect(double tmin, double &tmax, HitStruct &hit, Ray r);
 
-    void setValues(Shape * child, std::vector<Shape *> tree);
 
     void minOrMax(Shape *l, Shape*r);
 

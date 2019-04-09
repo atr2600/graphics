@@ -62,11 +62,17 @@ using namespace sivelab;
 //    tmax = t;
 //    if(tmax >)
 
-    hit.shader = getColor();
-    hit.setActualT(t);
-    hit.setPointInterect(pointOfHit);
-    hit.setNorm(v0v1.cross(v0v2));
-    setTvalue(t);
+    if(t>0){
+        hit.shader = getColor();
+        hit.setActualT(t);
+        hit.setPointInterect(pointOfHit);
+        hit.setNorm(v0v1.cross(v0v2));
+        tvalue = t;
+
+
+    }
+
+
 
     return (t>0) ? true : false;
 

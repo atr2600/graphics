@@ -81,38 +81,6 @@ void BVH::minOrMax(Shape *l, Shape*r){
     bounds[1] = max;
 }
 
-void BVH::setValues(Shape* child, std::vector<Shape*> tree) {
-    //set min mid max variables
-    //lowest low and highest max of left and right child.
-    child->setXdim(sivelab::Vector3D(tree[0]->getXdim()));
-    child->setYdim(sivelab::Vector3D(tree[0]->getYdim()));
-    child->setZdim(sivelab::Vector3D(tree[0]->getZdim()));
-    for(int i = 0; i<tree.size();i++){
-        if(getXdim()[0]>tree[i]->getXdim()[0]){
-            child->xdim[0] = getXdim()[0];
-        }
-        if(getXdim()[2]<tree[i]->getXdim()[2]){
-            child->xdim[2] = getXdim()[2];
-        }
-        if(getYdim()[0]>tree[i]->getYdim()[0]){
-            child->xdim[0] = getYdim()[0];
-        }
-        if(getYdim()[2]<tree[i]->getYdim()[2]){
-            child->xdim[2] = getYdim()[2];
-        }
-        if(getZdim()[0]>tree[i]->getZdim()[0]){
-            child->xdim[0] = getZdim()[0];
-        }
-        if(getZdim()[2]<tree[i]->getZdim()[2]){
-            child->xdim[2] = getZdim()[2];
-        }
-    }
-    child->xdim[1] = child->xdim[2]-child->xdim[0];
-    child->ydim[1] = child->ydim[2]-child->ydim[0];
-    child->zdim[1] = child->zdim[2]-child->zdim[0];
-
-}
-
 bool BVH::intersect(double tminArg, double &t, HitStruct &hit, Ray r) {
 //    return leftChild->intersect(tminArg,t,hit,r);
 //    color = leftChild->color;
@@ -160,14 +128,11 @@ bool BVH::intersect(double tminArg, double &t, HitStruct &hit, Ray r) {
     }
 
 
-//    setTvalue(tmin);
-//    hit.setActualT(tmin);
-
     bool ifHit = false;
     bool ifHitRight = false;
-    bool ifHitLeft = leftChild->intersect(tmin, t, hit, r);
+    bool ifHitLeft = leftChild->intersect(tmin, t, lhit, r);
     if(rightChild != nullptr){
-       ifHitRight = rightChild->intersect(tmin,t, hit, r);
+       ifHitRight = rightChild->intersect(tmin,t, rhit, r);
     }
 
 
@@ -175,15 +140,22 @@ bool BVH::intersect(double tminArg, double &t, HitStruct &hit, Ray r) {
     if((ifHitLeft)||(ifHitRight)) {
         ifHit = true;
         if(ifHitLeft&&ifHitRight){
-            if(leftChild->getTvalue()>rightChild->getTvalue()){
-                setName(leftChild->getColor());
+
+            if(lhit.getActualT()<rhit.getActualT()){
+                hit = lhit;
+                return true;
             } else {
-                setName(rightChild->getColor());
+                hit = rhit;
+                return true;
             }
+
+
         } else if(ifHitLeft){
-            setName(leftChild->getColor());
+            hit = lhit;
+            return true;
         } else {
-            setName(rightChild->getColor());
+            hit = rhit;
+            return true;
         }
 
     }

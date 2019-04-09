@@ -73,8 +73,6 @@ public:
     bool compareZ(Shape *i, Shape *j) const;
 
 public:
-
-protected:
     double tvalue;
 public:
     double getTvalue() const;
