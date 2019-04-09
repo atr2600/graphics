@@ -25,13 +25,13 @@
 
 #include "../renderer/HitStruct.h"
 #include "../renderer/Ray.h"
-#include "BoundingBox.h"
 #include <string>
 
 using namespace sivelab;
 
 class Shape {
 public:
+    Vector3D bounds[2];
     Shape * leftChild;
     Shape * rightChild;
     std::string name, color, returnName;
@@ -39,6 +39,7 @@ public:
     bool isthisabox;
     Vector3D max;
     Vector3D min;
+    Vector3D mid;
     sivelab::Vector3D xdim, ydim, zdim;
 public:
     const Shape &getReturnShape() const;
@@ -65,11 +66,11 @@ public:
 
     void setMin(const Vector3D &min);
 
-    bool compareX(Shape &i, Shape &j);
+    bool compareX(Shape *i, Shape *j) const;
 
-    bool compareY(Shape &i, Shape &j);
+    bool compareY(Shape *i, Shape *j) const;
 
-    bool compareZ(Shape &i, Shape &j);
+    bool compareZ(Shape *i, Shape *j) const;
 
 public:
 
@@ -86,9 +87,7 @@ public:
 
     void setName(const std::string &name);
 
-    bool intersect(double tmin, double &tmax, HitStruct &hit, Ray r){
-
-    }
+    virtual bool intersect(double tmin, double &tmax, HitStruct &hit, Ray r) = 0;
 
     const std::string &getColor() const;
 

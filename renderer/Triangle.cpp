@@ -17,13 +17,6 @@ Triangle::Triangle(sivelab::Vector3D v0, sivelab::Vector3D v1, sivelab::Vector3D
     setV1(v1);
     setV2(v2);
 
-    bounds = BoundingBox();
-    bounds.expand(v0);
-    bounds.expand(v1);
-    bounds.expand(v2);
-
-    max = bounds.max;
-    min = bounds.min;
 
     //Expanding the bounds real quick.
     min = min - v0;
@@ -32,6 +25,12 @@ Triangle::Triangle(sivelab::Vector3D v0, sivelab::Vector3D v1, sivelab::Vector3D
     max = max + v1;
     min = min - v2;
     max = max + v2;
+
+    bounds[0] = min;
+    bounds[1] = max;
+
+    mid = max - min;
+
 
 }
 

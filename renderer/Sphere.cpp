@@ -21,9 +21,12 @@ Sphere::Sphere() {}
 Sphere::Sphere(double c1, double c2, double c3, float newRadius){
     setCenter(sivelab::Vector3D(c1,c2,c3));
     setRadius(newRadius);
-    bounds = BoundingBox(radius,center);
-    min = bounds.min;
-    max = bounds.max;
+    Vector3D offset(radius,radius,radius);
+    min = center - offset;
+    max = center + offset;
+    bounds[0] = min;
+    bounds[1] = max;
+    min = max - min;
 
 }
 

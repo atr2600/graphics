@@ -76,16 +76,16 @@ void Shape::setZdim(const Vector3D &zdim) {
     Shape::zdim = zdim;
 }
 
-bool Shape::compareX(Shape &i, Shape &j){
-    return (i.getXdim()[1]<j.getXdim()[1]);
+bool Shape::compareX(Shape *i, Shape *j) const {
+    return (i->getXdim()[1]<j->getXdim()[1]);
 }
 
-bool Shape::compareY(Shape &i, Shape &j){
-    return (i.getYdim()[1]<j.getYdim()[1]);
+bool Shape::compareY(Shape *i, Shape *j) const {
+    return (i->getYdim()[1]<j->getYdim()[1]);
 }
 
-bool Shape::compareZ(Shape &i, Shape &j){
-    return (i.getZdim()[1]<j.getZdim()[1]);
+bool Shape::compareZ(Shape *i, Shape *j) const {
+    return (i->getZdim()[1]<j->getZdim()[1]);
 }
 
 

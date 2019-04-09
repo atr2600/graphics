@@ -15,17 +15,27 @@
 class BVH : public Shape {
 public:
 
-    Vector3D bounds[2];
-
     BVH(std::vector<Shape *> BVHs, int h);
-
-    BVH( Shape * s);
 
     bool intersect(double tmin, double &tmax, HitStruct &hit, Ray r);
 
     void setValues(Shape * child, std::vector<Shape *> tree);
 
     void minOrMax(Shape *l, Shape*r);
+
+    static bool compareItX(Shape * a, Shape * b) {
+        return a->xdim[1] < a->xdim[1];
+    }
+
+    static bool compareItY(Shape * a, Shape * b) {
+        return a->ydim[1] < a->ydim[1];
+    }
+
+    static bool compareItZ(Shape * a, Shape * b) {
+        return a->zdim[1] < a->zdim[1];
+    }
+
+
 
 };
 

@@ -44,9 +44,9 @@ bool RendererBasic::render(std::string output) {
 
                     sivelab::Vector3D temp = background;
                   //  for(int z = 0; z< sc.getShapes().size();z++){
-                    if(boxes.intersect(0.05,tmax,h,r)){
-
-                        if(boxes.returnTvalue<9990999999){
+                  //this intersect function is always false....
+                    if(boxes.intersect(0.006,tmax,h,r)){
+                        if(boxes.returnTvalue<9999999){
                             tmax = boxes.returnTvalue;
                             temp = sc.getShaders().at(h.shader)->applyShader(r, sc.getLights(), sc.getShapes(), h, sc.getShaders(),softX,softY);
                         }
