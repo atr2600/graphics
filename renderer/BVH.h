@@ -14,8 +14,6 @@
 
 class BVH : public Shape {
 public:
-    Shape * leftChild;
-    Shape * rightChild;
 
     Vector3D bounds[2];
 

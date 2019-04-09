@@ -14,6 +14,8 @@ BVH::BVH(std::vector<Shape *> BVHs, int h) {
     // this is the osrt section
 
     if(BVHs.size()==1){
+        isthisabox=true;
+        name = "BoundingBox";
         sivelab::Vector3D min, max;
         min = BVHs[0]->getMax();
         max = BVHs[0]->getMax();
@@ -31,6 +33,7 @@ BVH::BVH(std::vector<Shape *> BVHs, int h) {
         rightChild = nullptr;
     } else if(BVHs.size()==2){
         isthisabox=true;
+        name = "Bounding Box";
         leftChild = BVHs[0];
         rightChild = BVHs[1];
         rightChild->isthisabox=false;
@@ -51,25 +54,21 @@ BVH::BVH(std::vector<Shape *> BVHs, int h) {
         rightChild->zdim[1] = rightChild->zdim[2]-rightChild->zdim[0];
 
         minOrMax(leftChild,rightChild);
-
-
     } else{
         isthisabox=true;
+        name = "Bounding Box";
         if(h == 0) std::sort(BVHs.begin(),BVHs.end());
         if(h == 1) std::sort(BVHs.begin(),BVHs.end());
         if(h == 2) std::sort(BVHs.begin(),BVHs.end());
         std::vector<Shape*> leftB(BVHs.begin(),BVHs.begin()+BVHs.size()/2);
         std::vector<Shape*> rightB((BVHs.begin()+BVHs.size()/2),BVHs.end());
-        leftChild->isthisabox=true;
-        rightChild->isthisabox=true;
         leftChild = new BVH(leftB,h+1);
         rightChild = new BVH(rightB,h+1);
         setValues((leftChild),leftB);
         setValues((rightChild),rightB);
         minOrMax(leftChild,rightChild);
-
-
     }
+
 
 }
 
@@ -88,7 +87,6 @@ void BVH::minOrMax(Shape *l, Shape*r){
             max[i]= lmax[i];
         } else max[i]= rmax[i];
     }
-
 }
 
 void BVH::setValues(Shape* child, std::vector<Shape*> tree) {
@@ -161,6 +159,9 @@ bool BVH::intersect(double tminArg, double &tmaxArg, HitStruct &hit, Ray r) {
 
     bool ifHitLeft = leftChild->intersect(tmin, tmax, hit, r);
     bool ifHitRight = rightChild->intersect(tmin,tmax, hit, r);
+
+
+
     bool ifHit = false;
     if((ifHitLeft)||(ifHitRight)) ifHit = true;
 

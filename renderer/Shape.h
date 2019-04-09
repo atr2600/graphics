@@ -32,6 +32,8 @@ using namespace sivelab;
 
 class Shape {
 public:
+    Shape * leftChild;
+    Shape * rightChild;
     std::string name, color, returnName;
     double returnTvalue;
     bool isthisabox;
