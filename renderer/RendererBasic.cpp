@@ -25,7 +25,7 @@ bool RendererBasic::render(std::string output) {
     Camera *pCam = sc.getCameras()[0];
     pCam->setWidth(framebufferwidth);
     pCam->setHeight(framebufferheight);
-    BVH boxes(sc.getShapes(),0);
+    BVH boxes(sc.shapes,0);
 
     for (int j=0; j<fb.getHeight(); ++j) {
         for (int i=0; i<fb.getWidth(); ++i) {
@@ -45,9 +45,11 @@ bool RendererBasic::render(std::string output) {
                     sivelab::Vector3D temp = background;
                   //  for(int z = 0; z< sc.getShapes().size();z++){
                   //this intersect function is always false....
+                  Shape *testersphere = boxes.leftChild;
+
                     if(boxes.intersect(0.006,tmax,h,r)){
-                        if(boxes.returnTvalue<9999999){
-                            tmax = boxes.returnTvalue;
+                        if(h.getActualT()<9999999){
+                            tmax = h.getActualT();
                             temp = sc.getShaders().at(h.shader)->applyShader(r, sc.getLights(), sc.getShapes(), h, sc.getShaders(),softX,softY);
                         }
                     }

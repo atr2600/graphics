@@ -31,7 +31,12 @@ Ray::Ray(){}
  * @param direction
  * @param origin
  */
-Ray::Ray(const sivelab::Vector3D &direction, const sivelab::Vector3D &origin) : direction(direction), origin(origin) {}
+Ray::Ray(const sivelab::Vector3D &direction, const sivelab::Vector3D &origin) : direction(direction), origin(origin) {
+    invdir = -1 * direction;
+    sign[0] = (invdir[0] < 0);
+    sign[1] = (invdir[1] < 0);
+    sign[2] = (invdir[2] < 0);
+}
 
 /**
  *

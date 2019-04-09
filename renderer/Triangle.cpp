@@ -62,7 +62,7 @@ using namespace sivelab;
 //    tmax = t;
 //    if(tmax >)
 
-    hit.shader = getName();
+    hit.shader = getColor();
     hit.setActualT(t);
     hit.setPointInterect(pointOfHit);
     hit.setNorm(v0v1.cross(v0v2));

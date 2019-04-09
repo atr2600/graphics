@@ -8,6 +8,11 @@
 Shape::Shape(){
 
     returnTvalue = DBL_MAX;
+    bounds[0] = sivelab::Vector3D(0.0,0.0,0.0);
+    bounds[1] = sivelab::Vector3D(0.0,0.0,0.0);
+    min = sivelab::Vector3D(0.0,0.0,0.0);
+    max = sivelab::Vector3D(0.0,0.0,0.0);
+
 }
 
 
