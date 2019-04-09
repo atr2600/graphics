@@ -114,52 +114,54 @@ void BVH::setValues(Shape* child, std::vector<Shape*> tree) {
 }
 
 bool BVH::intersect(double tminArg, double &t, HitStruct &hit, Ray r) {
-    return leftChild->intersect(tminArg,t,hit,r);
-    color = leftChild->color;
-    return true;
-    float tmin, tmax, tymin, tymax, tzmin, tzmax;
+//    return leftChild->intersect(tminArg,t,hit,r);
+//    color = leftChild->color;
+ //   return true;
+    float txmin, txmax, tymin, tymax, tzmin, tzmax, tmin, tmax;
 
-    sivelab::Vector3D invdir = r.getDirection() * -1;
-    invdir.normalize();
-    int sign[3];
-    sign[0] = (invdir[0] < 0);
-    sign[1] = (invdir[1] < 0);
-    sign[2] = (invdir[2] < 0);
+    float txymin, txymax, txyzmin,txyzmax;
 
-    tmin = (bounds[sign[0]][0]) * invdir[0];
-    tmax = (bounds[1-sign[0]][0]) * invdir[0];
-    tymin = (bounds[sign[1]][1]) * invdir[1];
-    tymax = (bounds[1-sign[1]][1]) * invdir[1];
+    if(r.getDirection()[0]>=0){
+        txmin = min[0] - r.getOrigin()[0] / r.getDirection()[0];
+        txmax = max[0] - r.getOrigin()[0] / r.getDirection()[0];
+    }else{
+        txmin = max[0] - r.getOrigin()[0] / r.getDirection()[0];
+        txmax = min[0] - r.getOrigin()[0] / r.getDirection()[0];
+    }
+    if(r.getDirection()[1]>=0){
+        tymin = min[1] - r.getOrigin()[1] / r.getDirection()[1];
+        tymax = max[1] - r.getOrigin()[1] / r.getDirection()[1];
+    }else{
+        tymin = max[1] - r.getOrigin()[1] / r.getDirection()[1];
+        tymax = min[1] - r.getOrigin()[1] / r.getDirection()[1];
+    }
 
-    if ((tmin > tymax) || (tymin > tmax)){
+    txymin = (txmin < tymin ? txmin : tymin);
+    txymax = (txmax > tymax ? txmin : tymin);
+
+    if (txymin > txymax){
+        return false;
+
+    }
+
+    if(r.getDirection()[2]>=0){
+        tzmin = min[2] - r.getOrigin()[1] / r.getDirection()[2];
+        tzmax = max[2] - r.getOrigin()[1] / r.getDirection()[2];
+    }else{
+        tzmin = max[2] - r.getOrigin()[2] / r.getDirection()[2];
+        tzmax = min[2] - r.getOrigin()[2] / r.getDirection()[2];
+    }
+
+    txyzmin = (txymin < tzmin ? txymin : tzmin);
+    txyzmax = (txymax > tzmax ? txymax : tzmax);
+
+    if ( txyzmin > txyzmax){
         return false;
     }
 
-    if (tymin > tmin)
-        tmin = tymin;
-    if (tymax < tmax)
-        tmax = tymax;
 
-    tzmin = (bounds[sign[2]][2]) * invdir[2];
-    tzmax = (bounds[1-sign[2]][2]) * invdir[2];
-
-    if ((tmin > tzmax) || (tzmin > tmax))
-        return false;
-
-    if (tzmin > tmin)
-        tmin = tzmin;
-    if (tzmax < tmax)
-        tmax = tzmax;
-
-    t = tmin;
-
-    if (t < 0) {
-        t = tmax;
-        if (t < 0) return false;
-    }
-
-    setTvalue(tmin);
-    hit.setActualT(tmin);
+//    setTvalue(tmin);
+//    hit.setActualT(tmin);
 
     bool ifHit = false;
     bool ifHitRight = false;
@@ -173,22 +175,14 @@ bool BVH::intersect(double tminArg, double &t, HitStruct &hit, Ray r) {
     if((ifHitLeft)||(ifHitRight)) {
         ifHit = true;
         if(ifHitLeft&&ifHitRight){
-            if(leftChild->getTvalue()<rightChild->getTvalue()){
-                hit.setActualT(leftChild->getTvalue());
-                setTvalue(leftChild->getTvalue());
+            if(leftChild->getTvalue()>rightChild->getTvalue()){
                 setName(leftChild->getColor());
             } else {
-                hit.setActualT(rightChild->getTvalue());
-                setTvalue(rightChild->getTvalue());
                 setName(rightChild->getColor());
             }
         } else if(ifHitLeft){
-            hit.setActualT(leftChild->getTvalue());
-            setTvalue(leftChild->getTvalue());
             setName(leftChild->getColor());
         } else {
-            hit.setActualT(rightChild->getTvalue());
-            setTvalue(rightChild->getTvalue());
             setName(rightChild->getColor());
         }
 
