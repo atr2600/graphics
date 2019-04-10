@@ -46,7 +46,6 @@ int main(void)
     GLFWwindow* window = glfwCreateWindow(winWidth, winHeight, "FCG4E Examples", NULL, NULL);
     if (!window) {
         std::cerr << "GLFW did not create a window!" << std::endl;
-
         glfwTerminate();
         return -1;
     }
@@ -93,9 +92,12 @@ int main(void)
 // The following code allocates memory on the host to hold
 // the vertices in the CPU host memory.  We use the std::vector
 // initialization list to set the vertex data:
-    std::vector< float > host_VertexBuffer{ -1.0f, -1.0f, 0.0f,    // V0                                                                                0.5f, -0.5f, 0.0f,     // V1
-                                            1.0f, -1.0f, 0.0f,
-                                            0.0f,1.0f,0.0f};
+    std::vector< float > host_VertexBuffer{ 0.0f, 3.0f, 0.0f,   // V0
+                                            1.0f, 0.0f, 0.0f,   // Red for V0
+                                            -3.0f, -3.0f, 0.0f, // V1
+                                            0.0f, 1.0f, 0.0f,   // Green for V1
+                                            3.0f, -3.0f, 0.0f,  // V2
+                                            0.0f, 0.0f, 1.0f }; // Blue for V2;
     int numBytes = host_VertexBuffer.size() * sizeof(float);
 
 // Reference Step 3 above
@@ -109,17 +111,39 @@ int main(void)
     glBindVertexArray(m_VAO);      // Step 2 above
 
     glEnableVertexAttribArray(0);  // enable attrib 0 (Step 3)
+    glEnableVertexAttribArray(1);  // enable attrib 1 - Vertex color
 
     glBindBuffer(GL_ARRAY_BUFFER, m_triangleVBO);  // Step 4
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), 0);  // Step 5
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (const GLvoid *)12);  // Color
+
 
 // When done binding a VAO, you can unbind it by passing 0 to the bind call
     glBindVertexArray(0);
 
     sivelab::GLSLObject shader;
-    shader.addShader( "../../OpenGL/vertexShader_passthrough.glsl", sivelab::GLSLObject::VERTEX_SHADER );
-    shader.addShader( "../../OpenGL/fragmentShader_passthrough.glsl", sivelab::GLSLObject::FRAGMENT_SHADER );
+
+    shader.addShader( "../../OpenGL/vertexShader_perVertexColor.glsl", sivelab::GLSLObject::VERTEX_SHADER );
+    shader.addShader( "../../OpenGL/fragmentShader_perVertexColor.glsl", sivelab::GLSLObject::FRAGMENT_SHADER );
     shader.createProgram();
+    GLuint projMatrixID = shader.createUniform( "projMatrix" );  // gets reference to projMatrix var
+
+
+    float left = -7.5;
+    float right = 7.5;
+    float bottom = -4.2;
+    float top = 4.2;
+    float near = -10.0;
+    float far = 10.0;
+
+    // you can ONLY set the data for a uniform variable when the shader is bound, so
+    // make sure to activate it first:
+
+    glm::mat4 projMatrix = glm::ortho(left, right, bottom, top, near, far);
+    shader.activate();
+    glUniformMatrix4fv(projMatrixID, 1, GL_FALSE, glm::value_ptr(projMatrix));
+
+    glfwMakeContextCurrent(window);
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
