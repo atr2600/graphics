@@ -10,6 +10,9 @@ class HitStruct {
     sivelab::Vector3D norm;
     sivelab::Vector3D pointInterect;
 public:
+    std::string shader;
+
+public:
     const sivelab::Vector3D &getPointInterect() const;
 
 private:

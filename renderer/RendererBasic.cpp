@@ -5,6 +5,7 @@
 #include "RendererBasic.h"
 #include "renderer.h"
 #include <cfloat>
+#include "BVH.h"
 
 RendererBasic::RendererBasic(const SceneContainer &sc, int framebufferwidth, int framebufferheight, int raysPerPixel)
                                                 : renderer(sc, framebufferwidth, framebufferheight) {
@@ -24,36 +25,40 @@ bool RendererBasic::render(std::string output) {
     Camera *pCam = sc.getCameras()[0];
     pCam->setWidth(framebufferwidth);
     pCam->setHeight(framebufferheight);
+    BVH boxes(sc.shapes,0);
+
     for (int j=0; j<fb.getHeight(); ++j) {
         for (int i=0; i<fb.getWidth(); ++i) {
             sivelab::Vector3D background = sivelab::Vector3D(0.5,0.62,0.43);  //r.getDirection();
             sivelab::Vector3D rgb(0,0,0);
-            for(int d = 0; d < rpp; d++){
+
+//======================================================================================================
+//============= UNDER CONSTRUCTION HERE =============== WORKING ON THE BVH =============================
                 for(int f= 0; f < rpp; f++){
                     drand48();
                     double softX = drand48();
                     double softY = drand48();
                     Ray r;
-                    r = pCam->generateRay(i,j,f,d, rpp); //r.getDirection();
+                    r = pCam->generateRay(i,j,0,0, rpp); //r.getDirection();
                     double tmax = DBL_MAX;
-                    Shape *s = sc.getShapes()[0];
+
                     sivelab::Vector3D temp = background;
-                    for(int z = 0; z< sc.getShapes().size();z++){
+                  //  for(int z = 0; z< sc.getShapes().size();z++){
+                  //this intersect function is always false....
 
-                        if(sc.getShapes()[z]->intersect(0.05,tmax,h,r)){
-                            if(sc.getShapes()[z]->getTvalue()<tmax){
-                                tmax = sc.getShapes()[z]->getTvalue();
-                                temp = sc.getShaders().at(sc.getShapes()[z]->getColor())->applyShader(r, sc.getLights(), sc.getShapes(), h, sc.getShaders(),softX,softY);
-                            }
+                    if(boxes.intersect(0.006,tmax,h,r)){
+                        if(boxes.getTvalue()<tmax){
+                            tmax = boxes.tvalue;
+                            temp = sc.getShaders().at(h.shader)->applyShader(r, sc.getLights(), sc.getShapes(), h, sc.getShaders(),softX,softY);
                         }
-
                     }
                     rgb += temp;
                 }
 
-            }
-            rgb /= (double)(rpp*rpp);
+            rgb /= (double)(rpp);
             fb.setPixelColor(rgb, i, j, fb.getWidth());
+// =============================================================================================================
+// ============================================================================================================
         }
     }
 

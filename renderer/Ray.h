@@ -26,7 +26,8 @@ public:
 
     Ray();
     Ray(const sivelab::Vector3D &dir, const sivelab::Vector3D &orig);
-
+    sivelab::Vector3D invdir;
+    int sign[3];
 };
 
 

@@ -39,7 +39,7 @@ class SceneContainer {
     /**
      *
      */
-private:
+public:
     std::vector<Camera*> cameras;
     std::vector<Light*> lights;
     std::vector<Shape*> shapes;

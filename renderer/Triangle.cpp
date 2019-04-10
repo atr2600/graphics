@@ -3,14 +3,34 @@
 //
 
 
+#include <cfloat>
 #include "Triangle.h"
 
 Triangle::Triangle() {}
 
 Triangle::Triangle(sivelab::Vector3D v0, sivelab::Vector3D v1, sivelab::Vector3D v2){
+
+    max = Vector3D(0,0,0);
+    min = Vector3D(0,0,0);
+
     setV0(v0);
     setV1(v1);
     setV2(v2);
+
+
+    //Expanding the bounds real quick.
+    min = min - v0;
+    max = max + v0;
+    min = min - v1;
+    max = max + v1;
+    min = min - v2;
+    max = max + v2;
+
+    bounds[0] = min;
+    bounds[1] = max;
+
+    mid = max - min;
+
 }
 
 bool Triangle::intersect(double tmin, double &tmax, HitStruct &hit, Ray r){
@@ -41,14 +61,17 @@ using namespace sivelab;
 //    tmax = t;
 //    if(tmax >)
 
-    hit.setActualT(t);
-    hit.setPointInterect(pointOfHit);
-    hit.setNorm(v0v1.cross(v0v2));
-    setTvalue(t);
+    if(t>0){
+        hit.shader = getColor();
+        hit.setActualT(t);
+        hit.setPointInterect(pointOfHit);
+        hit.setNorm(v0v1.cross(v0v2));
+        tvalue = t;
+
+
+    }
 
     return (t>0) ? true : false;
-
-
 
 }
 

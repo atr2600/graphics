@@ -21,6 +21,13 @@ Sphere::Sphere() {}
 Sphere::Sphere(double c1, double c2, double c3, float newRadius){
     setCenter(sivelab::Vector3D(c1,c2,c3));
     setRadius(newRadius);
+    Vector3D offset(radius,radius,radius);
+    min = center - offset;
+    max = center + offset;
+    bounds[0] = min;
+    bounds[1] = max;
+    mid = max - min;
+
 }
 
 /**
@@ -52,6 +59,7 @@ bool Sphere::intersect(double tmin, double &tmax, HitStruct &hit, const Ray r) {
 
    // tmax = t0;
     hit.setActualT(t0);
+    hit.shader = getColor();
     hit.setPointInterect(pointOfHit);
     hit.setNorm(pointOfHit - center);
 

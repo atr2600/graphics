@@ -69,7 +69,7 @@ bool Lambertian::VisibilityQuery(Ray r, double tmin, double tmax, std::vector<Sh
 
     HitStruct h;
     for(int i = 0; i<shapes.size();i++){
-        if(shapes[i]->intersect(tmin,tmax, h,r)) return true;
+        if(shapes[i]->intersect(tmin,tmax, h,r )) return true;
     }
     return false;
 
