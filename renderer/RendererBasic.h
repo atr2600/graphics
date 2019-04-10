@@ -27,15 +27,9 @@ public:
 
     void paint(const int wMin, const int wMax, const int hMin,const  int hMax) ;
 
-//    static void do_join(std::thread& t)
-//    {
-//        t.join();
-//    }
-//
-//    void join_all(std::vector<std::thread>& v)
-//    {
-//        std::for_each(v.begin(),v.end(),do_join);
-//    }
+    void test(){
+
+    }
 
 public:
 

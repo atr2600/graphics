@@ -25,6 +25,7 @@
 #include "../renderer/Shader.h"
 #include <time.h>
 #include "BVH.h"
+#include <chrono>
 
 using namespace sivelab;
 
@@ -34,7 +35,8 @@ inline bool exists_test1 (const std::string& name);
 
 int main(int argc, char *argv[]){
 
-    clock_t tStart = clock();
+    auto start = std::chrono::steady_clock::now();
+
     SceneContainer sc;
     GraphicsArgs args;
     args.process(argc, argv);
@@ -48,7 +50,11 @@ int main(int argc, char *argv[]){
     RendererBasic rend(sc, args.width,args.height, args.rpp);
     rend.render(args.outputFileName);
 
-    printf("Time taken: %.2fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+    auto end = std::chrono::steady_clock::now();
+
+    std::cout << "Elapsed time in minutes and seconds: " << std::chrono::duration_cast<std::chrono::minutes>(end - start).count() << " min " <<
+    (std::chrono::duration_cast<std::chrono::seconds>(end - start).count())%60 << " sec "<<
+                                                                               (std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count())%1000 << " ms";
 
 //
 //    RendererOpenGL rend(sc, args.width, args.height);
