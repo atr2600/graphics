@@ -7,7 +7,8 @@
 #include <cfloat>
 #include <map>
 
-sivelab::Vector3D BlinnPhong::applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h, std::map<std::string, Shader*> &shaders, double softX, double softY){
+
+sivelab::Vector3D BlinnPhong::applyShader(Ray &r, std::vector<Light *> &lights, HitStruct &h, std::map<std::string, Shader*> &shaders, double softX, double softY, BVH &boxes){
     sivelab::Vector3D newColor(0,0,0);
     sivelab::Vector3D intensity;
 
@@ -35,7 +36,7 @@ sivelab::Vector3D BlinnPhong::applyShader(Ray &r, std::vector<Light *> &lights, 
         H.normalize();
         sivelab::Vector3D Ks = specular * pow(std::max(normal.dot(H), 0.0), phongExp)*lights[i]->getIntensity();
 
-        if(!VisibilityQuery(sRay, 0.0001, DBL_MAX , shapes)){
+        if(!VisibilityQuery(sRay, 0.0001, DBL_MAX , boxes)){
             newColor += intensity * getColor() * sivelab::Vector3D(1, 1, 1);
             newColor = newColor.clamp(0.0,1.0);
             newColor += Ks;
@@ -47,6 +48,7 @@ sivelab::Vector3D BlinnPhong::applyShader(Ray &r, std::vector<Light *> &lights, 
 }
 
 
+
 BlinnPhong::BlinnPhong(const Vector3D &diffuse, const Vector3D &specular, float phongExp) : diffuse(diffuse),
                                                                                             specular(specular),
                                                                                             phongExp(phongExp) {
@@ -54,12 +56,9 @@ BlinnPhong::BlinnPhong(const Vector3D &diffuse, const Vector3D &specular, float 
 }
 
 
-bool BlinnPhong::VisibilityQuery(Ray r, double tmin, double tmax, std::vector<Shape *> &shapes){
+bool BlinnPhong::VisibilityQuery(Ray r, double tmin, double tmax, BVH &boxes){
 
     HitStruct h;
-    for(int i = 0; i<shapes.size();i++){
-        if(shapes[i]->intersect(tmin,tmax, h,r)) return true;
-    }
-    return false;
+    return boxes.intersect(tmin, tmax, h, r);
 
 }

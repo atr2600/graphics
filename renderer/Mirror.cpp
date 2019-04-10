@@ -6,8 +6,9 @@
 #include <map>
 #include <cfloat>
 
-sivelab::Vector3D Mirror::applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes,
-                                      HitStruct &h, std::map<std::string, Shader*> &shaders, double softX, double softY) {
+
+sivelab::Vector3D Mirror::applyShader(Ray &r, std::vector<Light *> &lights,
+                                      HitStruct &h, std::map<std::string, Shader*> &shaders, double softX, double softY, BVH &boxes) {
 
     using namespace sivelab;
     int count = 10;
@@ -15,27 +16,26 @@ sivelab::Vector3D Mirror::applyShader(Ray &r, std::vector<Light *> &lights, std:
     Vector3D newDir = r.getDirection()-2*(r.getDirection().dot(h.getNorm()))*h.getNorm();
     Ray newRay(newDir,(h.getPointInterect() + (newDir * 0.001)));
 
-    return reflection(newRay, 0.0001, max, shapes,shaders ,lights);
+    return reflection(newRay, 0.0001, max,boxes,shaders ,lights);
 
 }
 
 
 
-sivelab::Vector3D Mirror::reflection(Ray r, double tmin, double &tmax, std::vector<Shape *> &shapes,std::map<std::string, Shader*> &shaders, std::vector<Light *> &lights){
+sivelab::Vector3D Mirror::reflection(Ray r, double tmin, double &tmax,BVH &boxes,std::map<std::string, Shader*> &shaders, std::vector<Light *> &lights){
 
     using namespace sivelab;
     HitStruct h;
     Vector3D rgb(0,0,0);
     double empty = 0;
-    for(int i = 0; i<shapes.size();i++){
-        if(shapes[i]->intersect(0.05,tmax, h,r)) {
-            if(shapes[i]->getTvalue()<=tmax){
-                tmax = shapes[i]->getTvalue();
-                rgb = shaders.at(shapes[i]->getColor())->applyShader(r,lights,shapes,h,shaders, 0,0);
+    double max = DBL_MAX;
 
+        if(boxes.intersect(0.006,max,h,r)){
+            if(h.getActualT()<max){
+                max = h.getActualT();
+                rgb = shaders.at(h.shader)->applyShader(r, lights, h, shaders,0,0, boxes);
             }
         }
-    }
 
     return rgb;
 

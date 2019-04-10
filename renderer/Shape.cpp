@@ -93,4 +93,7 @@ bool Shape::compareZ(Shape *i, Shape *j) const {
     return (i->getZdim()[1]<j->getZdim()[1]);
 }
 
+Shape::~Shape() {
+}
+
 

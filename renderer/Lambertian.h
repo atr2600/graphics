@@ -8,6 +8,7 @@
 
 #include "Shader.h"
 #include "../src/Vector3D.h"
+#include "BVH.h"
 #include <map>
 class Lambertian : public Shader {
 
@@ -15,9 +16,9 @@ public:
     Lambertian(sivelab::Vector3D thisColor);
 
 
-    bool VisibilityQuery(Ray r, double tmin, double tmax, std::vector<Shape *> &shapes);
+    bool VisibilityQuery(Ray r, double tmin, double tmax, BVH &boxes);
 
-    sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h , std::map<std::string, Shader*> &shaders, double softX, double softY);
+    sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, HitStruct &h , std::map<std::string, Shader*> &shaders, double softX, double softY, BVH &boxes);
 
 };
 

@@ -35,6 +35,9 @@ public:
     Shape * leftChild;
     Shape * rightChild;
     std::string name, color, returnName;
+
+    virtual ~Shape();
+
     double returnTvalue;
     bool isthisabox;
     Vector3D max;

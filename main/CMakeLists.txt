@@ -9,7 +9,7 @@ include_directories(${GLFW_INCLUDE_DIRS})
 
 add_executable(run
         run.cpp
-        )
+        SafeQueue.h ThreadPool.h)
 
 target_link_libraries(run renderer-util sive-util)
 

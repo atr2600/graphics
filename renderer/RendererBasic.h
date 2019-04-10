@@ -10,21 +10,26 @@
 #include <cstdlib>
 #include <iostream>
 #include <vector>
+#include <thread>
 #include "framebuffer.h"
+#include "PerspectiveCamera.h"
 
 class RendererBasic : public renderer {
-private:
+public:
     framebuffer fb;
     int rpp;
-public:
-    int getRpp() const;
 
-    void setRpp(int rpp);
 
-public:
-    RendererBasic(const SceneContainer &sc, int framebufferwidth, int framebufferheight,int raysPerPixel);
+
+    RendererBasic(const SceneContainer &sc, int framebufferwidth, int framebufferheight, int rpp);
 
     void setFb(const framebuffer &fb);
+
+    void paint(const int wMin, const int wMax, const int hMin,const  int hMax) ;
+
+    void test(){
+
+    }
 
 public:
 
