@@ -23,6 +23,7 @@
 #include "../renderer/RendererBasic.h"
 #include "../renderer/RendererOpenGL.h"
 #include "../renderer/Shader.h"
+#include <time.h>
 
 using namespace sivelab;
 
@@ -31,6 +32,8 @@ inline bool exists_test1 (const std::string& name);
 
 
 int main(int argc, char *argv[]){
+
+    clock_t tStart = clock();
     SceneContainer sc;
     GraphicsArgs args;
     args.process(argc, argv);
@@ -43,6 +46,9 @@ int main(int argc, char *argv[]){
 
     RendererBasic rend(sc, args.width,args.height, args.rpp);
     rend.render(args.outputFileName);
+
+    printf("Time taken: %.2fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+
 //
 //    RendererOpenGL rend(sc, args.width, args.height);
 //    rend.render();

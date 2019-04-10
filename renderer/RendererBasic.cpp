@@ -49,15 +49,13 @@ bool RendererBasic::render(std::string output) {
                     if(boxes.intersect(0.006,tmax,h,r)){
                         if(boxes.getTvalue()<tmax){
                             tmax = boxes.tvalue;
-
                             temp = sc.getShaders().at(h.shader)->applyShader(r, sc.getLights(), sc.getShapes(), h, sc.getShaders(),softX,softY);
                         }
                     }
-
                     rgb += temp;
                 }
 
-            rgb /= (double)(rpp*rpp);
+            rgb /= (double)(rpp);
             fb.setPixelColor(rgb, i, j, fb.getWidth());
 // =============================================================================================================
 // ============================================================================================================

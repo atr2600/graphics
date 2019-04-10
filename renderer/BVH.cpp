@@ -39,9 +39,10 @@ BVH::BVH(std::vector<Shape *> BVHs, int h) {
     } else{
         isthisabox=true;
         name = "Bounding Box";
-        if(h == 0) std::sort(BVHs.begin(),BVHs.end(), compareItX);
-        if(h == 1) std::sort(BVHs.begin(),BVHs.end(), compareItY);
-        if(h == 2) std::sort(BVHs.begin(),BVHs.end(), compareItZ);
+
+        if((h%3) == 0) std::sort(BVHs.begin(),BVHs.end(), compareItX);
+        if((h%3) == 1) std::sort(BVHs.begin(),BVHs.end(), compareItY);
+        if((h%3) == 2) std::sort(BVHs.begin(),BVHs.end(), compareItZ);
         std::vector<Shape*> leftB(BVHs.begin(),BVHs.begin()+BVHs.size()/2);
         std::vector<Shape*> rightB((BVHs.begin()+BVHs.size()/2),BVHs.end());
 

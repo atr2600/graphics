@@ -10,8 +10,8 @@ Triangle::Triangle() {}
 
 Triangle::Triangle(sivelab::Vector3D v0, sivelab::Vector3D v1, sivelab::Vector3D v2){
 
-    max = Vector3D(-DBL_MAX,-DBL_MAX,-DBL_MAX);
-    min = Vector3D(DBL_MAX,DBL_MAX,DBL_MAX);
+    max = Vector3D(0,0,0);
+    min = Vector3D(0,0,0);
 
     setV0(v0);
     setV1(v1);
@@ -30,7 +30,6 @@ Triangle::Triangle(sivelab::Vector3D v0, sivelab::Vector3D v1, sivelab::Vector3D
     bounds[1] = max;
 
     mid = max - min;
-
 
 }
 
@@ -72,11 +71,7 @@ using namespace sivelab;
 
     }
 
-
-
     return (t>0) ? true : false;
-
-
 
 }
 
