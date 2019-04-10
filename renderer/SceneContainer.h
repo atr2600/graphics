@@ -70,6 +70,9 @@ public:
      * Add a shape to the class.
      */
     void addShapes();
+
+    virtual ~SceneContainer();
+
     /**
      * Add a light to the class.
      */
@@ -88,7 +91,7 @@ public:
 
     bool VisibilityQuery(Ray r, double tmin, double tmax);
 
-    bool VisibilityQuery(Ray r, double tmin, double tmax, BVH boxes);
+    bool VisibilityQuery(Ray r, double tmin, double tmax, BVH &boxes);
 
 
 };

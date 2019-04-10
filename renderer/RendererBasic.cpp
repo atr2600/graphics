@@ -42,7 +42,7 @@ bool RendererBasic::render(std::string output) {
     for(int i = 0; i< fb.getHeight();i++){
         v.push_back(std::thread(&RendererBasic::paint, this,0,fb.getWidth(),i,i+1));
         threadCount++;
-        if(v.size()==10){
+        if(v.size()==20){
             threadCount=0;
             for (auto& th : v) th.join();
             v.clear();
@@ -60,12 +60,12 @@ bool RendererBasic::render(std::string output) {
 
 
 void RendererBasic::paint(const int wMin, const int wMax, const int hMin, const int hMax) {
+    BVH boxes = BVH(sc.getShapes(),0);
     for (int j=hMin; j<hMax; ++j) {
         for (int i=wMin; i<wMax; ++i) {
             sivelab::Vector3D background = sivelab::Vector3D(0.5,0.62,0.43);  //r.getDirection();
             sivelab::Vector3D rgb(0,0,0);
             HitStruct test;
-            BVH boxes = BVH(sc.getShapes(),0);
 //======================================================================================================
 //============= UNDER CONSTRUCTION HERE =============== WORKING ON THE BVH =============================
             for(int f= 0; f < rpp; f++){
@@ -86,7 +86,6 @@ void RendererBasic::paint(const int wMin, const int wMax, const int hMin, const 
                 }
                 rgb += temp;
             }
-
             rgb /= (double)(rpp);
             fb.setPixelColor(rgb, i, j, fb.getWidth());
 // =============================================================================================================

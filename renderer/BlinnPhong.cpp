@@ -8,7 +8,7 @@
 #include <map>
 
 
-sivelab::Vector3D BlinnPhong::applyShader(Ray &r, std::vector<Light *> &lights, HitStruct &h, std::map<std::string, Shader*> &shaders, double softX, double softY, BVH boxes){
+sivelab::Vector3D BlinnPhong::applyShader(Ray &r, std::vector<Light *> &lights, HitStruct &h, std::map<std::string, Shader*> &shaders, double softX, double softY, BVH &boxes){
     sivelab::Vector3D newColor(0,0,0);
     sivelab::Vector3D intensity;
 
@@ -56,7 +56,7 @@ BlinnPhong::BlinnPhong(const Vector3D &diffuse, const Vector3D &specular, float 
 }
 
 
-bool BlinnPhong::VisibilityQuery(Ray r, double tmin, double tmax, BVH boxes){
+bool BlinnPhong::VisibilityQuery(Ray r, double tmin, double tmax, BVH &boxes){
 
     HitStruct h;
     return boxes.intersect(tmin, tmax, h, r);

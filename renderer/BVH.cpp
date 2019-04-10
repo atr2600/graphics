@@ -15,28 +15,8 @@ BVH::BVH(std::vector<Shape *> BVHs, int h) {
     // this is the osrt section
     bounds[0] = sivelab::Vector3D(DBL_MAX,DBL_MAX,DBL_MAX);
     bounds[1] = sivelab::Vector3D(-DBL_MAX,-DBL_MAX,-DBL_MAX);
-    if(BVHs.size()==1){
-        isthisabox=true;
-        name = "BoundingBox";
-        min = BVHs[0]->getMin();
-        max = BVHs[0]->getMax();
-        bounds[0] = min;
-        bounds[1] = max;
-        mid = max - min;
-        isthisabox=false;
-        leftChild = BVHs[0];
-        rightChild = nullptr;
-    } else if(BVHs.size()==2){
-        isthisabox=true;
-        name = "Bounding Box";
-        leftChild = BVHs[0];
-        rightChild = BVHs[1];
-        rightChild->isthisabox=false;
-        leftChild->isthisabox=false;
-        minOrMax(leftChild,rightChild);
-        mid = max - min;
-
-    } else{
+    if(BVHs.size()>=3)
+    {
         isthisabox=true;
         name = "Bounding Box";
 
@@ -54,6 +34,37 @@ BVH::BVH(std::vector<Shape *> BVHs, int h) {
         minOrMax(leftChild,rightChild);
         mid = max - min;
     }
+
+
+    else if(BVHs.size()==2)
+
+
+    {
+        isthisabox=true;
+        name = "Bounding Box";
+        leftChild = BVHs[0];
+        rightChild = BVHs[1];
+        rightChild->isthisabox=false;
+        leftChild->isthisabox=false;
+        minOrMax(leftChild,rightChild);
+        mid = max - min;
+
+    }
+
+    else
+    {
+        isthisabox=true;
+        name = "BoundingBox";
+        min = BVHs[0]->getMin();
+        max = BVHs[0]->getMax();
+        bounds[0] = min;
+        bounds[1] = max;
+        mid = max - min;
+        isthisabox=false;
+        leftChild = BVHs[0];
+        rightChild = nullptr;
+    }
+
 
 
 }
@@ -150,6 +161,11 @@ bool BVH::intersect(double tminArg, double &t, HitStruct &hit, Ray r) {
         }
     }
     return false;
+}
+
+BVH::~BVH() {
+if(leftChild->isthisabox)delete leftChild;
+if(rightChild->isthisabox)delete rightChild;
 }
 
 

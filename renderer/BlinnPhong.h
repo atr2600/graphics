@@ -22,8 +22,8 @@ protected:
 public:
     BlinnPhong(const Vector3D &diffuse, const Vector3D &specular, float phongExp);
 
-    bool VisibilityQuery(Ray r, double tmin, double tmax, BVH boxes);
-    sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, HitStruct &h , std::map<std::string, Shader*> &shaders, double softX, double softY, BVH boxes);
+    bool VisibilityQuery(Ray r, double tmin, double tmax, BVH &boxes);
+    sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, HitStruct &h , std::map<std::string, Shader*> &shaders, double softX, double softY, BVH &boxes);
 
 
 };

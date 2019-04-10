@@ -30,7 +30,7 @@ bool SceneContainer::VisibilityQuery(Ray r, double tmin, double tmax){
 
 }
 
-bool SceneContainer::VisibilityQuery(Ray r, double tmin, double tmax, BVH boxes){
+bool SceneContainer::VisibilityQuery(Ray r, double tmin, double tmax, BVH &boxes){
 
     HitStruct h;
     if(boxes.intersect(tmin,tmax, h,r)){
@@ -290,6 +290,9 @@ void SceneContainer::parseJSONData(const std::string &filename)
 
 
     }
+
+
+
 }
 
 std::vector<Camera *> & SceneContainer::getCameras() {
@@ -314,4 +317,8 @@ const Vector3D &SceneContainer::getBackground() const {
 
 void SceneContainer::setBackground(const Vector3D &background) {
     SceneContainer::background = background;
+}
+
+SceneContainer::~SceneContainer() {
+
 }

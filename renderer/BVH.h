@@ -14,6 +14,8 @@
 
 class BVH : public Shape {
 public:
+    virtual ~BVH();
+
     HitStruct lhit,rhit;
 
     BVH(std::vector<Shape *> BVHs, int h);
