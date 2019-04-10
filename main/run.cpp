@@ -24,6 +24,7 @@
 #include "../renderer/RendererOpenGL.h"
 #include "../renderer/Shader.h"
 #include <time.h>
+#include "BVH.h"
 
 using namespace sivelab;
 

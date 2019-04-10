@@ -30,6 +30,7 @@
 #include "../renderer/Shape.h"
 #include "../renderer/Light.h"
 #include "../renderer/HitStruct.h"
+#include "BVH.h"
 #include <map>
 
 using namespace sivelab;
@@ -59,12 +60,14 @@ public:
     const std::string &getName() const;
 
 
-    virtual bool VisibilityQuery(Ray r, double tmin, double tmax, std::vector<Shape *> &shapes) = 0;
+    virtual bool VisibilityQuery(Ray r, double tmin, double tmax, BVH boxes) = 0;
 
     /**
      * rperp = rays per pixel. This is a solution for the soft shadows in some of the shaders.
      */
-    virtual sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, std::vector<Shape *> &shapes, HitStruct &h, std::map<std::string, Shader*> &shaders, double softX, double softY)=0;
+
+    virtual sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, HitStruct &h, std::map<std::string, Shader*> &shaders, double softX, double softY,BVH boxes)=0;
+
 
 };
 

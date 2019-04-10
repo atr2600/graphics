@@ -30,6 +30,7 @@
 #include "Shape.h"
 #include <map>
 #include "Shader.h"
+#include "BVH.h"
 
 
 /**
@@ -45,8 +46,9 @@ public:
     std::vector<Shape*> shapes;
     std::map<std::string, Shader*> shaderMap;
     sivelab::Vector3D background;
+
 public:
-    std::vector<Camera *> &getCameras() ;
+    std::vector<Camera *> & getCameras();
 
     std::vector<Light *> &getLights();
 
@@ -85,6 +87,8 @@ public:
     void parseJSONData(const std::string &filename);
 
     bool VisibilityQuery(Ray r, double tmin, double tmax);
+
+    bool VisibilityQuery(Ray r, double tmin, double tmax, BVH boxes);
 
 
 };
