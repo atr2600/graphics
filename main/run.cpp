@@ -27,6 +27,8 @@
 #include "BVH.h"
 #include <chrono>
 
+#include <sys/resource.h>
+
 using namespace sivelab;
 
 inline bool exists_test1 (const std::string& name);
@@ -34,6 +36,8 @@ inline bool exists_test1 (const std::string& name);
 
 
 int main(int argc, char *argv[]){
+
+    const rlim_t kStackSize = 32 * 1024 * 1024;
 
     auto start = std::chrono::steady_clock::now();
 

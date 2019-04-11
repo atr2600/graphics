@@ -49,17 +49,17 @@ bool RendererBasic::render(std::string output) {
 
     int threadCount = 0;
 
-    for(int i = 0; i< fb.getHeight();i++){
-        v.push_back(std::thread(&RendererBasic::paint, this,0,fb.getWidth(),i,i+1));
-        threadCount++;
-        if(v.size()==1){
-            threadCount=0;
-            for (auto& th : v) th.join();
-            v.clear();
+    for (int j=0 ; j<fb.getHeight(); ++j) {
+        for (int i=0; i<fb.getWidth(); ++i) {
+            v.push_back(std::thread(&RendererBasic::paint, this,i,j,0,0));
+            threadCount++;
+            if(v.size()==1000){
+                threadCount=0;
+                for (auto& th : v) th.join();
+                v.clear();
+            }
         }
-
     }
-
     fb.export_png(output);
 
     return true;
@@ -68,10 +68,8 @@ bool RendererBasic::render(std::string output) {
 
 
 
-void RendererBasic::paint(const int wMin, const int wMax, const int hMin, const int hMax) {
+void RendererBasic::paint(const int i, const int j, const int hMin, const int hMax) {
 
-    for (int j=hMin; j<hMax; ++j) {
-        for (int i=wMin; i<wMax; ++i) {
             sivelab::Vector3D background = sivelab::Vector3D(0.5,0.62,0.43);  //r.getDirection();
             sivelab::Vector3D rgb(0,0,0);
             HitStruct test;
@@ -95,8 +93,7 @@ void RendererBasic::paint(const int wMin, const int wMax, const int hMin, const 
             }
             rgb /= (double)(rpp);
             fb.setPixelColor(rgb, i, j, fb.getWidth());
-        }
-    }
+
 }
 
 
