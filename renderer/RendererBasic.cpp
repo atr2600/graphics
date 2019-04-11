@@ -13,7 +13,7 @@
 
 
 RendererBasic::RendererBasic(const SceneContainer &sc, int framebufferwidth, int framebufferheight, int rpp
-                             ) : renderer(sc, framebufferwidth, framebufferheight), rpp(rpp), boxes(BVH(sc.shapes,0)) {
+                             ) : renderer(sc, framebufferwidth, framebufferheight), rpp(rpp), boxes(new BVH(sc.shapes,0)) {
     setFb(framebuffer(framebufferheight,framebufferwidth));
 
 }
@@ -51,12 +51,13 @@ bool RendererBasic::render(std::string output) {
 
     for (int j=0 ; j<fb.getHeight(); ++j) {
         for (int i=0; i<fb.getWidth(); ++i) {
-            v.push_back(std::thread(&RendererBasic::paint, this,i,j,0,0));
+//            v.push_back(std::thread(&RendererBasic::paint, this,i,j,0,0));
+            paint(i,j,0,0);
 //            threadCount++;
-//            if(v.size()==1000){
-////                threadCount=0;
-////                for (auto& th : v) th.join();
-////                v.clear();
+//            if(v.size()==1){
+//                threadCount=0;
+//                for (auto& th : v) th.join();
+//                v.clear();
 //            }
         }
     }
@@ -86,7 +87,7 @@ void RendererBasic::paint(const int i, const int j, const int hMin, const int hM
 
                 sivelab::Vector3D temp = background;
 
-                if(boxes.intersect(0.006,tmax,test,r)){
+                if(boxes->intersect(0.006,tmax,test,r)){
                     if(test.getActualT()<tmax){
                         tmax = test.getActualT();
                         temp = sc.getShaders().at(test.shader)->applyShader(r, sc.getLights(), test, sc.getShaders(),softX,softY, boxes);

@@ -15,7 +15,7 @@ Lambertian::Lambertian(sivelab::Vector3D thisColor){
 }
 
 
-sivelab::Vector3D Lambertian::applyShader(Ray &r, std::vector<Light *> &lights, HitStruct &h, std::map<std::string, Shader*> &shaders, double softX, double softY, BVH &boxes){
+sivelab::Vector3D Lambertian::applyShader(Ray &r, std::vector<Light *> &lights, HitStruct &h, std::map<std::string, Shader*> &shaders, double softX, double softY, BVH *boxes){
     sivelab::Vector3D newColor(0,0,0);
     sivelab::Vector3D intensity;
 
@@ -55,8 +55,8 @@ sivelab::Vector3D Lambertian::applyShader(Ray &r, std::vector<Light *> &lights, 
     return newColor;
 }
 
-bool Lambertian::VisibilityQuery(Ray r, double tmin, double tmax, BVH &boxes){
+bool Lambertian::VisibilityQuery(Ray r, double tmin, double tmax, BVH *boxes){
 
     HitStruct h;
-    return boxes.intersect(tmin, tmax, h, r);
+    return boxes->intersect(tmin, tmax, h, r);
 }

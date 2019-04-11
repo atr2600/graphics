@@ -10,26 +10,34 @@ Triangle::Triangle() {}
 
 Triangle::Triangle(sivelab::Vector3D v0, sivelab::Vector3D v1, sivelab::Vector3D v2){
 
-    max = Vector3D(0,0,0);
-    min = Vector3D(0,0,0);
+//    max = Vector3D(0,0,0);
+//    min = Vector3D(0,0,0);
 
     setV0(v0);
     setV1(v1);
     setV2(v2);
 
+    for(int i = 0; i<3;i++){
+        min[i] = (v0[i] < v1[i] ? v0[i]:v1[i]);
+        min[i] = (min[i] < v2[i] ? min[i]:v2[i]);
 
+        max[i] = (v0[i] > v1[i] ? v0[i]:v1[i]);
+        max[i] = (max[i] > v2[i] ? max[i]:v2[i]);
+    }
+
+    
     //Expanding the bounds real quick.
-    min = min - v0;
-    max = max + v0;
-    min = min - v1;
-    max = max + v1;
-    min = min - v2;
-    max = max + v2;
+//    min = min - v0;
+//    max = max + v0;
+//    min = min - v1;
+//    max = max + v1;
+//    min = min - v2;
+//    max = max + v2;
 
     bounds[0] = min;
     bounds[1] = max;
 
-    mid = max - min;
+    mid = (max + min)/2;
 
 }
 

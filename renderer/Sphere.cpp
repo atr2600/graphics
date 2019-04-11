@@ -26,7 +26,7 @@ Sphere::Sphere(double c1, double c2, double c3, float newRadius){
     max = center + offset;
     bounds[0] = min;
     bounds[1] = max;
-    mid = max - min;
+    mid = (max + min)/2;
 
 }
 

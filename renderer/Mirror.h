@@ -16,11 +16,11 @@ public:
     int count = 0;
     Mirror();
 
-    bool VisibilityQuery(Ray r, double tmin, double tmax, BVH &boxes){}
+    bool VisibilityQuery(Ray r, double tmin, double tmax, BVH *boxes){}
 
 
-    sivelab::Vector3D reflection(Ray r, double tmin, double &tmax,BVH &boxes, std::map<std::string, Shader*> &shaders, std::vector<Light *> &lights);
-    sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, HitStruct &h, std::map<std::string, Shader*> &shaders, double softX, double softY, BVH &boxes);
+    sivelab::Vector3D reflection(Ray r, double tmin, double &tmax,BVH *boxes, std::map<std::string, Shader*> &shaders, std::vector<Light *> &lights);
+    sivelab::Vector3D applyShader(Ray &r, std::vector<Light *> &lights, HitStruct &h, std::map<std::string, Shader*> &shaders, double softX, double softY, BVH *boxes);
 
 };
 

@@ -13,8 +13,8 @@ BVH::BVH(std::vector<Shape *> BVHs, int h) {
     //Check size for 1 or 2
     // Then you can just set the child to left and right
     // this is the osrt section
-    bounds[0] = sivelab::Vector3D(DBL_MAX,DBL_MAX,DBL_MAX);
-    bounds[1] = sivelab::Vector3D(-DBL_MAX,-DBL_MAX,-DBL_MAX);
+//    bounds[0] = sivelab::Vector3D(DBL_MAX,DBL_MAX,DBL_MAX);
+//    bounds[1] = sivelab::Vector3D(-DBL_MAX,-DBL_MAX,-DBL_MAX);
     if(BVHs.size()>=3)
     {
         isthisabox=true;
@@ -32,7 +32,7 @@ BVH::BVH(std::vector<Shape *> BVHs, int h) {
         leftChild = new BVH(leftB,h+1);
         rightChild = new BVH(rightB,h+1);
         minOrMax(leftChild,rightChild);
-        mid = max - min;
+        mid = (max + min)/2;
     }
 
 
@@ -47,7 +47,7 @@ BVH::BVH(std::vector<Shape *> BVHs, int h) {
         rightChild->isthisabox=false;
         leftChild->isthisabox=false;
         minOrMax(leftChild,rightChild);
-        mid = max - min;
+        mid = (max + min)/2;
 
     }
 
@@ -59,7 +59,7 @@ BVH::BVH(std::vector<Shape *> BVHs, int h) {
         max = BVHs[0]->getMax();
         bounds[0] = min;
         bounds[1] = max;
-        mid = max - min;
+        mid = (max + min)/2;
         isthisabox=false;
         leftChild = BVHs[0];
         rightChild = nullptr;
@@ -71,7 +71,7 @@ BVH::BVH(std::vector<Shape *> BVHs, int h) {
 
 void BVH::minOrMax(Shape *l, Shape*r){
     Vector3D lmin = l->getMin();
-    Vector3D rmin = r->getMax();
+    Vector3D rmin = r->getMin();
     Vector3D lmax = l->getMax();
     Vector3D rmax = r->getMax();
 
@@ -92,47 +92,82 @@ bool BVH::intersect(double tminArg, double &t, HitStruct &hit, Ray r) {
 //    return leftChild->intersect(tminArg,t,hit,r);
 //    color = leftChild->color;
  //   return true;
-    float txmin, txmax, tymin, tymax, tzmin, tzmax, tmin, tmax;
+//    float txmin, txmax, tymin, tymax, tzmin, tzmax, tmin, tmax;
+//
+//    float txymin, txymax, txyzmin,txyzmax;
+//
+//    if(r.getDirection()[0]>=0){
+//        txmin = min[0] - r.getOrigin()[0] / r.getDirection()[0];
+//        txmax = max[0] - r.getOrigin()[0] / r.getDirection()[0];
+//    }else{
+//        txmin = max[0] - r.getOrigin()[0] / r.getDirection()[0];
+//        txmax = min[0] - r.getOrigin()[0] / r.getDirection()[0];
+//    }
+//    if(r.getDirection()[1]>=0){
+//        tymin = min[1] - r.getOrigin()[1] / r.getDirection()[1];
+//        tymax = max[1] - r.getOrigin()[1] / r.getDirection()[1];
+//    }else{
+//        tymin = max[1] - r.getOrigin()[1] / r.getDirection()[1];
+//        tymax = min[1] - r.getOrigin()[1] / r.getDirection()[1];
+//    }
+//
+//    txymin = (txmin < tymin ? txmin : tymin);
+//    txymax = (txmax > tymax ? txmin : tymin);
+//
+//    if (txymin > txymax){
+//
+//        return false;
+//
+//    }
+//
+//    if(r.getDirection()[2]>=0){
+//        tzmin = min[2] - r.getOrigin()[1] / r.getDirection()[2];
+//        tzmax = max[2] - r.getOrigin()[1] / r.getDirection()[2];
+//    }else{
+//        tzmin = max[2] - r.getOrigin()[2] / r.getDirection()[2];
+//        tzmax = min[2] - r.getOrigin()[2] / r.getDirection()[2];
+//    }
+//
+//    txyzmin = (txymin < tzmin ? txymin : tzmin);
+//    txyzmax = (txymax > tzmax ? txymax : tzmax);
+//
+//    if ( txyzmin > txyzmax){
+//        return false;
+//    }
 
-    float txymin, txymax, txyzmin,txyzmax;
 
-    if(r.getDirection()[0]>=0){
-        txmin = min[0] - r.getOrigin()[0] / r.getDirection()[0];
-        txmax = max[0] - r.getOrigin()[0] / r.getDirection()[0];
-    }else{
-        txmin = max[0] - r.getOrigin()[0] / r.getDirection()[0];
-        txmax = min[0] - r.getOrigin()[0] / r.getDirection()[0];
-    }
-    if(r.getDirection()[1]>=0){
-        tymin = min[1] - r.getOrigin()[1] / r.getDirection()[1];
-        tymax = max[1] - r.getOrigin()[1] / r.getDirection()[1];
-    }else{
-        tymin = max[1] - r.getOrigin()[1] / r.getDirection()[1];
-        tymax = min[1] - r.getOrigin()[1] / r.getDirection()[1];
-    }
+    float tmin = (min[0] - r.getOrigin()[0]) / r.getDirection()[0];
+    float tmax = (max[0] - r.getOrigin()[0]) / r.getDirection()[0];
 
-    txymin = (txmin < tymin ? txmin : tymin);
-    txymax = (txmax > tymax ? txmin : tymin);
+    if (tmin > tmax) std::swap(tmin, tmax);
 
-    if (txymin > txymax){
+    float tymin = (min[1] - r.getOrigin()[1]) / r.getDirection()[1];
+    float tymax = (max[1] - r.getOrigin()[1]) / r.getDirection()[1];
+
+    if (tymin > tymax) std::swap(tymin, tymax);
+
+    if ((tmin > tymax) || (tymin > tmax))
         return false;
 
-    }
+    if (tymin > tmin)
+        tmin = tymin;
 
-    if(r.getDirection()[2]>=0){
-        tzmin = min[2] - r.getOrigin()[1] / r.getDirection()[2];
-        tzmax = max[2] - r.getOrigin()[1] / r.getDirection()[2];
-    }else{
-        tzmin = max[2] - r.getOrigin()[2] / r.getDirection()[2];
-        tzmax = min[2] - r.getOrigin()[2] / r.getDirection()[2];
-    }
+    if (tymax < tmax)
+        tmax = tymax;
 
-    txyzmin = (txymin < tzmin ? txymin : tzmin);
-    txyzmax = (txymax > tzmax ? txymax : tzmax);
+    float tzmin = (min[2] - r.getOrigin()[2]) / r.getDirection()[2];
+    float tzmax = (max[2] - r.getOrigin()[2]) / r.getDirection()[2];
 
-    if ( txyzmin > txyzmax){
+    if (tzmin > tzmax) std::swap(tzmin, tzmax);
+
+    if ((tmin > tzmax) || (tzmin > tmax))
         return false;
-    }
+
+    if (tzmin > tmin)
+        tmin = tzmin;
+
+    if (tzmax < tmax)
+        tmax = tzmax;
 
     bool ifHit = false;
     bool ifHitRight = false;

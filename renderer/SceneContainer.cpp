@@ -30,10 +30,10 @@ bool SceneContainer::VisibilityQuery(Ray r, double tmin, double tmax){
 
 }
 
-bool SceneContainer::VisibilityQuery(Ray r, double tmin, double tmax, BVH &boxes){
+bool SceneContainer::VisibilityQuery(Ray r, double tmin, double tmax, BVH *boxes){
 
     HitStruct h;
-    if(boxes.intersect(tmin,tmax, h,r)){
+    if(boxes->intersect(tmin,tmax, h,r)){
         return true;
     }
     return false;

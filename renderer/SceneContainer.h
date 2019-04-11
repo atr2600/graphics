@@ -91,7 +91,7 @@ public:
 
     bool VisibilityQuery(Ray r, double tmin, double tmax);
 
-    bool VisibilityQuery(Ray r, double tmin, double tmax, BVH &boxes);
+    bool VisibilityQuery(Ray r, double tmin, double tmax, BVH *boxes);
 
 
 };
