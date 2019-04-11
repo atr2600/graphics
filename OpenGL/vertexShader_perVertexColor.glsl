@@ -12,13 +12,13 @@ void main(void)
   mat4 modelMatrix;
   modelMatrix[0] = vec4( 1.0, 0.0, 0.0, 0.0 );
   modelMatrix[1] = vec4( 0.0, 1.0, 0.0, 0.0 );
-  modelMatrix[2] = vec4( 0.0, 0.0, 1.0, 0.0 );
-  modelMatrix[3] = vec4( 0.0, 0.0, 0.0, 1.0 );
+  modelMatrix[2] = vec4( 0.0, 0.0, 2.0, 0.0 );
+  modelMatrix[3] = vec4( 0.0, 0.0, 0.5, 1.0 );
 
   mat4 viewMatrix;
-  viewMatrix[0] = vec4( 1.0, 0.0, 0.0, 0.0 );
-  viewMatrix[1] = vec4( 0.0, 1.0, 0.0, 0.0 );
-  viewMatrix[2] = vec4( 0.0, 0.0, 1.0, 0.0 );
+  viewMatrix[0] = vec4( 1.5, 0.0, 0.5, 0.0 );
+  viewMatrix[1] = vec4( 0.0, 1.2, 0.5, 0.0 );
+  viewMatrix[2] = vec4( 0.0, 0.5, 2.0, 0.0 );
   viewMatrix[3] = vec4( 0.0, 0.0, 0.0, 1.0 );
 
   vColor = in_Color;

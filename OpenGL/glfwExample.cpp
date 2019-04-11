@@ -110,6 +110,7 @@ int main(void)
     glGenVertexArrays(1, &m_VAO);  // Step 1 above
     glBindVertexArray(m_VAO);      // Step 2 above
 
+
     glEnableVertexAttribArray(0);  // enable attrib 0 (Step 3)
     glEnableVertexAttribArray(1);  // enable attrib 1 - Vertex color
 
@@ -129,12 +130,12 @@ int main(void)
     GLuint projMatrixID = shader.createUniform( "projMatrix" );  // gets reference to projMatrix var
 
 
-    float left = -7.5;
-    float right = 7.5;
-    float bottom = -4.2;
-    float top = 4.2;
-    float near = -10.0;
-    float far = 10.0;
+    float left = -4.5;
+    float right = 3.0;
+    float bottom = -4.0;
+    float top = 4.0;
+    float near = -4.0;
+    float far = 3.0;
 
     // you can ONLY set the data for a uniform variable when the shader is bound, so
     // make sure to activate it first:

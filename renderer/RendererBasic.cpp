@@ -13,7 +13,7 @@
 
 
 RendererBasic::RendererBasic(const SceneContainer &sc, int framebufferwidth, int framebufferheight, int rpp
-                             ) : renderer(sc, framebufferwidth, framebufferheight), rpp(rpp) {
+                             ) : renderer(sc, framebufferwidth, framebufferheight), rpp(rpp), boxes(BVH(sc.shapes,0)) {
     setFb(framebuffer(framebufferheight,framebufferwidth));
 
 }
@@ -52,7 +52,7 @@ bool RendererBasic::render(std::string output) {
     for(int i = 0; i< fb.getHeight();i++){
         v.push_back(std::thread(&RendererBasic::paint, this,0,fb.getWidth(),i,i+1));
         threadCount++;
-        if(v.size()==25){
+        if(v.size()==1){
             threadCount=0;
             for (auto& th : v) th.join();
             v.clear();
@@ -69,7 +69,7 @@ bool RendererBasic::render(std::string output) {
 
 
 void RendererBasic::paint(const int wMin, const int wMax, const int hMin, const int hMax) {
-    BVH boxes = BVH(sc.getShapes(),0);
+
     for (int j=hMin; j<hMax; ++j) {
         for (int i=wMin; i<wMax; ++i) {
             sivelab::Vector3D background = sivelab::Vector3D(0.5,0.62,0.43);  //r.getDirection();

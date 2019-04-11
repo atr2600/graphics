@@ -18,7 +18,7 @@ class RendererBasic : public renderer {
 public:
     framebuffer fb;
     int rpp;
-
+    BVH boxes;
 
 
     RendererBasic(const SceneContainer &sc, int framebufferwidth, int framebufferheight, int rpp);
