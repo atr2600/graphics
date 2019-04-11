@@ -52,14 +52,17 @@ bool RendererBasic::render(std::string output) {
     for (int j=0 ; j<fb.getHeight(); ++j) {
         for (int i=0; i<fb.getWidth(); ++i) {
             v.push_back(std::thread(&RendererBasic::paint, this,i,j,0,0));
-            threadCount++;
-            if(v.size()==1000){
-                threadCount=0;
-                for (auto& th : v) th.join();
-                v.clear();
-            }
+//            threadCount++;
+//            if(v.size()==1000){
+////                threadCount=0;
+////                for (auto& th : v) th.join();
+////                v.clear();
+//            }
         }
     }
+
+    for (auto& th : v) th.join();
+    v.clear();
     fb.export_png(output);
 
     return true;
