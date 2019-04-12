@@ -13,3 +13,4 @@ make -j
 ./run -w 250 -h 250 -r 2 -i ../renderer/sceneData/scenes_A/PhongExp.json -o ../PhongExp.png
 ./run -w 250 -h 250 -r 2 -i ../renderer/sceneData/scenes_A/threeTriangles.json -o ../threeTriangles.png
 ./run -w 250 -h 250 -r 2 -i ../renderer/sceneData/scenes_A/oneSphere.json -o ../oneSphere.png
+./run -w 250 -h 250 -r 2 -i ../renderer/sceneData/scenes_A/lotsOTriangles.json -o ../bunny.png
