@@ -60,7 +60,7 @@ BVH::BVH(std::vector<Shape *> BVHs, int h) {
 
 void BVH::minOrMax(Shape *l, Shape*r){
     Vector3D lmin = l->getMin();
-    Vector3D rmin = r->getMax();
+    Vector3D rmin = r->getMix();
     Vector3D lmax = l->getMax();
     Vector3D rmax = r->getMax();
 
@@ -81,47 +81,82 @@ bool BVH::intersect(double tminArg, double &t, HitStruct &hit, Ray r) {
 //    return leftChild->intersect(tminArg,t,hit,r);
 //    color = leftChild->color;
  //   return true;
-    float txmin, txmax, tymin, tymax, tzmin, tzmax, tmin, tmax;
+//    float txmin, txmax, tymin, tymax, tzmin, tzmax, tmin, tmax;
+//
+//    float txymin, txymax, txyzmin,txyzmax;
+//
+//    if(r.getDirection()[0]>=0){
+//        txmin = min[0] - r.getOrigin()[0] / r.getDirection()[0];
+//        txmax = max[0] - r.getOrigin()[0] / r.getDirection()[0];
+//    }else{
+//        txmin = max[0] - r.getOrigin()[0] / r.getDirection()[0];
+//        txmax = min[0] - r.getOrigin()[0] / r.getDirection()[0];
+//    }
+//    if(r.getDirection()[1]>=0){
+//        tymin = min[1] - r.getOrigin()[1] / r.getDirection()[1];
+//        tymax = max[1] - r.getOrigin()[1] / r.getDirection()[1];
+//    }else{
+//        tymin = max[1] - r.getOrigin()[1] / r.getDirection()[1];
+//        tymax = min[1] - r.getOrigin()[1] / r.getDirection()[1];
+//    }
+//
+//    txymin = (txmin < tymin ? txmin : tymin);
+//    txymax = (txmax > tymax ? txmin : tymin);
+//
+//    if (txymin > txymax){
+//
+//        return false;
+//
+//    }
+//
+//    if(r.getDirection()[2]>=0){
+//        tzmin = min[2] - r.getOrigin()[1] / r.getDirection()[2];
+//        tzmax = max[2] - r.getOrigin()[1] / r.getDirection()[2];
+//    }else{
+//        tzmin = max[2] - r.getOrigin()[2] / r.getDirection()[2];
+//        tzmax = min[2] - r.getOrigin()[2] / r.getDirection()[2];
+//    }
+//
+//    txyzmin = (txymin < tzmin ? txymin : tzmin);
+//    txyzmax = (txymax > tzmax ? txymax : tzmax);
+//
+//    if ( txyzmin > txyzmax){
+//        return false;
+//    }
 
-    float txymin, txymax, txyzmin,txyzmax;
 
-    if(r.getDirection()[0]>=0){
-        txmin = min[0] - r.getOrigin()[0] / r.getDirection()[0];
-        txmax = max[0] - r.getOrigin()[0] / r.getDirection()[0];
-    }else{
-        txmin = max[0] - r.getOrigin()[0] / r.getDirection()[0];
-        txmax = min[0] - r.getOrigin()[0] / r.getDirection()[0];
-    }
-    if(r.getDirection()[1]>=0){
-        tymin = min[1] - r.getOrigin()[1] / r.getDirection()[1];
-        tymax = max[1] - r.getOrigin()[1] / r.getDirection()[1];
-    }else{
-        tymin = max[1] - r.getOrigin()[1] / r.getDirection()[1];
-        tymax = min[1] - r.getOrigin()[1] / r.getDirection()[1];
-    }
+    float tmin = (min[0] - r.getOrigin()[0]) / r.getDirection()[0];
+    float tmax = (max[0] - r.getOrigin()[0]) / r.getDirection()[0];
 
-    txymin = (txmin < tymin ? txmin : tymin);
-    txymax = (txmax > tymax ? txmin : tymin);
+    if (tmin > tmax) std::swap(tmin, tmax);
 
-    if (txymin > txymax){
+    float tymin = (min[1] - r.getOrigin()[1]) / r.getDirection()[1];
+    float tymax = (max[1] - r.getOrigin()[1]) / r.getDirection()[1];
+
+    if (tymin > tymax) std::swap(tymin, tymax);
+
+    if ((tmin > tymax) || (tymin > tmax))
         return false;
 
-    }
+    if (tymin > tmin)
+        tmin = tymin;
 
-    if(r.getDirection()[2]>=0){
-        tzmin = min[2] - r.getOrigin()[1] / r.getDirection()[2];
-        tzmax = max[2] - r.getOrigin()[1] / r.getDirection()[2];
-    }else{
-        tzmin = max[2] - r.getOrigin()[2] / r.getDirection()[2];
-        tzmax = min[2] - r.getOrigin()[2] / r.getDirection()[2];
-    }
+    if (tymax < tmax)
+        tmax = tymax;
 
-    txyzmin = (txymin < tzmin ? txymin : tzmin);
-    txyzmax = (txymax > tzmax ? txymax : tzmax);
+    float tzmin = (min[2] - r.getOrigin()[2]) / r.getDirection()[2];
+    float tzmax = (max[2] - r.getOrigin()[2]) / r.getDirection()[2];
 
-    if ( txyzmin > txyzmax){
+    if (tzmin > tzmax) std::swap(tzmin, tzmax);
+
+    if ((tmin > tzmax) || (tzmin > tmax))
         return false;
-    }
+
+    if (tzmin > tmin)
+        tmin = tzmin;
+
+    if (tzmax < tmax)
+        tmax = tzmax;
 
     bool ifHit = false;
     bool ifHitRight = false;
