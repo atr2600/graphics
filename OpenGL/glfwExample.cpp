@@ -4,7 +4,6 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "GLSL.h"
 
 #define GLM_FORCE_RADIANS
 #include "glm/glm.hpp"
@@ -13,21 +12,23 @@
 
 #include "GLSL.h"
 
+using namespace glm;
+
 int CheckGLErrors(const char *s)
 {
     int errCount = 0;
-
+    
     return errCount;
 }
 
 int main(void)
 {
-    //This is for windows, if you are running linux you want to comment line 26 out. Need to
-    // to make a argument to set this one.
-//    setenv("DISPLAY", "127.0.0.1:0", true);
-    //
+
+
+    // 
     // INITIALIZATION PART
     //
+        setenv("DISPLAY", "127.0.0.1:0", true);
     /* Initialize the library */
     if (!glfwInit())
         exit (-1);
@@ -40,12 +41,13 @@ int main(void)
 
     /* Create a windowed mode window and its OpenGL context */
     int winWidth = 1000;
-    float aspectRatio = 1; // winWidth / (float)winHeight;
+    float aspectRatio = 16.0 / 9.0; // winWidth / (float)winHeight;
     int winHeight = winWidth / aspectRatio;
 
     GLFWwindow* window = glfwCreateWindow(winWidth, winHeight, "FCG4E Examples", NULL, NULL);
     if (!window) {
         std::cerr << "GLFW did not create a window!" << std::endl;
+
         glfwTerminate();
         return -1;
     }
@@ -67,8 +69,7 @@ int main(void)
 
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
-
-    glClearColor(0.5, 0.5, 0.5, 1.0);
+    glClearColor(0.75, 0.75, 0.75, 1.0);
 
     int fb_width, fb_height;
     glfwGetFramebufferSize(window, &fb_width, &fb_height);
@@ -78,11 +79,9 @@ int main(void)
     glGetIntegerv(GL_MAJOR_VERSION, &major_version);
     std::cout << "GL_MAJOR_VERSION: " << major_version << std::endl;
 
-    // 
-    // RENDER LOOP
-    //
-    double timeDiff = 0.0, startFrameTime = 0.0, endFrameTime = 0.0;
-    // Reference Step 1 above
+
+    ////////////////// VBO //////////////////////////////
+// Reference Step 1 above
     GLuint m_triangleVBO;
     glGenBuffers(1, &m_triangleVBO);
 
@@ -92,12 +91,33 @@ int main(void)
 // The following code allocates memory on the host to hold
 // the vertices in the CPU host memory.  We use the std::vector
 // initialization list to set the vertex data:
-    std::vector< float > host_VertexBuffer{ 0.0f, 3.0f, 0.0f,   // V0
-                                            1.0f, 0.0f, 0.0f,   // Red for V0
-                                            -3.0f, -3.0f, 0.0f, // V1
-                                            0.0f, 1.0f, 0.0f,   // Green for V1
-                                            3.0f, -3.0f, 0.0f,  // V2
-                                            0.0f, 0.0f, 1.0f }; // Blue for V2;
+    double left, right, bottom, top, near, far;
+    left = -7.5;
+    right = 7.5;
+    bottom = -4.2;
+    top = 4.2;
+    near = -10.0;
+    far = 10.0;
+
+//    vec3 n = normalize(Normal_camerspace);
+//    vec3 l = normalize( LightDirection_cameraspace );
+
+    vec3 v0 = vec3(0.75f, 0.5f, 0.0f);
+    vec3 v1 = vec3(-0.5f, 0.1f, 0.0);
+    vec3 v2 = vec3(-1.0f, 0.5f, 0.0f);
+    vec3 normal = cross((v1-v0),(v2-v0));
+    normalize(normal);
+    normal[0]=normal[0]*0.5+0.5;
+    normal[1]=normal[1]*0.5+0.5;;
+    normal[2]=normal[2]*0.5+0.5;;
+    std::cout << (normal[0]) << normal[1] << normal [2];
+
+    std::vector< float > host_VertexBuffer{ v0[0], v0[1], v0[2],    // V0
+                                            normal[0], normal[1], normal[2],
+                                            v1[0], v1[1], v1[2],
+                                            normal[0], normal[1], normal[2],
+                                            v2[0], v2[1], v2[2],
+                                            normal[0], normal[1], normal[2]};    // V2
     int numBytes = host_VertexBuffer.size() * sizeof(float);
 
 // Reference Step 3 above
@@ -106,46 +126,43 @@ int main(void)
 // Once the data has been copied to the GPU, it can safely be deleted from the host
 // memory.
     host_VertexBuffer.clear();
+
+
+    //////////////////////////////////////////  VAO ///////////////////////////////
     GLuint m_VAO;
     glGenVertexArrays(1, &m_VAO);  // Step 1 above
     glBindVertexArray(m_VAO);      // Step 2 above
 
-
-    glEnableVertexAttribArray(0);  // enable attrib 0 (Step 3)
+    glEnableVertexAttribArray(0);  // enable attrib 0 - Vertex Position
     glEnableVertexAttribArray(1);  // enable attrib 1 - Vertex color
 
     glBindBuffer(GL_ARRAY_BUFFER, m_triangleVBO);  // Step 4
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), 0);  // Step 5
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), 0);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (const GLvoid *)12);  // Color
+
+    glBindVertexArray(0);
 
 
 // When done binding a VAO, you can unbind it by passing 0 to the bind call
     glBindVertexArray(0);
 
     sivelab::GLSLObject shader;
-
-    shader.addShader( "../../OpenGL/vertexShader_perVertexColor.glsl", sivelab::GLSLObject::VERTEX_SHADER );
-    shader.addShader( "../../OpenGL/fragmentShader_perVertexColor.glsl", sivelab::GLSLObject::FRAGMENT_SHADER );
+    shader.addShader( "../../OpenGL/vertexShader_normal.glsl", sivelab::GLSLObject::VERTEX_SHADER );
+    shader.addShader( "../../OpenGL/fragmentShader_normal.glsl", sivelab::GLSLObject::FRAGMENT_SHADER );
     shader.createProgram();
     GLuint projMatrixID = shader.createUniform( "projMatrix" );  // gets reference to projMatrix var
 
-
-    float left = -4.5;
-    float right = 3.0;
-    float bottom = -4.0;
-    float top = 4.0;
-    float near = -4.0;
-    float far = 3.0;
-
     // you can ONLY set the data for a uniform variable when the shader is bound, so
     // make sure to activate it first:
-
-    glm::mat4 projMatrix = glm::ortho(left, right, bottom, top, near, far);
     shader.activate();
-    glUniformMatrix4fv(projMatrixID, 1, GL_FALSE, glm::value_ptr(projMatrix));
+    mat4 projMatrix = ortho(left, right, bottom, top, near, far);
+    glUniformMatrix4fv(projMatrixID, 1, GL_FALSE, value_ptr(projMatrix));
 
-    glfwMakeContextCurrent(window);
-
+    // 
+    // RENDER LOOP
+    //
+    double timeDiff = 0.0, startFrameTime = 0.0, endFrameTime = 0.0;
+    
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
@@ -158,6 +175,8 @@ int main(void)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         /* Render stuff here */
+
+        //////////////////////////////  RENDER
         shader.activate();  // bind the shader that will process the vertices and fragments
 
         glBindVertexArray(m_VAO);            // bind the VAO
@@ -190,7 +209,7 @@ int main(void)
         if (glfwGetKey( window, GLFW_KEY_ESCAPE ) == GLFW_PRESS)
             glfwSetWindowShouldClose(window, 1);
     }
-
+  
     glfwTerminate();
     return 0;
 }
