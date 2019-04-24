@@ -12,6 +12,10 @@
 
 #include "GLSL.h"
 
+//#include <common/shader.hpp>
+//#include <common/texture.hpp>
+#include "controls.hpp"
+
 using namespace glm;
 
 int CheckGLErrors(const char *s)
@@ -51,6 +55,12 @@ int main(void)
         glfwTerminate();
         return -1;
     }
+//////----------------------------------------------------------------------------------
+    // Ensure we can capture the escape key being pressed below
+    glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+    // Hide the mouse and enable unlimited mouvement
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+////////////////++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
@@ -88,6 +98,16 @@ int main(void)
 // Reference Step 2 above
     glBindBuffer(GL_ARRAY_BUFFER, m_triangleVBO);
 
+
+    GLuint vertexbuffer;
+    glGenBuffers(1, &vertexbuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, m_triangleVBO);
+
+    GLuint uvbuffer;
+    glGenBuffers(1, &uvbuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
+
+
 // The following code allocates memory on the host to hold
 // the vertices in the CPU host memory.  We use the std::vector
 // initialization list to set the vertex data:
@@ -102,9 +122,9 @@ int main(void)
 //    vec3 n = normalize(Normal_camerspace);
 //    vec3 l = normalize( LightDirection_cameraspace );
 
-    vec3 v0 = vec3(0.75f, 0.5f, 0.0f);
-    vec3 v1 = vec3(-0.5f, 0.1f, 0.0);
-    vec3 v2 = vec3(-1.0f, 0.5f, 0.0f);
+    vec3 v0 = vec3(-0.5f, -0.5f, 0.0f);
+    vec3 v1 = vec3(0.5f, -0.5f, 0.0);
+    vec3 v2 = vec3(0.0f, 0.5f, 0.0f);
     vec3 normal = cross((v1-v0),(v2-v0));
     normalize(normal);
     normal[0]=normal[0]*0.5+0.5;
@@ -175,6 +195,48 @@ int main(void)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         /* Render stuff here */
+        ///////////////////////////--------------------------------------------------------
+        // Compute the MVP matrix from keyboard and mouse input
+        computeMatricesFromInputs();
+        glm::mat4 ProjectionMatrix = getProjectionMatrix();
+        glm::mat4 ViewMatrix = getViewMatrix();
+        glm::mat4 ModelMatrix = glm::mat4(1.0);
+        glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+
+        // Send our transformation to the currently bound shader,
+        // in the "MVP" uniform
+        glUniformMatrix4fv(projMatrixID, 1, GL_FALSE, &MVP[0][0]);
+
+        // Bind our texture in Texture Unit 0
+        glActiveTexture(GL_TEXTURE0);
+//        glBindTexture(GL_TEXTURE_2D, Texture);
+//        // Set our "myTextureSampler" sampler to use Texture Unit 0
+//        glUniform1i(TextureID, 0);
+
+        // 1rst attribute buffer : vertices
+        glEnableVertexAttribArray(0);
+        glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+        glVertexAttribPointer(
+                0,                  // attribute. No particular reason for 0, but must match the layout in the shader.
+                3,                  // size
+                GL_FLOAT,           // type
+                GL_FALSE,           // normalized?
+                0,                  // stride
+                (void*)0            // array buffer offset
+        );
+
+        // 2nd attribute buffer : UVs
+        glEnableVertexAttribArray(1);
+        glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
+        glVertexAttribPointer(
+                1,                                // attribute. No particular reason for 1, but must match the layout in the shader.
+                2,                                // size : U+V => 2
+                GL_FLOAT,                         // type
+                GL_FALSE,                         // normalized?
+                0,                                // stride
+                (void*)0                          // array buffer offset
+        );
+        ///////////////////////////--------------------------------------------------------
 
         //////////////////////////////  RENDER
         shader.activate();  // bind the shader that will process the vertices and fragments
