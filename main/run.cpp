@@ -28,6 +28,7 @@
 #include <chrono>
 
 #include <sys/resource.h>
+#include <rasterize.h>
 
 using namespace sivelab;
 
@@ -48,11 +49,17 @@ int main(int argc, char *argv[]){
     std::string path = args.inputFileName;
     if(exists_test1(path)){
         sc.parseJSONData(path);
+    } else {
+//        printf ("Error opening file:" );
+        std::cout << "Error opening file:"<<path;
+        exit (EXIT_FAILURE);
     }
 
 
-    RendererBasic rend(sc, args.width,args.height, args.rpp);
-    rend.render(args.outputFileName);
+//    RendererBasic rend(sc, args.width,args.height, args.rpp);
+//    rend.render(args.outputFileName);
+
+    rasterize(sc,args.width,args.height);
 
     auto end = std::chrono::steady_clock::now();
 

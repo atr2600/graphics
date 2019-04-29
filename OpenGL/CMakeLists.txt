@@ -8,8 +8,7 @@ link_libraries (${OPENGL_LIBRARY})
 
 add_executable (glfwExample
                 glfwExample.cpp
-                GLSL.cpp GLSL.h
-                controls.cpp controls.hpp)
+                GLSL.cpp GLSL.h)
 target_link_libraries (glfwExample ${GLEW_LIBRARIES})
 target_link_libraries (glfwExample glfw ${GLFW_STATIC_LIBRARIES})
 target_link_libraries (glfwExample ${PNG_LIBRARIES})

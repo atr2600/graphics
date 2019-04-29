@@ -25,7 +25,7 @@ add_library (renderer-util
         Lambertian.cpp Lambertian.h BlinnPhong.cpp BlinnPhong.h
         Mirror.cpp Mirror.h Box.cpp Box.h renderer.h RendererBasic.cpp
         RendererBasic.h RendererOpenGL.cpp RendererOpenGL.h
-        AreaLight.cpp AreaLight.h BVH.cpp BVH.h)
+        AreaLight.cpp AreaLight.h BVH.cpp BVH.h rasterize.cpp rasterize.h)
 
 #target_link_libraries(run renderer-util sive-util)
 #

@@ -40,7 +40,7 @@ private:
 public:
     void setColor(const Vector3D &color);
 
-private:
+public:
     sivelab::Vector3D color = sivelab::Vector3D(0,0,0);
     std::string name = "";
 
