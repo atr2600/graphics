@@ -11,6 +11,7 @@
 #include <iostream>
 #include "../main/ThreadPool.h"
 #include "Triangle.h"
+#include "../src/Matrix4x4.h"
 
 //model globalModel;
 
@@ -29,19 +30,25 @@ typedef struct tri {
     int ymax;
 } tri;
 
+
+
+
 rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebufferheight) : renderer(sc,
                                                                                                        framebufferwidth,
                                                                                                        framebufferheight) {
-    float* zbuf = (float*)malloc( sizeof(float) * framebufferwidth * framebufferheight );
+
+    Matrix4x4 test;
+    int width = framebufferwidth;
+    int height = framebufferheight;
+    framebuffer fb = framebuffer(height,width);
+    float zbuf[width*height];
     for(int y = 0; y < framebufferheight; y++ ) {
         for(int x = 0; x < framebufferwidth; x++ ) {
             zbuf[y*framebufferwidth+x] = -33;
         }
     }
 
-    int width = framebufferwidth;
-    int height = framebufferheight;
-    framebuffer fb = framebuffer(height,width);
+
 
     // Status variables.
     tri t;
@@ -49,9 +56,6 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
     float d1;
     float d2;
     float d3;
-    float r;
-    float g;
-    float b;
     sivelab::Vector3D newcolor;
     float z;
     float l;
@@ -59,16 +63,6 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
     // The actual rasterizer.
     for(int index = 0; index < sc.shapes.size(); index++) {
         modelTri = sc.shapes[index];
-        
-        if( 
-                (modelTri->v1[0] - modelTri->v0[0]) *
-                (modelTri->v2[1] - modelTri->v0[1]) -
-                (modelTri->v2[0] - modelTri->v0[0]) *
-                (modelTri->v1[1] - modelTri->v0[1])
-                < 0
-                ) {
-            continue;
-        }
 
         t.sx[0] = SCREEN_X( modelTri->v0[0] );
         t.sy[0] = SCREEN_Y( modelTri->v0[1] );
@@ -127,7 +121,6 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
 
                             if( z > zbuf[y*width+x] ) {
                                 zbuf[y*width+x] = z;
-
                                         newcolor = sc.shaderMap.at(modelTri->color)->color;
                                         fb.setPixelColor(newcolor,x,y,framebufferwidth);
                             }
