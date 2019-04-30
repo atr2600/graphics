@@ -35,7 +35,7 @@ public:
     Shape * leftChild;
     Shape * rightChild;
     std::string name, color, returnName;
-
+    sivelab::Vector3D v0,v1,v2;
     virtual ~Shape();
 
     double returnTvalue;

@@ -8,8 +8,6 @@
 #include "../renderer/Shape.h"
 
 class Triangle : public Shape {
-protected:
-    sivelab::Vector3D v0,v1,v2;
 public:
     void setV0(const sivelab::Vector3D &v0);
 

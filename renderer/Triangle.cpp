@@ -17,6 +17,7 @@ Triangle::Triangle(sivelab::Vector3D v0, sivelab::Vector3D v1, sivelab::Vector3D
     setV1(v1);
     setV2(v2);
 
+
     for(int i = 0; i<3;i++){
         min[i] = (v0[i] < v1[i] ? v0[i]:v1[i]);
         min[i] = (min[i] < v2[i] ? min[i]:v2[i]);
