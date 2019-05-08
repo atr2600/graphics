@@ -15,6 +15,15 @@ Shape::Shape(){
 
 }
 
+Vector3D Shape::getVertex(int number){
+    if(number == 0){
+        return v0;
+    } else if(number ==1 ){
+        return v1;
+    } else {
+        return v2;
+    }
+}
 
 void Shape::setName(const std::string &name) {
     Shape::name = name;

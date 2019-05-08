@@ -8,6 +8,7 @@ add_library (sive-util
   SceneDataContainer.h
   Timer.cpp Timer.h
   Vector3D.cpp Vector3D.h
-  XMLSceneParser.h XMLSceneParser.cpp ../renderer/framebuffer.h ../renderer/framebuffer.cpp
-        matrix44.h vector4.h)
+  XMLSceneParser.h XMLSceneParser.cpp
+  ../renderer/framebuffer.h ../renderer/framebuffer.cpp
+  Matrix4x4.cpp)
 

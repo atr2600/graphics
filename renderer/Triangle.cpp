@@ -42,6 +42,8 @@ Triangle::Triangle(sivelab::Vector3D v0, sivelab::Vector3D v1, sivelab::Vector3D
 
 }
 
+
+
 bool Triangle::intersect(double tmin, double &tmax, HitStruct &hit, Ray r){
 using namespace sivelab;
     float t, u, v;

@@ -47,6 +47,8 @@ public:
 public:
     const Shape &getReturnShape() const;
 
+    Vector3D getVertex(int number);
+
     Shape();
 
     const Vector3D &getXdim() const;

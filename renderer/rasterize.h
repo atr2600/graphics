@@ -18,7 +18,13 @@ class rasterize : public renderer{
 
 public:
     rasterize(const SceneContainer &sc, int framebufferwidth, int framebufferheight);
+    float baryCords(sivelab::Vector3D v0, sivelab::Vector3D v1, sivelab::Vector3D v2, sivelab::Vector3D P, int option);
 
+    float f20(Vector3D v0, Vector3D v1, int x, int y);
+
+    float f12(Vector3D v0, Vector3D v1,  int x, int y);
+
+    float f01(Vector3D v0, Vector3D v1,  int x, int y);
 };
 
 

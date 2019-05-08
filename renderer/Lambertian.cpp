@@ -57,6 +57,9 @@ sivelab::Vector3D Lambertian::applyShader(Ray &r, std::vector<Light *> &lights, 
 
 bool Lambertian::VisibilityQuery(Ray r, double tmin, double tmax, BVH *boxes){
 
+    if(boxes== nullptr){
+        return true;
+    }
     HitStruct h;
     return boxes->intersect(tmin, tmax, h, r);
 }

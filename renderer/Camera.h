@@ -29,7 +29,7 @@
 #include"../renderer/Ray.h"
 
 class Camera {
-protected:
+public:
     sivelab::Vector3D position, direction;
     sivelab::Vector3D up = sivelab::Vector3D(0,1,0);
     CoordinateSystem csys;
