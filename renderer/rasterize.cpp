@@ -86,7 +86,7 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
      */
     for(int y = 0; y < framebufferheight; y++ ) {
         for(int x = 0; x < framebufferwidth; x++ ) {
-            zbuf[y][x] = -99999999;
+            zbuf[y][x] = -99999;
         }
     }
 
@@ -112,9 +112,7 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
         Shape* currentTriangle = sc.shapes[index];
 
         for(int verts = 0; verts < 3; verts++){
-            ///////////////////////// FIGURE THIS PART OUT ////////////////////
-            ///////// I CHANGED IT BUT BROKE IT.... /////////////////////////
-            Matrix4x4 vCam = Mcam * Mlocal * verts;
+            sivelab::Vector3D vCam = Mcam.multVector(Mlocal.multVector(currentTriangle->getVertex(verts),one),one);
 
             std::vector<PointLight> newLights;
             std::cout << one;
@@ -129,13 +127,14 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
             }
             triPoints.push_back(M.multVector(vCam,one));
             triPoints[verts] /= one;
+
         }
 
         // Bounding rectangles.
-        xmin = floor( fmin( fmin( triPoints[0][0], triPoints[0][1] ), triPoints[0][2] ) );
-        ymin = floor( fmin( fmin( triPoints[1][0], triPoints[1][1] ), triPoints[1][2] ) );
-        xmax = ceil( fmax( fmax( triPoints[0][0], triPoints[0][1] ), triPoints[0][2] ) );
-        ymax = ceil( fmax( fmax( triPoints[1][0], triPoints[1][1] ), triPoints[1][2] ) );
+        xmin = floor( fmin( fmin( triPoints[0][0], triPoints[1][0] ), triPoints[2][0] ) );
+        ymin = floor( fmin( fmin( triPoints[0][1], triPoints[1][1] ), triPoints[2][1] ) );
+        xmax = ceil( fmax( fmax( triPoints[0][0], triPoints[1][0] ), triPoints[2][0] ) );
+        ymax = ceil( fmax( fmax( triPoints[0][1], triPoints[1][1] ), triPoints[2][1] ) );
 
         // Clip and possibly rejec
         xmin = fmax(0, xmin);
@@ -173,7 +172,7 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
                 }
 
                 finalColor.set(0,0,0);
-                if(alpha >= 0 && beta >= 0 && gamma >= 0) {
+                if(alpha > 0 && beta > 0 && gamma > 0) {
                     finalColor += (colors[0] * alpha) + (colors[1] * beta) + (colors[2] * gamma);
                     if( d2 >= 0 ) {
                         float curZ = triPoints[0][2]*alpha + triPoints[1][2]*beta + triPoints[2][2]*gamma;
@@ -198,5 +197,14 @@ fb.export_png("../../test.png");
 }
 
 float rasterize::line(sivelab::Vector3D v0, sivelab::Vector3D v1, float x, float y){
-    return ((v1[0]-v1[1])*x + (v0[1]-v0[0])*y + (v0[0]*v1[1]) - (v0[1]*v1[0]));
+
+    return ((v0[1]-v1[1])*x + ((v1[0]-v0[0])*y) + (v0[0]*v1[1])-(v1[0]*v0[1]));
 }
+//
+//float rasterize::f01(Vector3D v0, Vector3D v1, int x, int y) {
+//    return ((v0[1]-v1[1])*x + ((v1[0]-v0[0])*y) + (v0[0]*v1[1])-(v1[0]*v0[1]));
+//}
+//
+//float rasterize::f12(Vector3D v0, Vector3D v1, int x, int y) {
+//    return (((v))+(())+()-());
+//}
