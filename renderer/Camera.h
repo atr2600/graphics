@@ -36,7 +36,7 @@ public:
 public:
     void setCsys(const CoordinateSystem &csys);
 
-protected:
+public:
 
     float width, height, focalLength, imagePlaneWidth, ratio;
     float imagePlaneHeight = imagePlaneWidth*ratio;

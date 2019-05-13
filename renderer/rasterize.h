@@ -25,6 +25,7 @@ public:
     float f12(Vector3D v0, Vector3D v1,  int x, int y);
 
     float f01(Vector3D v0, Vector3D v1,  int x, int y);
+    float line(sivelab::Vector3D v0, sivelab::Vector3D v1, float x, float y);
 };
 
 
