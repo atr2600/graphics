@@ -135,17 +135,17 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
         sivelab::Vector3D vCam;
         for(int verts = 0; verts < 3; verts++){
 
-//            std::vector<PointLight> newLights;
-//            std::cout << one;
-//            for(int cur = 0; cur < sc.lights.size(); cur++){
-//                sivelab::Vector3D pos = Mcam.multVector(sc.lights[cur]->getPosition(),one);
-//                PointLight fire(pos, sc.lights[cur]->getIntensity());
-//                newLights.push_back(fire);
-//            }
-//            for(int k = 0; k < newLights.size(); k++){
-//                colors.push_back(sc.shaderMap.at(currentTriangle->color)->applyShader(ray,copyLight,hit,copyShaders,0,0,
-//                                                                                      nullptr));
-//            }
+            std::vector<PointLight> newLights;
+            for(int cur = 0; cur < sc.lights.size(); cur++){
+                sivelab::Vector3D pos = Mcam.multVector(sc.lights[cur]->getPosition(),one);
+                PointLight fire(pos, sc.lights[cur]->getIntensity());
+                newLights.push_back(fire);
+            }
+            for(int k = 0; k < newLights.size(); k++){
+                hit.setPointInterect(Vector3D(currentTriangle->getVertex(verts)));
+                colors.push_back(sc.shaderMap.at(currentTriangle->color)->applyShader(ray,copyLight,hit,copyShaders,0,0,
+                                                                                      nullptr));
+            }
             vCam = Mcam.multVector(Mlocal.multVector(currentTriangle->getVertex(verts),one),one);
             vs = M.multVector(vCam,one);
             vs[0] /= one;
@@ -203,11 +203,14 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
                 } else {
                     gamma = line(triPoints[0],triPoints[1],x,y)/factGama;
                 }
+                hit.setPointInterect(Vector3D(currentTriangle->getVertex(1)));
+                sivelab::Vector3D colorTemp =  sc.shaderMap.at(currentTriangle->color)->applyShader(ray,copyLight,hit,copyShaders,0,0,
+                                                                     nullptr);
 
                 finalColor.set(0,0,0);
                 if(alpha > 0 && beta > 0 && gamma > 0) {
-     //               finalColor += (colors[0] * alpha) + (colors[1] * beta) + (colors[2] * gamma);
-     //
+    //                finalColor += (colors[0] * alpha) + (colors[1] * beta) + (colors[2] * gamma);
+
      //               float curZ = triPoints[0][2]*alpha + triPoints[1][2]*beta + triPoints[2][2]*gamma;
 
                     if (x >= 0 && y >= 0 && x < width && y < height) { //Check bounds of image
@@ -216,7 +219,7 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
 
                         if(depth > zbuf[x][y]) {
                             zbuf[x][y] = depth;
-                            fb.setPixelColor(finalColor,x,y,width);
+                            fb.setPixelColor(colors[0],x,y,width);
                         }
                     }
                 }

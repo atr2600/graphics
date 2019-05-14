@@ -42,18 +42,33 @@ sivelab::Vector3D Lambertian::applyShader(Ray &r, std::vector<Light *> &lights, 
         sivelab::Vector3D normal = h.getNorm();
         normal.normalize();
         intensity = lights[i]->getIntensity()*std::max(0.0f, (float) normal.dot(lightDir));
+        intensity = sivelab::Vector3D(1,1,1);
 
         sivelab::Vector3D testHp = hP + (shadowDir * 0.0001);
         Ray sRay = Ray(shadowDir, testHp);
 
+        /**
+         * This is for the ray tracers...
+         */
+//        if(!VisibilityQuery(sRay, 0.0001, DBL_MAX , boxes)){
+//            newColor += intensity * getColor() * sivelab::Vector3D(1, 1, 1);
+//            newColor = newColor.clamp(0.0,1.0);
+//        }
 
-        if(!VisibilityQuery(sRay, 0.0001, DBL_MAX , boxes)){
+        /**
+         * This is for the rasterizer....
+         */
+        if(true){
             newColor += intensity * getColor() * sivelab::Vector3D(1, 1, 1);
             newColor = newColor.clamp(0.0,1.0);
         }
     }
+
+
     return newColor;
 }
+
+
 
 bool Lambertian::VisibilityQuery(Ray r, double tmin, double tmax, BVH *boxes){
 
