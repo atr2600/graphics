@@ -24,8 +24,8 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
 //    int ny = framebufferheight;
     int width = framebufferwidth;
     int height = framebufferheight;
-    float l,r,b,t,n,f;
-    f = 1000;
+    double l,r,b,t,n,f;
+    f = 200;
     n = 1;
     r = (sc.cameras[0]->imagePlaneWidth/2.0)/sc.cameras[0]->focalLength;
     t = (sc.cameras[0]->imagePlaneHeight/2.0)/sc.cameras[0]->focalLength;
@@ -94,11 +94,7 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
 
     // Status variables.
     Shape* currentTriangle;
-    float d1;
-    float d2;
-    float d3;
     double one = 1;
-    float z;
     Ray ray = Ray(sc.cameras[0]->direction,sc.cameras[0]->position);
     HitStruct hit;
     std::map<std::string, Shader*> copyShaders = sc.shaderMap;
@@ -125,6 +121,8 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
                 colors.push_back(sc.shaderMap.at(currentTriangle->color)->applyShader(ray,copyLight,hit,copyShaders,0,0,
                                                                                       nullptr));
             }
+
+            //sivelab::Vector3D vs = M.multVector(vCam,one);
             triPoints.push_back(M.multVector(vCam,one));
             triPoints[verts] /= one;
 
@@ -174,20 +172,16 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
                 finalColor.set(0,0,0);
                 if(alpha > 0 && beta > 0 && gamma > 0) {
                     finalColor += (colors[0] * alpha) + (colors[1] * beta) + (colors[2] * gamma);
-                    if( d2 >= 0 ) {
-                        float curZ = triPoints[0][2]*alpha + triPoints[1][2]*beta + triPoints[2][2]*gamma;
+                    float curZ = triPoints[0][2]*alpha + triPoints[1][2]*beta + triPoints[2][2]*gamma;
 
-                        if (x >= 0 && y >= 0 && x < width && y < height) { //Check bounds of image
+                    if (x >= 0 && y >= 0 && x < width && y < height) { //Check bounds of image
 
-                            float depth = triPoints[0][2]*alpha + triPoints[1][2]*beta + triPoints[2][2]*gamma;
+                        float depth = triPoints[0][2]*alpha + triPoints[1][2]*beta + triPoints[2][2]*gamma;
 
-                            if(depth > zbuf[x][y]) {
-                                zbuf[x][y] = depth;
-                                fb.setPixelColor(finalColor,x,y,width);
-                            }
-
+                        if(depth > zbuf[x][y]) {
+                            zbuf[x][y] = depth;
+                            fb.setPixelColor(finalColor,x,y,width);
                         }
-
                     }
                 }
             }
