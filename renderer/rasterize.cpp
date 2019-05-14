@@ -151,11 +151,16 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
         ymax = fmin(height, ymax);
 
         sivelab::Vector3D finalColor;
+        finalColor.set(0,0,0);
 
         float factAlpha = line(triPoints[1],triPoints[2],triPoints[0][0],triPoints[0][1]);
         float factBeta = line(triPoints[2],triPoints[0],triPoints[1][0],triPoints[1][1]);
         float factGama = line(triPoints[0],triPoints[1],triPoints[2][0],triPoints[2][1]);
 
+        int tempx = triPoints[0][0];
+        int tempy = triPoints[0][1];
+
+        fb.setPixelColor(finalColor,tempx,tempy,width);
 
         // Draw pixels inside, if need be
         for( int y = ymin; y < ymax; y++ ) {
@@ -197,6 +202,8 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
             }
         }
     }
+
+
 fb.export_png("../../test.png");
 }
 
