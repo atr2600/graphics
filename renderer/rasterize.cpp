@@ -31,6 +31,12 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
     t = (sc.cameras[0]->imagePlaneHeight/2.0)/sc.cameras[0]->focalLength;
     l = -1.0 * r;
     b = -1.0 * t;
+//    f = 100;
+//    n = 1;
+//    r = 1;
+//    l = -1;
+//    t = 1;
+//    b = -1;
 
     Matrix4x4 Mvp ((width/2.0),(0)   ,(0),((width-1)/2.0),
                               (0)   ,(height/2.0),(0),((height-1)/2.0),
@@ -103,12 +109,13 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
     for(int index = 0; index < sc.shapes.size(); index++) {
         one = 1;
         M = Mvp * Mper *  Mcam;
-        std::vector<sivelab::Vector3D> triPoints;
+        sivelab::Vector3D triPoints[3];
         std::vector<sivelab::Vector3D> colors;
         Shape* currentTriangle = sc.shapes[index];
-
+        sivelab::Vector3D vs;
+        sivelab::Vector3D vCam;
         for(int verts = 0; verts < 3; verts++){
-            sivelab::Vector3D vCam = Mcam.multVector(Mlocal.multVector(currentTriangle->getVertex(verts),one),one);
+             vCam = Mcam.multVector(Mlocal.multVector(currentTriangle->getVertex(verts),one),one);
 
             std::vector<PointLight> newLights;
             std::cout << one;
@@ -122,9 +129,12 @@ rasterize::rasterize(const SceneContainer &sc, int framebufferwidth, int framebu
                                                                                       nullptr));
             }
 
-            //sivelab::Vector3D vs = M.multVector(vCam,one);
-            triPoints.push_back(M.multVector(vCam,one));
-            triPoints[verts] /= one;
+            vs = M.multVector(vCam,one);
+            vs[0] /= one;
+            vs[1] /= one;
+            vs[2] /= one;
+
+            triPoints[verts] = vs;
 
         }
 
